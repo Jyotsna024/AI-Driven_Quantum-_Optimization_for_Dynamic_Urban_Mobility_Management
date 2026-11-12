@@ -1,0 +1,29 @@
+{
+  "A": 50,
+  "Q_shape": [
+    16,
+    16
+  ],
+  "Q_nonzero": 40,
+  "brute_force": {
+    "n_feasible": 256,
+    "n_infeasible": 65280,
+    "best_energy": -126.2838,
+    "best_plans": [
+      3,
+      3,
+      3,
+      3
+    ],
+    "best_plans_dict": {
+      "J0": 3,
+      "J1": 3,
+      "J2": 3,
+      "J3": 3
+    },
+    "feasible_min_energy": -126.2838,
+    "infeasible_min_energy": -107.9712,
+    "penalty_gap_ok": true,
+    "manual_objective_s": 73.7162
+  }
+}
