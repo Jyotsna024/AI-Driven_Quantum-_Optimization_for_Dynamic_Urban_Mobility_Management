@@ -106,45 +106,47 @@ def run_rollout(snap_path, plan_id, target_junc, port):
     ]
     label = f"rollout_{port}_{plan_id}_{target_junc}"
     try:
-        traci.start(cmd, label=label)
+        traci.start(cmd, port=port, label=label)
     except Exception as e:
         return None
 
     try:
+        conn = traci.getConnection(label)
         # Apply plan: target junction gets plan_id, others get 0
         for sid, d in JUNCTION_DETAILS.items():
             pid = plan_id if sid == target_junc else 0
-            traci.trafficlight.setProgram(d["tid"], str(pid), label=label)
+            try:
+                conn.trafficlight.setProgram(d["tid"], str(pid))
+            except Exception:
+                pass
 
         metrics_per_junction = {sid: {"delay": [], "queue": [], "throughput": 0, "arrivals": 0}
                                  for sid in JUNCTION_ORDER}
         prev_vehs = {sid: set() for sid in JUNCTION_ORDER}
 
         for step in range(ROLLOUT_DUR):
-            traci.simulationStep(label=label)
+            conn.simulationStep()
             t = step + 1
             if t % 60 == 0:
                 for sid, d in JUNCTION_DETAILS.items():
                     lanes = d["incoming_lanes"]
                     curr = set()
-                    delays, waits = [], []
-                    halt = 0
+                    delays = []
                     q_m = 0.0
                     for lid in lanes:
                         try:
-                            vids = traci.lane.getLastStepVehicleIDs(lid, label=label)
+                            vids = conn.lane.getLastStepVehicleIDs(lid)
                             curr.update(vids)
                             for vid in vids:
                                 try:
-                                    delays.append(traci.vehicle.getWaitingTime(vid, label=label))
+                                    delays.append(conn.vehicle.getWaitingTime(vid))
                                 except Exception:
                                     pass
-                            halt += traci.lane.getLastStepHaltingNumber(lid, label=label)
                             # queue in metres
                             for vid in vids:
                                 try:
-                                    if traci.vehicle.getSpeed(vid, label=label) < 0.1:
-                                        q_m += traci.vehicle.getLength(vid, label=label) + 2.5
+                                    if conn.vehicle.getSpeed(vid) < 0.1:
+                                        q_m += conn.vehicle.getLength(vid) + 2.5
                                 except Exception:
                                     pass
                         except Exception:
@@ -159,7 +161,7 @@ def run_rollout(snap_path, plan_id, target_junc, port):
 
     finally:
         try:
-            traci.close(label=label)
+            conn.close()
         except Exception:
             pass
 
@@ -191,7 +193,7 @@ def run_all_rollouts(snap_df):
         snap_path = snap_row["path"]
         sc  = snap_row["scenario"]
         sd  = snap_row["seed"]
-        t   = snap_row.get("time_s", snap_row.get("snapshot_time_s", 0))
+        t   = snap_row.get("sim_time_s", snap_row.get("time_s", snap_row.get("snapshot_time_s", 0)))
         split = snap_row["split"]
 
         for plan_id in range(K_PLANS):
@@ -270,8 +272,9 @@ def check_gates(rollouts_df):
         snap_col = "snapshot_path"
         best_plans = []
         for snap, grp in sub.groupby(snap_col):
-            if len(grp["plan_id"].unique()) >= 2:
-                best = grp.loc[grp["mean_delay_s"].idxmin(), "plan_id"]
+            grp_valid = grp.dropna(subset=["mean_delay_s"])
+            if len(grp_valid["plan_id"].unique()) >= 2:
+                best = grp_valid.loc[grp_valid["mean_delay_s"].idxmin(), "plan_id"]
                 best_plans.append(int(best))
         if not best_plans:
             gb_detail[jid] = {"verdict": "NO_DATA"}
@@ -442,9 +445,10 @@ def evaluate_cost_model(features_df, params, split_name):
                            "pred": preds, "true_delay": trues})
     correct, total = 0, 0
     for (snap, junc), grp in df_ev.groupby(["snap","junc"]):
-        if len(grp) >= 2:
-            pred_best = int(grp.loc[grp["pred"].idxmin(), "plan"])
-            true_best = int(grp.loc[grp["true_delay"].idxmin(), "plan"])
+        grp_valid = grp.dropna(subset=["pred","true_delay"])
+        if len(grp_valid) >= 2:
+            pred_best = int(grp_valid.loc[grp_valid["pred"].idxmin(), "plan"])
+            true_best = int(grp_valid.loc[grp_valid["true_delay"].idxmin(), "plan"])
             correct += int(pred_best == true_best)
             total += 1
     top1 = correct / total * 100 if total > 0 else None
