@@ -1,0 +1,3179 @@
+{
+  "stage": "S1 v2",
+  "status": "COMPLETE",
+  "n_snapshots": 45,
+  "n_interventions": 720,
+  "n_outcome_rows": 2880,
+  "train_seeds": [
+    0,
+    1,
+    2
+  ],
+  "validation_seeds": [
+    3
+  ],
+  "test_seeds": [
+    4
+  ],
+  "selected_alpha": 1.0,
+  "selected_on": "seed 3 top-1 agreement, then MAE",
+  "feature_columns": [
+    "pre_queue_veh",
+    "pre_queue_m",
+    "pre_delay_s",
+    "pre_arrivals",
+    "pre_throughput",
+    "pre_speed_mps",
+    "pre_vehicle_count",
+    "stgnn_queue_h1",
+    "stgnn_queue_h2",
+    "stgnn_queue_h3",
+    "scenario_low",
+    "scenario_medium",
+    "scenario_high",
+    "scenario_peak",
+    "scenario_incident",
+    "plan_0",
+    "plan_1",
+    "plan_2",
+    "plan_3",
+    "junction_J0",
+    "junction_J1",
+    "junction_J2",
+    "junction_J3",
+    "plan0_junction_J0",
+    "plan0_junction_J1",
+    "plan0_junction_J2",
+    "plan0_junction_J3",
+    "plan1_junction_J0",
+    "plan1_junction_J1",
+    "plan1_junction_J2",
+    "plan1_junction_J3",
+    "plan2_junction_J0",
+    "plan2_junction_J1",
+    "plan2_junction_J2",
+    "plan2_junction_J3",
+    "plan3_junction_J0",
+    "plan3_junction_J1",
+    "plan3_junction_J2",
+    "plan3_junction_J3",
+    "plan0_queue_h1",
+    "plan0_queue_h2",
+    "plan0_queue_h3",
+    "plan1_queue_h1",
+    "plan1_queue_h2",
+    "plan1_queue_h3",
+    "plan2_queue_h1",
+    "plan2_queue_h2",
+    "plan2_queue_h3",
+    "plan3_queue_h1",
+    "plan3_queue_h2",
+    "plan3_queue_h3",
+    "plan0_pre_queue_m",
+    "plan1_pre_queue_m",
+    "plan2_pre_queue_m",
+    "plan3_pre_queue_m",
+    "plan0_pre_arrivals",
+    "plan1_pre_arrivals",
+    "plan2_pre_arrivals",
+    "plan3_pre_arrivals"
+  ],
+  "feature_leakage_audit": "Predictors use only telemetry through snapshot time and ST-GNN forecasts from the preceding three intervals.",
+  "train": {
+    "n": 240,
+    "mae": 6.103994473870188,
+    "rmse": 9.797704253225145,
+    "spearman": 0.7616530003188622,
+    "per_snapshot_mean_spearman": 0.6291447216341751,
+    "top1_correct": 40,
+    "top1_total": 60,
+    "top1_agreement": 0.6666666666666666,
+    "per_snapshot": [
+      {
+        "snapshot_id": "high_s0_t900",
+        "target_junction": "J0",
+        "true_best_plan": 1,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": 0.19999999999999998
+      },
+      {
+        "snapshot_id": "high_s0_t900",
+        "target_junction": "J1",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "high_s0_t900",
+        "target_junction": "J2",
+        "true_best_plan": 1,
+        "predicted_best_plan": 1,
+        "top1_correct": true,
+        "spearman": 1.0
+      },
+      {
+        "snapshot_id": "high_s0_t900",
+        "target_junction": "J3",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "high_s1_t2100",
+        "target_junction": "J0",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 1.0
+      },
+      {
+        "snapshot_id": "high_s1_t2100",
+        "target_junction": "J1",
+        "true_best_plan": 0,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": 0.6000000000000001
+      },
+      {
+        "snapshot_id": "high_s1_t2100",
+        "target_junction": "J2",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 1.0
+      },
+      {
+        "snapshot_id": "high_s1_t2100",
+        "target_junction": "J3",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 1.0
+      },
+      {
+        "snapshot_id": "high_s2_t3300",
+        "target_junction": "J0",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 1.0
+      },
+      {
+        "snapshot_id": "high_s2_t3300",
+        "target_junction": "J1",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "high_s2_t3300",
+        "target_junction": "J2",
+        "true_best_plan": 1,
+        "predicted_best_plan": 1,
+        "top1_correct": true,
+        "spearman": 0.19999999999999998
+      },
+      {
+        "snapshot_id": "high_s2_t3300",
+        "target_junction": "J3",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 1.0
+      },
+      {
+        "snapshot_id": "incident_s0_t900",
+        "target_junction": "J0",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "incident_s0_t900",
+        "target_junction": "J1",
+        "true_best_plan": 0,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "incident_s0_t900",
+        "target_junction": "J2",
+        "true_best_plan": 1,
+        "predicted_best_plan": 1,
+        "top1_correct": true,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "incident_s0_t900",
+        "target_junction": "J3",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "incident_s1_t2100",
+        "target_junction": "J0",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "incident_s1_t2100",
+        "target_junction": "J1",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 1.0
+      },
+      {
+        "snapshot_id": "incident_s1_t2100",
+        "target_junction": "J2",
+        "true_best_plan": 3,
+        "predicted_best_plan": 1,
+        "top1_correct": false,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "incident_s1_t2100",
+        "target_junction": "J3",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "incident_s2_t3300",
+        "target_junction": "J0",
+        "true_best_plan": 1,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": -1.0
+      },
+      {
+        "snapshot_id": "incident_s2_t3300",
+        "target_junction": "J1",
+        "true_best_plan": 3,
+        "predicted_best_plan": 0,
+        "top1_correct": false,
+        "spearman": 0.6000000000000001
+      },
+      {
+        "snapshot_id": "incident_s2_t3300",
+        "target_junction": "J2",
+        "true_best_plan": 1,
+        "predicted_best_plan": 1,
+        "top1_correct": true,
+        "spearman": 1.0
+      },
+      {
+        "snapshot_id": "incident_s2_t3300",
+        "target_junction": "J3",
+        "true_best_plan": 0,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "low_s0_t900",
+        "target_junction": "J0",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 1.0
+      },
+      {
+        "snapshot_id": "low_s0_t900",
+        "target_junction": "J1",
+        "true_best_plan": 3,
+        "predicted_best_plan": 0,
+        "top1_correct": false,
+        "spearman": 0.19999999999999998
+      },
+      {
+        "snapshot_id": "low_s0_t900",
+        "target_junction": "J2",
+        "true_best_plan": 3,
+        "predicted_best_plan": 1,
+        "top1_correct": false,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "low_s0_t900",
+        "target_junction": "J3",
+        "true_best_plan": 0,
+        "predicted_best_plan": 1,
+        "top1_correct": false,
+        "spearman": -0.9486832980505139
+      },
+      {
+        "snapshot_id": "low_s1_t2100",
+        "target_junction": "J0",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 1.0
+      },
+      {
+        "snapshot_id": "low_s1_t2100",
+        "target_junction": "J1",
+        "true_best_plan": 0,
+        "predicted_best_plan": 0,
+        "top1_correct": true,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "low_s1_t2100",
+        "target_junction": "J2",
+        "true_best_plan": 3,
+        "predicted_best_plan": 1,
+        "top1_correct": false,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "low_s1_t2100",
+        "target_junction": "J3",
+        "true_best_plan": 1,
+        "predicted_best_plan": 1,
+        "top1_correct": true,
+        "spearman": 0.9486832980505139
+      },
+      {
+        "snapshot_id": "low_s2_t3300",
+        "target_junction": "J0",
+        "true_best_plan": 1,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": 0.39999999999999997
+      },
+      {
+        "snapshot_id": "low_s2_t3300",
+        "target_junction": "J1",
+        "true_best_plan": 0,
+        "predicted_best_plan": 0,
+        "top1_correct": true,
+        "spearman": 0.9486832980505139
+      },
+      {
+        "snapshot_id": "low_s2_t3300",
+        "target_junction": "J2",
+        "true_best_plan": 2,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": -0.9486832980505139
+      },
+      {
+        "snapshot_id": "low_s2_t3300",
+        "target_junction": "J3",
+        "true_best_plan": 1,
+        "predicted_best_plan": 1,
+        "top1_correct": true,
+        "spearman": 0.9486832980505139
+      },
+      {
+        "snapshot_id": "medium_s0_t900",
+        "target_junction": "J0",
+        "true_best_plan": 0,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": -0.7999999999999999
+      },
+      {
+        "snapshot_id": "medium_s0_t900",
+        "target_junction": "J1",
+        "true_best_plan": 3,
+        "predicted_best_plan": 0,
+        "top1_correct": false,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "medium_s0_t900",
+        "target_junction": "J2",
+        "true_best_plan": 1,
+        "predicted_best_plan": 1,
+        "top1_correct": true,
+        "spearman": 1.0
+      },
+      {
+        "snapshot_id": "medium_s0_t900",
+        "target_junction": "J3",
+        "true_best_plan": 0,
+        "predicted_best_plan": 1,
+        "top1_correct": false,
+        "spearman": 0.19999999999999998
+      },
+      {
+        "snapshot_id": "medium_s1_t2100",
+        "target_junction": "J0",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 0.39999999999999997
+      },
+      {
+        "snapshot_id": "medium_s1_t2100",
+        "target_junction": "J1",
+        "true_best_plan": 0,
+        "predicted_best_plan": 0,
+        "top1_correct": true,
+        "spearman": 1.0
+      },
+      {
+        "snapshot_id": "medium_s1_t2100",
+        "target_junction": "J2",
+        "true_best_plan": 1,
+        "predicted_best_plan": 1,
+        "top1_correct": true,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "medium_s1_t2100",
+        "target_junction": "J3",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "medium_s2_t3300",
+        "target_junction": "J0",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 1.0
+      },
+      {
+        "snapshot_id": "medium_s2_t3300",
+        "target_junction": "J1",
+        "true_best_plan": 0,
+        "predicted_best_plan": 0,
+        "top1_correct": true,
+        "spearman": 0.39999999999999997
+      },
+      {
+        "snapshot_id": "medium_s2_t3300",
+        "target_junction": "J2",
+        "true_best_plan": 1,
+        "predicted_best_plan": 1,
+        "top1_correct": true,
+        "spearman": 0.19999999999999998
+      },
+      {
+        "snapshot_id": "medium_s2_t3300",
+        "target_junction": "J3",
+        "true_best_plan": 3,
+        "predicted_best_plan": 0,
+        "top1_correct": false,
+        "spearman": 0.19999999999999998
+      },
+      {
+        "snapshot_id": "peak_s0_t900",
+        "target_junction": "J0",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 0.19999999999999998
+      },
+      {
+        "snapshot_id": "peak_s0_t900",
+        "target_junction": "J1",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 1.0
+      },
+      {
+        "snapshot_id": "peak_s0_t900",
+        "target_junction": "J2",
+        "true_best_plan": 1,
+        "predicted_best_plan": 1,
+        "top1_correct": true,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "peak_s0_t900",
+        "target_junction": "J3",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 1.0
+      },
+      {
+        "snapshot_id": "peak_s1_t2100",
+        "target_junction": "J0",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "peak_s1_t2100",
+        "target_junction": "J1",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "peak_s1_t2100",
+        "target_junction": "J2",
+        "true_best_plan": 1,
+        "predicted_best_plan": 1,
+        "top1_correct": true,
+        "spearman": 1.0
+      },
+      {
+        "snapshot_id": "peak_s1_t2100",
+        "target_junction": "J3",
+        "true_best_plan": 0,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "peak_s2_t3300",
+        "target_junction": "J0",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 0.19999999999999998
+      },
+      {
+        "snapshot_id": "peak_s2_t3300",
+        "target_junction": "J1",
+        "true_best_plan": 0,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "peak_s2_t3300",
+        "target_junction": "J2",
+        "true_best_plan": 0,
+        "predicted_best_plan": 1,
+        "top1_correct": false,
+        "spearman": 0.6000000000000001
+      },
+      {
+        "snapshot_id": "peak_s2_t3300",
+        "target_junction": "J3",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 0.39999999999999997
+      }
+    ],
+    "per_junction": {
+      "J0": {
+        "n": 60,
+        "mae": 12.583138738842367,
+        "rmse": 17.295897436424223,
+        "spearman": 0.7104850026387608,
+        "ranking": {
+          "per_snapshot_mean_spearman": 0.46666666666666673,
+          "top1_correct": 11,
+          "top1_total": 15,
+          "top1_agreement": 0.7333333333333333,
+          "per_snapshot": [
+            {
+              "snapshot_id": "high_s0_t900",
+              "target_junction": "J0",
+              "true_best_plan": 1,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": 0.19999999999999998
+            },
+            {
+              "snapshot_id": "high_s1_t2100",
+              "target_junction": "J0",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 1.0
+            },
+            {
+              "snapshot_id": "high_s2_t3300",
+              "target_junction": "J0",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 1.0
+            },
+            {
+              "snapshot_id": "incident_s0_t900",
+              "target_junction": "J0",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "incident_s1_t2100",
+              "target_junction": "J0",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "incident_s2_t3300",
+              "target_junction": "J0",
+              "true_best_plan": 1,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": -1.0
+            },
+            {
+              "snapshot_id": "low_s0_t900",
+              "target_junction": "J0",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 1.0
+            },
+            {
+              "snapshot_id": "low_s1_t2100",
+              "target_junction": "J0",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 1.0
+            },
+            {
+              "snapshot_id": "low_s2_t3300",
+              "target_junction": "J0",
+              "true_best_plan": 1,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": 0.39999999999999997
+            },
+            {
+              "snapshot_id": "medium_s0_t900",
+              "target_junction": "J0",
+              "true_best_plan": 0,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": -0.7999999999999999
+            },
+            {
+              "snapshot_id": "medium_s1_t2100",
+              "target_junction": "J0",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 0.39999999999999997
+            },
+            {
+              "snapshot_id": "medium_s2_t3300",
+              "target_junction": "J0",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 1.0
+            },
+            {
+              "snapshot_id": "peak_s0_t900",
+              "target_junction": "J0",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 0.19999999999999998
+            },
+            {
+              "snapshot_id": "peak_s1_t2100",
+              "target_junction": "J0",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "peak_s2_t3300",
+              "target_junction": "J0",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 0.19999999999999998
+            }
+          ]
+        }
+      },
+      "J1": {
+        "n": 60,
+        "mae": 3.8941369085441395,
+        "rmse": 5.380893972622337,
+        "spearman": 0.4682541889606691,
+        "ranking": {
+          "per_snapshot_mean_spearman": 0.756578886536701,
+          "top1_correct": 9,
+          "top1_total": 15,
+          "top1_agreement": 0.6,
+          "per_snapshot": [
+            {
+              "snapshot_id": "high_s0_t900",
+              "target_junction": "J1",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "high_s1_t2100",
+              "target_junction": "J1",
+              "true_best_plan": 0,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": 0.6000000000000001
+            },
+            {
+              "snapshot_id": "high_s2_t3300",
+              "target_junction": "J1",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "incident_s0_t900",
+              "target_junction": "J1",
+              "true_best_plan": 0,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "incident_s1_t2100",
+              "target_junction": "J1",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 1.0
+            },
+            {
+              "snapshot_id": "incident_s2_t3300",
+              "target_junction": "J1",
+              "true_best_plan": 3,
+              "predicted_best_plan": 0,
+              "top1_correct": false,
+              "spearman": 0.6000000000000001
+            },
+            {
+              "snapshot_id": "low_s0_t900",
+              "target_junction": "J1",
+              "true_best_plan": 3,
+              "predicted_best_plan": 0,
+              "top1_correct": false,
+              "spearman": 0.19999999999999998
+            },
+            {
+              "snapshot_id": "low_s1_t2100",
+              "target_junction": "J1",
+              "true_best_plan": 0,
+              "predicted_best_plan": 0,
+              "top1_correct": true,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "low_s2_t3300",
+              "target_junction": "J1",
+              "true_best_plan": 0,
+              "predicted_best_plan": 0,
+              "top1_correct": true,
+              "spearman": 0.9486832980505139
+            },
+            {
+              "snapshot_id": "medium_s0_t900",
+              "target_junction": "J1",
+              "true_best_plan": 3,
+              "predicted_best_plan": 0,
+              "top1_correct": false,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "medium_s1_t2100",
+              "target_junction": "J1",
+              "true_best_plan": 0,
+              "predicted_best_plan": 0,
+              "top1_correct": true,
+              "spearman": 1.0
+            },
+            {
+              "snapshot_id": "medium_s2_t3300",
+              "target_junction": "J1",
+              "true_best_plan": 0,
+              "predicted_best_plan": 0,
+              "top1_correct": true,
+              "spearman": 0.39999999999999997
+            },
+            {
+              "snapshot_id": "peak_s0_t900",
+              "target_junction": "J1",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 1.0
+            },
+            {
+              "snapshot_id": "peak_s1_t2100",
+              "target_junction": "J1",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "peak_s2_t3300",
+              "target_junction": "J1",
+              "true_best_plan": 0,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": 0.7999999999999999
+            }
+          ]
+        }
+      },
+      "J2": {
+        "n": 60,
+        "mae": 4.6023814682862385,
+        "rmse": 6.118518216002847,
+        "spearman": 0.4536878812313526,
+        "ranking": {
+          "per_snapshot_mean_spearman": 0.6567544467966324,
+          "top1_correct": 10,
+          "top1_total": 15,
+          "top1_agreement": 0.6666666666666666,
+          "per_snapshot": [
+            {
+              "snapshot_id": "high_s0_t900",
+              "target_junction": "J2",
+              "true_best_plan": 1,
+              "predicted_best_plan": 1,
+              "top1_correct": true,
+              "spearman": 1.0
+            },
+            {
+              "snapshot_id": "high_s1_t2100",
+              "target_junction": "J2",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 1.0
+            },
+            {
+              "snapshot_id": "high_s2_t3300",
+              "target_junction": "J2",
+              "true_best_plan": 1,
+              "predicted_best_plan": 1,
+              "top1_correct": true,
+              "spearman": 0.19999999999999998
+            },
+            {
+              "snapshot_id": "incident_s0_t900",
+              "target_junction": "J2",
+              "true_best_plan": 1,
+              "predicted_best_plan": 1,
+              "top1_correct": true,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "incident_s1_t2100",
+              "target_junction": "J2",
+              "true_best_plan": 3,
+              "predicted_best_plan": 1,
+              "top1_correct": false,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "incident_s2_t3300",
+              "target_junction": "J2",
+              "true_best_plan": 1,
+              "predicted_best_plan": 1,
+              "top1_correct": true,
+              "spearman": 1.0
+            },
+            {
+              "snapshot_id": "low_s0_t900",
+              "target_junction": "J2",
+              "true_best_plan": 3,
+              "predicted_best_plan": 1,
+              "top1_correct": false,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "low_s1_t2100",
+              "target_junction": "J2",
+              "true_best_plan": 3,
+              "predicted_best_plan": 1,
+              "top1_correct": false,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "low_s2_t3300",
+              "target_junction": "J2",
+              "true_best_plan": 2,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": -0.9486832980505139
+            },
+            {
+              "snapshot_id": "medium_s0_t900",
+              "target_junction": "J2",
+              "true_best_plan": 1,
+              "predicted_best_plan": 1,
+              "top1_correct": true,
+              "spearman": 1.0
+            },
+            {
+              "snapshot_id": "medium_s1_t2100",
+              "target_junction": "J2",
+              "true_best_plan": 1,
+              "predicted_best_plan": 1,
+              "top1_correct": true,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "medium_s2_t3300",
+              "target_junction": "J2",
+              "true_best_plan": 1,
+              "predicted_best_plan": 1,
+              "top1_correct": true,
+              "spearman": 0.19999999999999998
+            },
+            {
+              "snapshot_id": "peak_s0_t900",
+              "target_junction": "J2",
+              "true_best_plan": 1,
+              "predicted_best_plan": 1,
+              "top1_correct": true,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "peak_s1_t2100",
+              "target_junction": "J2",
+              "true_best_plan": 1,
+              "predicted_best_plan": 1,
+              "top1_correct": true,
+              "spearman": 1.0
+            },
+            {
+              "snapshot_id": "peak_s2_t3300",
+              "target_junction": "J2",
+              "true_best_plan": 0,
+              "predicted_best_plan": 1,
+              "top1_correct": false,
+              "spearman": 0.6000000000000001
+            }
+          ]
+        }
+      },
+      "J3": {
+        "n": 60,
+        "mae": 3.336320779808005,
+        "rmse": 4.294377871030487,
+        "spearman": 0.36092085002938107,
+        "ranking": {
+          "per_snapshot_mean_spearman": 0.6365788865367009,
+          "top1_correct": 10,
+          "top1_total": 15,
+          "top1_agreement": 0.6666666666666666,
+          "per_snapshot": [
+            {
+              "snapshot_id": "high_s0_t900",
+              "target_junction": "J3",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "high_s1_t2100",
+              "target_junction": "J3",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 1.0
+            },
+            {
+              "snapshot_id": "high_s2_t3300",
+              "target_junction": "J3",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 1.0
+            },
+            {
+              "snapshot_id": "incident_s0_t900",
+              "target_junction": "J3",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "incident_s1_t2100",
+              "target_junction": "J3",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "incident_s2_t3300",
+              "target_junction": "J3",
+              "true_best_plan": 0,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "low_s0_t900",
+              "target_junction": "J3",
+              "true_best_plan": 0,
+              "predicted_best_plan": 1,
+              "top1_correct": false,
+              "spearman": -0.9486832980505139
+            },
+            {
+              "snapshot_id": "low_s1_t2100",
+              "target_junction": "J3",
+              "true_best_plan": 1,
+              "predicted_best_plan": 1,
+              "top1_correct": true,
+              "spearman": 0.9486832980505139
+            },
+            {
+              "snapshot_id": "low_s2_t3300",
+              "target_junction": "J3",
+              "true_best_plan": 1,
+              "predicted_best_plan": 1,
+              "top1_correct": true,
+              "spearman": 0.9486832980505139
+            },
+            {
+              "snapshot_id": "medium_s0_t900",
+              "target_junction": "J3",
+              "true_best_plan": 0,
+              "predicted_best_plan": 1,
+              "top1_correct": false,
+              "spearman": 0.19999999999999998
+            },
+            {
+              "snapshot_id": "medium_s1_t2100",
+              "target_junction": "J3",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "medium_s2_t3300",
+              "target_junction": "J3",
+              "true_best_plan": 3,
+              "predicted_best_plan": 0,
+              "top1_correct": false,
+              "spearman": 0.19999999999999998
+            },
+            {
+              "snapshot_id": "peak_s0_t900",
+              "target_junction": "J3",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 1.0
+            },
+            {
+              "snapshot_id": "peak_s1_t2100",
+              "target_junction": "J3",
+              "true_best_plan": 0,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "peak_s2_t3300",
+              "target_junction": "J3",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 0.39999999999999997
+            }
+          ]
+        }
+      }
+    }
+  },
+  "validation": {
+    "n": 240,
+    "mae": 6.364061225390592,
+    "rmse": 9.09005714075824,
+    "spearman": 0.7250173180396744,
+    "per_snapshot_mean_spearman": 0.5201803085112983,
+    "top1_correct": 34,
+    "top1_total": 60,
+    "top1_agreement": 0.5666666666666667,
+    "per_snapshot": [
+      {
+        "snapshot_id": "high_s3_t2100",
+        "target_junction": "J0",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "high_s3_t2100",
+        "target_junction": "J1",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 1.0
+      },
+      {
+        "snapshot_id": "high_s3_t2100",
+        "target_junction": "J2",
+        "true_best_plan": 1,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "high_s3_t2100",
+        "target_junction": "J3",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 1.0
+      },
+      {
+        "snapshot_id": "high_s3_t3300",
+        "target_junction": "J0",
+        "true_best_plan": 0,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": -0.39999999999999997
+      },
+      {
+        "snapshot_id": "high_s3_t3300",
+        "target_junction": "J1",
+        "true_best_plan": 0,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": 0.6000000000000001
+      },
+      {
+        "snapshot_id": "high_s3_t3300",
+        "target_junction": "J2",
+        "true_best_plan": 3,
+        "predicted_best_plan": 1,
+        "top1_correct": false,
+        "spearman": 0.6000000000000001
+      },
+      {
+        "snapshot_id": "high_s3_t3300",
+        "target_junction": "J3",
+        "true_best_plan": 0,
+        "predicted_best_plan": 0,
+        "top1_correct": true,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "high_s3_t900",
+        "target_junction": "J0",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 1.0
+      },
+      {
+        "snapshot_id": "high_s3_t900",
+        "target_junction": "J1",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 1.0
+      },
+      {
+        "snapshot_id": "high_s3_t900",
+        "target_junction": "J2",
+        "true_best_plan": 1,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": 0.6000000000000001
+      },
+      {
+        "snapshot_id": "high_s3_t900",
+        "target_junction": "J3",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "incident_s3_t2100",
+        "target_junction": "J0",
+        "true_best_plan": 2,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": -1.0
+      },
+      {
+        "snapshot_id": "incident_s3_t2100",
+        "target_junction": "J1",
+        "true_best_plan": 0,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "incident_s3_t2100",
+        "target_junction": "J2",
+        "true_best_plan": 3,
+        "predicted_best_plan": 1,
+        "top1_correct": false,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "incident_s3_t2100",
+        "target_junction": "J3",
+        "true_best_plan": 0,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "incident_s3_t3300",
+        "target_junction": "J0",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 0.39999999999999997
+      },
+      {
+        "snapshot_id": "incident_s3_t3300",
+        "target_junction": "J1",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 1.0
+      },
+      {
+        "snapshot_id": "incident_s3_t3300",
+        "target_junction": "J2",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "incident_s3_t3300",
+        "target_junction": "J3",
+        "true_best_plan": 3,
+        "predicted_best_plan": 1,
+        "top1_correct": false,
+        "spearman": 0.19999999999999998
+      },
+      {
+        "snapshot_id": "incident_s3_t900",
+        "target_junction": "J0",
+        "true_best_plan": 0,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": 0.39999999999999997
+      },
+      {
+        "snapshot_id": "incident_s3_t900",
+        "target_junction": "J1",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "incident_s3_t900",
+        "target_junction": "J2",
+        "true_best_plan": 1,
+        "predicted_best_plan": 1,
+        "top1_correct": true,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "incident_s3_t900",
+        "target_junction": "J3",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "low_s3_t2100",
+        "target_junction": "J0",
+        "true_best_plan": 0,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": -0.316227766016838
+      },
+      {
+        "snapshot_id": "low_s3_t2100",
+        "target_junction": "J1",
+        "true_best_plan": 0,
+        "predicted_best_plan": 0,
+        "top1_correct": true,
+        "spearman": 1.0
+      },
+      {
+        "snapshot_id": "low_s3_t2100",
+        "target_junction": "J2",
+        "true_best_plan": 1,
+        "predicted_best_plan": 1,
+        "top1_correct": true,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "low_s3_t2100",
+        "target_junction": "J3",
+        "true_best_plan": 0,
+        "predicted_best_plan": 1,
+        "top1_correct": false,
+        "spearman": -0.19999999999999998
+      },
+      {
+        "snapshot_id": "low_s3_t3300",
+        "target_junction": "J0",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 0.316227766016838
+      },
+      {
+        "snapshot_id": "low_s3_t3300",
+        "target_junction": "J1",
+        "true_best_plan": 3,
+        "predicted_best_plan": 0,
+        "top1_correct": false,
+        "spearman": 0.39999999999999997
+      },
+      {
+        "snapshot_id": "low_s3_t3300",
+        "target_junction": "J2",
+        "true_best_plan": 1,
+        "predicted_best_plan": 1,
+        "top1_correct": true,
+        "spearman": 0.39999999999999997
+      },
+      {
+        "snapshot_id": "low_s3_t3300",
+        "target_junction": "J3",
+        "true_best_plan": 0,
+        "predicted_best_plan": 1,
+        "top1_correct": false,
+        "spearman": 0.0
+      },
+      {
+        "snapshot_id": "low_s3_t900",
+        "target_junction": "J0",
+        "true_best_plan": 1,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": -0.316227766016838
+      },
+      {
+        "snapshot_id": "low_s3_t900",
+        "target_junction": "J1",
+        "true_best_plan": 3,
+        "predicted_best_plan": 0,
+        "top1_correct": false,
+        "spearman": 0.39999999999999997
+      },
+      {
+        "snapshot_id": "low_s3_t900",
+        "target_junction": "J2",
+        "true_best_plan": 1,
+        "predicted_best_plan": 1,
+        "top1_correct": true,
+        "spearman": 1.0
+      },
+      {
+        "snapshot_id": "low_s3_t900",
+        "target_junction": "J3",
+        "true_best_plan": 0,
+        "predicted_best_plan": 0,
+        "top1_correct": true,
+        "spearman": -0.10540925533894598
+      },
+      {
+        "snapshot_id": "medium_s3_t2100",
+        "target_junction": "J0",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 0.19999999999999998
+      },
+      {
+        "snapshot_id": "medium_s3_t2100",
+        "target_junction": "J1",
+        "true_best_plan": 3,
+        "predicted_best_plan": 0,
+        "top1_correct": false,
+        "spearman": 0.6000000000000001
+      },
+      {
+        "snapshot_id": "medium_s3_t2100",
+        "target_junction": "J2",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 1.0
+      },
+      {
+        "snapshot_id": "medium_s3_t2100",
+        "target_junction": "J3",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 1.0
+      },
+      {
+        "snapshot_id": "medium_s3_t3300",
+        "target_junction": "J0",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 0.39999999999999997
+      },
+      {
+        "snapshot_id": "medium_s3_t3300",
+        "target_junction": "J1",
+        "true_best_plan": 0,
+        "predicted_best_plan": 0,
+        "top1_correct": true,
+        "spearman": 1.0
+      },
+      {
+        "snapshot_id": "medium_s3_t3300",
+        "target_junction": "J2",
+        "true_best_plan": 2,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": -0.39999999999999997
+      },
+      {
+        "snapshot_id": "medium_s3_t3300",
+        "target_junction": "J3",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "medium_s3_t900",
+        "target_junction": "J0",
+        "true_best_plan": 1,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": -0.19999999999999998
+      },
+      {
+        "snapshot_id": "medium_s3_t900",
+        "target_junction": "J1",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 0.632455532033676
+      },
+      {
+        "snapshot_id": "medium_s3_t900",
+        "target_junction": "J2",
+        "true_best_plan": 2,
+        "predicted_best_plan": 1,
+        "top1_correct": false,
+        "spearman": -0.19999999999999998
+      },
+      {
+        "snapshot_id": "medium_s3_t900",
+        "target_junction": "J3",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "peak_s3_t2100",
+        "target_junction": "J0",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "peak_s3_t2100",
+        "target_junction": "J1",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "peak_s3_t2100",
+        "target_junction": "J2",
+        "true_best_plan": 3,
+        "predicted_best_plan": 1,
+        "top1_correct": false,
+        "spearman": 0.6000000000000001
+      },
+      {
+        "snapshot_id": "peak_s3_t2100",
+        "target_junction": "J3",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 1.0
+      },
+      {
+        "snapshot_id": "peak_s3_t3300",
+        "target_junction": "J0",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 1.0
+      },
+      {
+        "snapshot_id": "peak_s3_t3300",
+        "target_junction": "J1",
+        "true_best_plan": 0,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": 0.6000000000000001
+      },
+      {
+        "snapshot_id": "peak_s3_t3300",
+        "target_junction": "J2",
+        "true_best_plan": 1,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": -0.19999999999999998
+      },
+      {
+        "snapshot_id": "peak_s3_t3300",
+        "target_junction": "J3",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 0.39999999999999997
+      },
+      {
+        "snapshot_id": "peak_s3_t900",
+        "target_junction": "J0",
+        "true_best_plan": 2,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": -0.39999999999999997
+      },
+      {
+        "snapshot_id": "peak_s3_t900",
+        "target_junction": "J1",
+        "true_best_plan": 0,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "peak_s3_t900",
+        "target_junction": "J2",
+        "true_best_plan": 1,
+        "predicted_best_plan": 1,
+        "top1_correct": true,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "peak_s3_t900",
+        "target_junction": "J3",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 0.7999999999999999
+      }
+    ],
+    "per_junction": {
+      "J0": {
+        "n": 60,
+        "mae": 11.264172812380913,
+        "rmse": 14.926495182690012,
+        "spearman": 0.5050990653058103,
+        "ranking": {
+          "per_snapshot_mean_spearman": 0.1789181489322108,
+          "top1_correct": 8,
+          "top1_total": 15,
+          "top1_agreement": 0.5333333333333333,
+          "per_snapshot": [
+            {
+              "snapshot_id": "high_s3_t2100",
+              "target_junction": "J0",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "high_s3_t3300",
+              "target_junction": "J0",
+              "true_best_plan": 0,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": -0.39999999999999997
+            },
+            {
+              "snapshot_id": "high_s3_t900",
+              "target_junction": "J0",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 1.0
+            },
+            {
+              "snapshot_id": "incident_s3_t2100",
+              "target_junction": "J0",
+              "true_best_plan": 2,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": -1.0
+            },
+            {
+              "snapshot_id": "incident_s3_t3300",
+              "target_junction": "J0",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 0.39999999999999997
+            },
+            {
+              "snapshot_id": "incident_s3_t900",
+              "target_junction": "J0",
+              "true_best_plan": 0,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": 0.39999999999999997
+            },
+            {
+              "snapshot_id": "low_s3_t2100",
+              "target_junction": "J0",
+              "true_best_plan": 0,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": -0.316227766016838
+            },
+            {
+              "snapshot_id": "low_s3_t3300",
+              "target_junction": "J0",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 0.316227766016838
+            },
+            {
+              "snapshot_id": "low_s3_t900",
+              "target_junction": "J0",
+              "true_best_plan": 1,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": -0.316227766016838
+            },
+            {
+              "snapshot_id": "medium_s3_t2100",
+              "target_junction": "J0",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 0.19999999999999998
+            },
+            {
+              "snapshot_id": "medium_s3_t3300",
+              "target_junction": "J0",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 0.39999999999999997
+            },
+            {
+              "snapshot_id": "medium_s3_t900",
+              "target_junction": "J0",
+              "true_best_plan": 1,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": -0.19999999999999998
+            },
+            {
+              "snapshot_id": "peak_s3_t2100",
+              "target_junction": "J0",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "peak_s3_t3300",
+              "target_junction": "J0",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 1.0
+            },
+            {
+              "snapshot_id": "peak_s3_t900",
+              "target_junction": "J0",
+              "true_best_plan": 2,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": -0.39999999999999997
+            }
+          ]
+        }
+      },
+      "J1": {
+        "n": 60,
+        "mae": 4.489637802784367,
+        "rmse": 5.728471449137022,
+        "spearman": 0.36071632007260035,
+        "ranking": {
+          "per_snapshot_mean_spearman": 0.7621637021355785,
+          "top1_correct": 8,
+          "top1_total": 15,
+          "top1_agreement": 0.5333333333333333,
+          "per_snapshot": [
+            {
+              "snapshot_id": "high_s3_t2100",
+              "target_junction": "J1",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 1.0
+            },
+            {
+              "snapshot_id": "high_s3_t3300",
+              "target_junction": "J1",
+              "true_best_plan": 0,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": 0.6000000000000001
+            },
+            {
+              "snapshot_id": "high_s3_t900",
+              "target_junction": "J1",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 1.0
+            },
+            {
+              "snapshot_id": "incident_s3_t2100",
+              "target_junction": "J1",
+              "true_best_plan": 0,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "incident_s3_t3300",
+              "target_junction": "J1",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 1.0
+            },
+            {
+              "snapshot_id": "incident_s3_t900",
+              "target_junction": "J1",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "low_s3_t2100",
+              "target_junction": "J1",
+              "true_best_plan": 0,
+              "predicted_best_plan": 0,
+              "top1_correct": true,
+              "spearman": 1.0
+            },
+            {
+              "snapshot_id": "low_s3_t3300",
+              "target_junction": "J1",
+              "true_best_plan": 3,
+              "predicted_best_plan": 0,
+              "top1_correct": false,
+              "spearman": 0.39999999999999997
+            },
+            {
+              "snapshot_id": "low_s3_t900",
+              "target_junction": "J1",
+              "true_best_plan": 3,
+              "predicted_best_plan": 0,
+              "top1_correct": false,
+              "spearman": 0.39999999999999997
+            },
+            {
+              "snapshot_id": "medium_s3_t2100",
+              "target_junction": "J1",
+              "true_best_plan": 3,
+              "predicted_best_plan": 0,
+              "top1_correct": false,
+              "spearman": 0.6000000000000001
+            },
+            {
+              "snapshot_id": "medium_s3_t3300",
+              "target_junction": "J1",
+              "true_best_plan": 0,
+              "predicted_best_plan": 0,
+              "top1_correct": true,
+              "spearman": 1.0
+            },
+            {
+              "snapshot_id": "medium_s3_t900",
+              "target_junction": "J1",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 0.632455532033676
+            },
+            {
+              "snapshot_id": "peak_s3_t2100",
+              "target_junction": "J1",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "peak_s3_t3300",
+              "target_junction": "J1",
+              "true_best_plan": 0,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": 0.6000000000000001
+            },
+            {
+              "snapshot_id": "peak_s3_t900",
+              "target_junction": "J1",
+              "true_best_plan": 0,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": 0.7999999999999999
+            }
+          ]
+        }
+      },
+      "J2": {
+        "n": 60,
+        "mae": 5.0001635470689045,
+        "rmse": 6.595911571631727,
+        "spearman": 0.4184495693248125,
+        "ranking": {
+          "per_snapshot_mean_spearman": 0.5466666666666666,
+          "top1_correct": 7,
+          "top1_total": 15,
+          "top1_agreement": 0.4666666666666667,
+          "per_snapshot": [
+            {
+              "snapshot_id": "high_s3_t2100",
+              "target_junction": "J2",
+              "true_best_plan": 1,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "high_s3_t3300",
+              "target_junction": "J2",
+              "true_best_plan": 3,
+              "predicted_best_plan": 1,
+              "top1_correct": false,
+              "spearman": 0.6000000000000001
+            },
+            {
+              "snapshot_id": "high_s3_t900",
+              "target_junction": "J2",
+              "true_best_plan": 1,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": 0.6000000000000001
+            },
+            {
+              "snapshot_id": "incident_s3_t2100",
+              "target_junction": "J2",
+              "true_best_plan": 3,
+              "predicted_best_plan": 1,
+              "top1_correct": false,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "incident_s3_t3300",
+              "target_junction": "J2",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "incident_s3_t900",
+              "target_junction": "J2",
+              "true_best_plan": 1,
+              "predicted_best_plan": 1,
+              "top1_correct": true,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "low_s3_t2100",
+              "target_junction": "J2",
+              "true_best_plan": 1,
+              "predicted_best_plan": 1,
+              "top1_correct": true,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "low_s3_t3300",
+              "target_junction": "J2",
+              "true_best_plan": 1,
+              "predicted_best_plan": 1,
+              "top1_correct": true,
+              "spearman": 0.39999999999999997
+            },
+            {
+              "snapshot_id": "low_s3_t900",
+              "target_junction": "J2",
+              "true_best_plan": 1,
+              "predicted_best_plan": 1,
+              "top1_correct": true,
+              "spearman": 1.0
+            },
+            {
+              "snapshot_id": "medium_s3_t2100",
+              "target_junction": "J2",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 1.0
+            },
+            {
+              "snapshot_id": "medium_s3_t3300",
+              "target_junction": "J2",
+              "true_best_plan": 2,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": -0.39999999999999997
+            },
+            {
+              "snapshot_id": "medium_s3_t900",
+              "target_junction": "J2",
+              "true_best_plan": 2,
+              "predicted_best_plan": 1,
+              "top1_correct": false,
+              "spearman": -0.19999999999999998
+            },
+            {
+              "snapshot_id": "peak_s3_t2100",
+              "target_junction": "J2",
+              "true_best_plan": 3,
+              "predicted_best_plan": 1,
+              "top1_correct": false,
+              "spearman": 0.6000000000000001
+            },
+            {
+              "snapshot_id": "peak_s3_t3300",
+              "target_junction": "J2",
+              "true_best_plan": 1,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": -0.19999999999999998
+            },
+            {
+              "snapshot_id": "peak_s3_t900",
+              "target_junction": "J2",
+              "true_best_plan": 1,
+              "predicted_best_plan": 1,
+              "top1_correct": true,
+              "spearman": 0.7999999999999999
+            }
+          ]
+        }
+      },
+      "J3": {
+        "n": 60,
+        "mae": 4.702270739328183,
+        "rmse": 5.603111835914761,
+        "spearman": -0.06988149322004238,
+        "ranking": {
+          "per_snapshot_mean_spearman": 0.5929727163107369,
+          "top1_correct": 11,
+          "top1_total": 15,
+          "top1_agreement": 0.7333333333333333,
+          "per_snapshot": [
+            {
+              "snapshot_id": "high_s3_t2100",
+              "target_junction": "J3",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 1.0
+            },
+            {
+              "snapshot_id": "high_s3_t3300",
+              "target_junction": "J3",
+              "true_best_plan": 0,
+              "predicted_best_plan": 0,
+              "top1_correct": true,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "high_s3_t900",
+              "target_junction": "J3",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "incident_s3_t2100",
+              "target_junction": "J3",
+              "true_best_plan": 0,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "incident_s3_t3300",
+              "target_junction": "J3",
+              "true_best_plan": 3,
+              "predicted_best_plan": 1,
+              "top1_correct": false,
+              "spearman": 0.19999999999999998
+            },
+            {
+              "snapshot_id": "incident_s3_t900",
+              "target_junction": "J3",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "low_s3_t2100",
+              "target_junction": "J3",
+              "true_best_plan": 0,
+              "predicted_best_plan": 1,
+              "top1_correct": false,
+              "spearman": -0.19999999999999998
+            },
+            {
+              "snapshot_id": "low_s3_t3300",
+              "target_junction": "J3",
+              "true_best_plan": 0,
+              "predicted_best_plan": 1,
+              "top1_correct": false,
+              "spearman": 0.0
+            },
+            {
+              "snapshot_id": "low_s3_t900",
+              "target_junction": "J3",
+              "true_best_plan": 0,
+              "predicted_best_plan": 0,
+              "top1_correct": true,
+              "spearman": -0.10540925533894598
+            },
+            {
+              "snapshot_id": "medium_s3_t2100",
+              "target_junction": "J3",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 1.0
+            },
+            {
+              "snapshot_id": "medium_s3_t3300",
+              "target_junction": "J3",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "medium_s3_t900",
+              "target_junction": "J3",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "peak_s3_t2100",
+              "target_junction": "J3",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 1.0
+            },
+            {
+              "snapshot_id": "peak_s3_t3300",
+              "target_junction": "J3",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 0.39999999999999997
+            },
+            {
+              "snapshot_id": "peak_s3_t900",
+              "target_junction": "J3",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 0.7999999999999999
+            }
+          ]
+        }
+      }
+    }
+  },
+  "test": {
+    "n": 240,
+    "mae": 6.2111509226378825,
+    "rmse": 9.087206915484602,
+    "spearman": 0.677471572234821,
+    "per_snapshot_mean_spearman": 0.3992787659548072,
+    "top1_correct": 23,
+    "top1_total": 60,
+    "top1_agreement": 0.38333333333333336,
+    "per_snapshot": [
+      {
+        "snapshot_id": "high_s4_t2100",
+        "target_junction": "J0",
+        "true_best_plan": 0,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": -0.19999999999999998
+      },
+      {
+        "snapshot_id": "high_s4_t2100",
+        "target_junction": "J1",
+        "true_best_plan": 0,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "high_s4_t2100",
+        "target_junction": "J2",
+        "true_best_plan": 1,
+        "predicted_best_plan": 1,
+        "top1_correct": true,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "high_s4_t2100",
+        "target_junction": "J3",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "high_s4_t3300",
+        "target_junction": "J0",
+        "true_best_plan": 0,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": -0.39999999999999997
+      },
+      {
+        "snapshot_id": "high_s4_t3300",
+        "target_junction": "J1",
+        "true_best_plan": 0,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": 0.6000000000000001
+      },
+      {
+        "snapshot_id": "high_s4_t3300",
+        "target_junction": "J2",
+        "true_best_plan": 0,
+        "predicted_best_plan": 1,
+        "top1_correct": false,
+        "spearman": -0.6000000000000001
+      },
+      {
+        "snapshot_id": "high_s4_t3300",
+        "target_junction": "J3",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "high_s4_t900",
+        "target_junction": "J0",
+        "true_best_plan": 1,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": -0.39999999999999997
+      },
+      {
+        "snapshot_id": "high_s4_t900",
+        "target_junction": "J1",
+        "true_best_plan": 0,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": 0.6000000000000001
+      },
+      {
+        "snapshot_id": "high_s4_t900",
+        "target_junction": "J2",
+        "true_best_plan": 1,
+        "predicted_best_plan": 1,
+        "top1_correct": true,
+        "spearman": 1.0
+      },
+      {
+        "snapshot_id": "high_s4_t900",
+        "target_junction": "J3",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 1.0
+      },
+      {
+        "snapshot_id": "incident_s4_t2100",
+        "target_junction": "J0",
+        "true_best_plan": 1,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": -0.7999999999999999
+      },
+      {
+        "snapshot_id": "incident_s4_t2100",
+        "target_junction": "J1",
+        "true_best_plan": 0,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": 0.6000000000000001
+      },
+      {
+        "snapshot_id": "incident_s4_t2100",
+        "target_junction": "J2",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 1.0
+      },
+      {
+        "snapshot_id": "incident_s4_t2100",
+        "target_junction": "J3",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 1.0
+      },
+      {
+        "snapshot_id": "incident_s4_t3300",
+        "target_junction": "J0",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 0.19999999999999998
+      },
+      {
+        "snapshot_id": "incident_s4_t3300",
+        "target_junction": "J1",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "incident_s4_t3300",
+        "target_junction": "J2",
+        "true_best_plan": 1,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "incident_s4_t3300",
+        "target_junction": "J3",
+        "true_best_plan": 0,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "incident_s4_t900",
+        "target_junction": "J0",
+        "true_best_plan": 0,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": -0.39999999999999997
+      },
+      {
+        "snapshot_id": "incident_s4_t900",
+        "target_junction": "J1",
+        "true_best_plan": 0,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "incident_s4_t900",
+        "target_junction": "J2",
+        "true_best_plan": 2,
+        "predicted_best_plan": 1,
+        "top1_correct": false,
+        "spearman": -0.19999999999999998
+      },
+      {
+        "snapshot_id": "incident_s4_t900",
+        "target_junction": "J3",
+        "true_best_plan": 0,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "low_s4_t2100",
+        "target_junction": "J0",
+        "true_best_plan": 1,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": -0.316227766016838
+      },
+      {
+        "snapshot_id": "low_s4_t2100",
+        "target_junction": "J1",
+        "true_best_plan": 3,
+        "predicted_best_plan": 0,
+        "top1_correct": false,
+        "spearman": 0.0
+      },
+      {
+        "snapshot_id": "low_s4_t2100",
+        "target_junction": "J2",
+        "true_best_plan": 2,
+        "predicted_best_plan": 1,
+        "top1_correct": false,
+        "spearman": -0.7999999999999999
+      },
+      {
+        "snapshot_id": "low_s4_t2100",
+        "target_junction": "J3",
+        "true_best_plan": 0,
+        "predicted_best_plan": 1,
+        "top1_correct": false,
+        "spearman": -0.21081851067789195
+      },
+      {
+        "snapshot_id": "low_s4_t3300",
+        "target_junction": "J0",
+        "true_best_plan": 0,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": -0.7378647873726218
+      },
+      {
+        "snapshot_id": "low_s4_t3300",
+        "target_junction": "J1",
+        "true_best_plan": 0,
+        "predicted_best_plan": 0,
+        "top1_correct": true,
+        "spearman": 0.39999999999999997
+      },
+      {
+        "snapshot_id": "low_s4_t3300",
+        "target_junction": "J2",
+        "true_best_plan": 1,
+        "predicted_best_plan": 1,
+        "top1_correct": true,
+        "spearman": 0.19999999999999998
+      },
+      {
+        "snapshot_id": "low_s4_t3300",
+        "target_junction": "J3",
+        "true_best_plan": 0,
+        "predicted_best_plan": 1,
+        "top1_correct": false,
+        "spearman": -0.19999999999999998
+      },
+      {
+        "snapshot_id": "low_s4_t900",
+        "target_junction": "J0",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "low_s4_t900",
+        "target_junction": "J1",
+        "true_best_plan": 3,
+        "predicted_best_plan": 0,
+        "top1_correct": false,
+        "spearman": 0.39999999999999997
+      },
+      {
+        "snapshot_id": "low_s4_t900",
+        "target_junction": "J2",
+        "true_best_plan": 3,
+        "predicted_best_plan": 1,
+        "top1_correct": false,
+        "spearman": -0.21081851067789195
+      },
+      {
+        "snapshot_id": "low_s4_t900",
+        "target_junction": "J3",
+        "true_best_plan": 1,
+        "predicted_best_plan": 1,
+        "top1_correct": true,
+        "spearman": 0.632455532033676
+      },
+      {
+        "snapshot_id": "medium_s4_t2100",
+        "target_junction": "J0",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "medium_s4_t2100",
+        "target_junction": "J1",
+        "true_best_plan": 0,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": 0.6000000000000001
+      },
+      {
+        "snapshot_id": "medium_s4_t2100",
+        "target_junction": "J2",
+        "true_best_plan": 1,
+        "predicted_best_plan": 1,
+        "top1_correct": true,
+        "spearman": 0.39999999999999997
+      },
+      {
+        "snapshot_id": "medium_s4_t2100",
+        "target_junction": "J3",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "medium_s4_t3300",
+        "target_junction": "J0",
+        "true_best_plan": 1,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "medium_s4_t3300",
+        "target_junction": "J1",
+        "true_best_plan": 0,
+        "predicted_best_plan": 0,
+        "top1_correct": true,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "medium_s4_t3300",
+        "target_junction": "J2",
+        "true_best_plan": 1,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": -0.39999999999999997
+      },
+      {
+        "snapshot_id": "medium_s4_t3300",
+        "target_junction": "J3",
+        "true_best_plan": 0,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": 0.6000000000000001
+      },
+      {
+        "snapshot_id": "medium_s4_t900",
+        "target_junction": "J0",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 1.0
+      },
+      {
+        "snapshot_id": "medium_s4_t900",
+        "target_junction": "J1",
+        "true_best_plan": 0,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "medium_s4_t900",
+        "target_junction": "J2",
+        "true_best_plan": 3,
+        "predicted_best_plan": 1,
+        "top1_correct": false,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "medium_s4_t900",
+        "target_junction": "J3",
+        "true_best_plan": 3,
+        "predicted_best_plan": 1,
+        "top1_correct": false,
+        "spearman": 0.39999999999999997
+      },
+      {
+        "snapshot_id": "peak_s4_t2100",
+        "target_junction": "J0",
+        "true_best_plan": 1,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": -0.39999999999999997
+      },
+      {
+        "snapshot_id": "peak_s4_t2100",
+        "target_junction": "J1",
+        "true_best_plan": 0,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": 0.6000000000000001
+      },
+      {
+        "snapshot_id": "peak_s4_t2100",
+        "target_junction": "J2",
+        "true_best_plan": 3,
+        "predicted_best_plan": 1,
+        "top1_correct": false,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "peak_s4_t2100",
+        "target_junction": "J3",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 1.0
+      },
+      {
+        "snapshot_id": "peak_s4_t3300",
+        "target_junction": "J0",
+        "true_best_plan": 0,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": 0.39999999999999997
+      },
+      {
+        "snapshot_id": "peak_s4_t3300",
+        "target_junction": "J1",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "peak_s4_t3300",
+        "target_junction": "J2",
+        "true_best_plan": 1,
+        "predicted_best_plan": 1,
+        "top1_correct": true,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "peak_s4_t3300",
+        "target_junction": "J3",
+        "true_best_plan": 0,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": 0.7999999999999999
+      },
+      {
+        "snapshot_id": "peak_s4_t900",
+        "target_junction": "J0",
+        "true_best_plan": 0,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": -0.7999999999999999
+      },
+      {
+        "snapshot_id": "peak_s4_t900",
+        "target_junction": "J1",
+        "true_best_plan": 0,
+        "predicted_best_plan": 3,
+        "top1_correct": false,
+        "spearman": 0.6000000000000001
+      },
+      {
+        "snapshot_id": "peak_s4_t900",
+        "target_junction": "J2",
+        "true_best_plan": 1,
+        "predicted_best_plan": 1,
+        "top1_correct": true,
+        "spearman": 1.0
+      },
+      {
+        "snapshot_id": "peak_s4_t900",
+        "target_junction": "J3",
+        "true_best_plan": 3,
+        "predicted_best_plan": 3,
+        "top1_correct": true,
+        "spearman": 0.7999999999999999
+      }
+    ],
+    "per_junction": {
+      "J0": {
+        "n": 60,
+        "mae": 12.730590989903835,
+        "rmse": 15.544605655130894,
+        "spearman": 0.37872683334523616,
+        "ranking": {
+          "per_snapshot_mean_spearman": -0.03027283689263065,
+          "top1_correct": 4,
+          "top1_total": 15,
+          "top1_agreement": 0.26666666666666666,
+          "per_snapshot": [
+            {
+              "snapshot_id": "high_s4_t2100",
+              "target_junction": "J0",
+              "true_best_plan": 0,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": -0.19999999999999998
+            },
+            {
+              "snapshot_id": "high_s4_t3300",
+              "target_junction": "J0",
+              "true_best_plan": 0,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": -0.39999999999999997
+            },
+            {
+              "snapshot_id": "high_s4_t900",
+              "target_junction": "J0",
+              "true_best_plan": 1,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": -0.39999999999999997
+            },
+            {
+              "snapshot_id": "incident_s4_t2100",
+              "target_junction": "J0",
+              "true_best_plan": 1,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": -0.7999999999999999
+            },
+            {
+              "snapshot_id": "incident_s4_t3300",
+              "target_junction": "J0",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 0.19999999999999998
+            },
+            {
+              "snapshot_id": "incident_s4_t900",
+              "target_junction": "J0",
+              "true_best_plan": 0,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": -0.39999999999999997
+            },
+            {
+              "snapshot_id": "low_s4_t2100",
+              "target_junction": "J0",
+              "true_best_plan": 1,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": -0.316227766016838
+            },
+            {
+              "snapshot_id": "low_s4_t3300",
+              "target_junction": "J0",
+              "true_best_plan": 0,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": -0.7378647873726218
+            },
+            {
+              "snapshot_id": "low_s4_t900",
+              "target_junction": "J0",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "medium_s4_t2100",
+              "target_junction": "J0",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "medium_s4_t3300",
+              "target_junction": "J0",
+              "true_best_plan": 1,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "medium_s4_t900",
+              "target_junction": "J0",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 1.0
+            },
+            {
+              "snapshot_id": "peak_s4_t2100",
+              "target_junction": "J0",
+              "true_best_plan": 1,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": -0.39999999999999997
+            },
+            {
+              "snapshot_id": "peak_s4_t3300",
+              "target_junction": "J0",
+              "true_best_plan": 0,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": 0.39999999999999997
+            },
+            {
+              "snapshot_id": "peak_s4_t900",
+              "target_junction": "J0",
+              "true_best_plan": 0,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": -0.7999999999999999
+            }
+          ]
+        }
+      },
+      "J1": {
+        "n": 60,
+        "mae": 4.374244649798915,
+        "rmse": 6.073033436928253,
+        "spearman": 0.27925199377253285,
+        "ranking": {
+          "per_snapshot_mean_spearman": 0.6133333333333333,
+          "top1_correct": 4,
+          "top1_total": 15,
+          "top1_agreement": 0.26666666666666666,
+          "per_snapshot": [
+            {
+              "snapshot_id": "high_s4_t2100",
+              "target_junction": "J1",
+              "true_best_plan": 0,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "high_s4_t3300",
+              "target_junction": "J1",
+              "true_best_plan": 0,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": 0.6000000000000001
+            },
+            {
+              "snapshot_id": "high_s4_t900",
+              "target_junction": "J1",
+              "true_best_plan": 0,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": 0.6000000000000001
+            },
+            {
+              "snapshot_id": "incident_s4_t2100",
+              "target_junction": "J1",
+              "true_best_plan": 0,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": 0.6000000000000001
+            },
+            {
+              "snapshot_id": "incident_s4_t3300",
+              "target_junction": "J1",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "incident_s4_t900",
+              "target_junction": "J1",
+              "true_best_plan": 0,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "low_s4_t2100",
+              "target_junction": "J1",
+              "true_best_plan": 3,
+              "predicted_best_plan": 0,
+              "top1_correct": false,
+              "spearman": 0.0
+            },
+            {
+              "snapshot_id": "low_s4_t3300",
+              "target_junction": "J1",
+              "true_best_plan": 0,
+              "predicted_best_plan": 0,
+              "top1_correct": true,
+              "spearman": 0.39999999999999997
+            },
+            {
+              "snapshot_id": "low_s4_t900",
+              "target_junction": "J1",
+              "true_best_plan": 3,
+              "predicted_best_plan": 0,
+              "top1_correct": false,
+              "spearman": 0.39999999999999997
+            },
+            {
+              "snapshot_id": "medium_s4_t2100",
+              "target_junction": "J1",
+              "true_best_plan": 0,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": 0.6000000000000001
+            },
+            {
+              "snapshot_id": "medium_s4_t3300",
+              "target_junction": "J1",
+              "true_best_plan": 0,
+              "predicted_best_plan": 0,
+              "top1_correct": true,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "medium_s4_t900",
+              "target_junction": "J1",
+              "true_best_plan": 0,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "peak_s4_t2100",
+              "target_junction": "J1",
+              "true_best_plan": 0,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": 0.6000000000000001
+            },
+            {
+              "snapshot_id": "peak_s4_t3300",
+              "target_junction": "J1",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "peak_s4_t900",
+              "target_junction": "J1",
+              "true_best_plan": 0,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": 0.6000000000000001
+            }
+          ]
+        }
+      },
+      "J2": {
+        "n": 60,
+        "mae": 4.862841546385842,
+        "rmse": 6.214123530541618,
+        "spearman": 0.21036691259202417,
+        "ranking": {
+          "per_snapshot_mean_spearman": 0.3592787659548072,
+          "top1_correct": 7,
+          "top1_total": 15,
+          "top1_agreement": 0.4666666666666667,
+          "per_snapshot": [
+            {
+              "snapshot_id": "high_s4_t2100",
+              "target_junction": "J2",
+              "true_best_plan": 1,
+              "predicted_best_plan": 1,
+              "top1_correct": true,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "high_s4_t3300",
+              "target_junction": "J2",
+              "true_best_plan": 0,
+              "predicted_best_plan": 1,
+              "top1_correct": false,
+              "spearman": -0.6000000000000001
+            },
+            {
+              "snapshot_id": "high_s4_t900",
+              "target_junction": "J2",
+              "true_best_plan": 1,
+              "predicted_best_plan": 1,
+              "top1_correct": true,
+              "spearman": 1.0
+            },
+            {
+              "snapshot_id": "incident_s4_t2100",
+              "target_junction": "J2",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 1.0
+            },
+            {
+              "snapshot_id": "incident_s4_t3300",
+              "target_junction": "J2",
+              "true_best_plan": 1,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "incident_s4_t900",
+              "target_junction": "J2",
+              "true_best_plan": 2,
+              "predicted_best_plan": 1,
+              "top1_correct": false,
+              "spearman": -0.19999999999999998
+            },
+            {
+              "snapshot_id": "low_s4_t2100",
+              "target_junction": "J2",
+              "true_best_plan": 2,
+              "predicted_best_plan": 1,
+              "top1_correct": false,
+              "spearman": -0.7999999999999999
+            },
+            {
+              "snapshot_id": "low_s4_t3300",
+              "target_junction": "J2",
+              "true_best_plan": 1,
+              "predicted_best_plan": 1,
+              "top1_correct": true,
+              "spearman": 0.19999999999999998
+            },
+            {
+              "snapshot_id": "low_s4_t900",
+              "target_junction": "J2",
+              "true_best_plan": 3,
+              "predicted_best_plan": 1,
+              "top1_correct": false,
+              "spearman": -0.21081851067789195
+            },
+            {
+              "snapshot_id": "medium_s4_t2100",
+              "target_junction": "J2",
+              "true_best_plan": 1,
+              "predicted_best_plan": 1,
+              "top1_correct": true,
+              "spearman": 0.39999999999999997
+            },
+            {
+              "snapshot_id": "medium_s4_t3300",
+              "target_junction": "J2",
+              "true_best_plan": 1,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": -0.39999999999999997
+            },
+            {
+              "snapshot_id": "medium_s4_t900",
+              "target_junction": "J2",
+              "true_best_plan": 3,
+              "predicted_best_plan": 1,
+              "top1_correct": false,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "peak_s4_t2100",
+              "target_junction": "J2",
+              "true_best_plan": 3,
+              "predicted_best_plan": 1,
+              "top1_correct": false,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "peak_s4_t3300",
+              "target_junction": "J2",
+              "true_best_plan": 1,
+              "predicted_best_plan": 1,
+              "top1_correct": true,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "peak_s4_t900",
+              "target_junction": "J2",
+              "true_best_plan": 1,
+              "predicted_best_plan": 1,
+              "top1_correct": true,
+              "spearman": 1.0
+            }
+          ]
+        }
+      },
+      "J3": {
+        "n": 60,
+        "mae": 2.876926504462938,
+        "rmse": 3.630080818235013,
+        "spearman": 0.5753744409924194,
+        "ranking": {
+          "per_snapshot_mean_spearman": 0.654775801423719,
+          "top1_correct": 8,
+          "top1_total": 15,
+          "top1_agreement": 0.5333333333333333,
+          "per_snapshot": [
+            {
+              "snapshot_id": "high_s4_t2100",
+              "target_junction": "J3",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "high_s4_t3300",
+              "target_junction": "J3",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "high_s4_t900",
+              "target_junction": "J3",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 1.0
+            },
+            {
+              "snapshot_id": "incident_s4_t2100",
+              "target_junction": "J3",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 1.0
+            },
+            {
+              "snapshot_id": "incident_s4_t3300",
+              "target_junction": "J3",
+              "true_best_plan": 0,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "incident_s4_t900",
+              "target_junction": "J3",
+              "true_best_plan": 0,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "low_s4_t2100",
+              "target_junction": "J3",
+              "true_best_plan": 0,
+              "predicted_best_plan": 1,
+              "top1_correct": false,
+              "spearman": -0.21081851067789195
+            },
+            {
+              "snapshot_id": "low_s4_t3300",
+              "target_junction": "J3",
+              "true_best_plan": 0,
+              "predicted_best_plan": 1,
+              "top1_correct": false,
+              "spearman": -0.19999999999999998
+            },
+            {
+              "snapshot_id": "low_s4_t900",
+              "target_junction": "J3",
+              "true_best_plan": 1,
+              "predicted_best_plan": 1,
+              "top1_correct": true,
+              "spearman": 0.632455532033676
+            },
+            {
+              "snapshot_id": "medium_s4_t2100",
+              "target_junction": "J3",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "medium_s4_t3300",
+              "target_junction": "J3",
+              "true_best_plan": 0,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": 0.6000000000000001
+            },
+            {
+              "snapshot_id": "medium_s4_t900",
+              "target_junction": "J3",
+              "true_best_plan": 3,
+              "predicted_best_plan": 1,
+              "top1_correct": false,
+              "spearman": 0.39999999999999997
+            },
+            {
+              "snapshot_id": "peak_s4_t2100",
+              "target_junction": "J3",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 1.0
+            },
+            {
+              "snapshot_id": "peak_s4_t3300",
+              "target_junction": "J3",
+              "true_best_plan": 0,
+              "predicted_best_plan": 3,
+              "top1_correct": false,
+              "spearman": 0.7999999999999999
+            },
+            {
+              "snapshot_id": "peak_s4_t900",
+              "target_junction": "J3",
+              "true_best_plan": 3,
+              "predicted_best_plan": 3,
+              "top1_correct": true,
+              "spearman": 0.7999999999999999
+            }
+          ]
+        }
+      }
+    }
+  },
+  "elapsed_s": 163.66,
+  "artifacts": {
+    "rollouts": "data\\rollouts_s1_v2.csv",
+    "features": "data\\features_s1_v2.csv",
+    "model": "models\\cost_model_s1_v2.pkl",
+    "params": "models\\cost_model_s1_v2.json"
+  }
+}

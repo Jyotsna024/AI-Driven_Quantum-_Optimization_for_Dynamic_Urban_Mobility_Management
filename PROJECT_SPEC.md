@@ -278,3 +278,16 @@ Plans are defined over each junction's ACTUAL SUMO phases from netconvert.
 ---
 *Last updated: Phase 3 complete*
 
+## AUDITED REBUILD STATUS — 2026-11-12
+
+### S1 Cost Model Rebuild (versioned artifacts; legacy files preserved)
+- **Status**: IMPLEMENTED, EXECUTED, AND TESTED. This is the audited S1 rebuild; the legacy Phase 4 checklist above still has open items for joint-plan rollouts and the Webster/HCM model.
+- Selected 45 saved states across all five scenarios: train seeds 0–2, validation seed 3, and held-out test seed 4. Each state was replayed for all four plans at each of J0–J3 (720 interventions total). Only the target TLS received the candidate plan; the other three used baseline plan 0.
+- Recorded 2,880 junction-level outcome rows with `snapshot_id`, `target_junction`, `applied_plan_id`, `measured_junction`, `seed`, and `scenario`. The Ridge training table uses only rows where `measured_junction == target_junction`.
+- Predictors use pre-decision telemetry at snapshot time and genuine ST-GNN H1–H3 queue forecasts constructed from the preceding three intervals. Rollout delay, queue, and throughput are labels/diagnostics only. Scaling and model fitting use train seeds; alpha is selected on validation seed 3; seed 4 remains held out.
+- Held-out test: MAE 6.211 s, RMSE 9.087 s, pooled Spearman 0.6775, top-1 plan agreement 23/60 (38.3%; uniform four-plan chance is 25%). Per-junction top-1: J0 4/15, J1 4/15, J2 7/15, J3 8/15. The test set contains 15 independent snapshot states (three per scenario) and should be treated as an initial held-out result, not broad statistical proof.
+- Validation-selected Ridge alpha: 1.0. Validation top-1: 34/60 (56.7%). The validation result was used for model selection; test metrics were not used to choose alpha.
+- Read-only S1 artifact suite: 5/5 passed (`logs/pytest_s1_v2.txt`). SUMO execution summary: `logs/s1_rebuild_v2_summary.txt`.
+- New artifacts: `scripts/rebuild_s1_cost_model.py`, `data/rollouts_s1_v2.csv`, `data/features_s1_v2.csv`, `models/cost_model_s1_v2.pkl`, `models/cost_model_s1_v2.json`, `results/cost_model_metrics_s1_v2.json`, and `tests/test_s1_rebuild.py`.
+- Previous S1/S2/S3 outputs were copied to `results/archive_pre_repair_20261112/`; original files and commits remain intact.
+
