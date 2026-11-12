@@ -1,0 +1,513 @@
+{
+  "status": "SCIENTIFIC_NOT_VALIDATED",
+  "tuned_on_test": false,
+  "data": "Frozen S2 v3 QUBO, held-out joint SUMO grid, S1 v2 cost model and held-out single-plan rollouts.",
+  "decomposition": "baseline + S1-predicted local increments + train-mean pair terms; residual decomposed against observed single and pair system effects into baseline mismatch, main-effect error, pair-effect error, and higher-order residual.",
+  "states": {
+    "high_s3_t2100": {
+      "scenario": "high",
+      "split": "val",
+      "seed": 3,
+      "n_plan_vectors": 256,
+      "actual_joint_vs_additive": {
+        "n": 256,
+        "mae_s": 14.186733373841296,
+        "rmse_s": 15.870631493315422,
+        "spearman": 0.8596131837949186
+      },
+      "actual_joint_vs_full_qubo": {
+        "n": 256,
+        "mae_s": 14.196947560810331,
+        "rmse_s": 15.921040756782032,
+        "spearman": 0.8493033302815287
+      },
+      "additive_spearman": 0.8596131837949186,
+      "qubo_spearman": 0.8493033302815287,
+      "additive_best_vector": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "qubo_best_vector": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "sumo_best_vector": [
+        3,
+        3,
+        3,
+        0
+      ],
+      "additive_regret_s": 0.7607541581225803,
+      "qubo_regret_s": 0.7607541581225803,
+      "actual_system_baseline_s": 85.19203112758046,
+      "qubo_baseline_prediction_s": 96.21946260466608,
+      "baseline_mismatch_s": 11.027431477085614,
+      "main_effect_error": {
+        "n": 256,
+        "mae_s": 7.929249973583807,
+        "rmse_s": 9.790876198304755,
+        "spearman": null
+      },
+      "trained_pair_vs_measured_pair": {
+        "n": 256,
+        "mae_s": 3.0480727375015153,
+        "rmse_s": 4.306366665737126,
+        "spearman": -0.5131816469858411
+      },
+      "pair_error_rmse_s": 4.306366665737126,
+      "higher_order_residual": {
+        "mean_s": 0.35924869182959895,
+        "mae_s": 1.7337296588483202,
+        "rmse_s": 2.711501111552015,
+        "max_abs_s": 11.75040377872216
+      }
+    },
+    "incident_s3_t2100": {
+      "scenario": "incident",
+      "split": "val",
+      "seed": 3,
+      "n_plan_vectors": 256,
+      "actual_joint_vs_additive": {
+        "n": 256,
+        "mae_s": 16.120312496398917,
+        "rmse_s": 22.577577902475696,
+        "spearman": -0.19552815289539938
+      },
+      "actual_joint_vs_full_qubo": {
+        "n": 256,
+        "mae_s": 15.928540276758483,
+        "rmse_s": 22.488259331959362,
+        "spearman": -0.1719636930647745
+      },
+      "additive_spearman": -0.19552815289539938,
+      "qubo_spearman": -0.1719636930647745,
+      "additive_best_vector": [
+        3,
+        3,
+        1,
+        3
+      ],
+      "qubo_best_vector": [
+        3,
+        3,
+        1,
+        3
+      ],
+      "sumo_best_vector": [
+        2,
+        3,
+        3,
+        0
+      ],
+      "additive_regret_s": 31.501141386229115,
+      "qubo_regret_s": 31.501141386229115,
+      "actual_system_baseline_s": 77.86077075098812,
+      "qubo_baseline_prediction_s": 72.94770745777436,
+      "baseline_mismatch_s": -4.913063293213767,
+      "main_effect_error": {
+        "n": 256,
+        "mae_s": 13.856037855371081,
+        "rmse_s": 20.41908258844583,
+        "spearman": null
+      },
+      "trained_pair_vs_measured_pair": {
+        "n": 256,
+        "mae_s": 2.7659783521849723,
+        "rmse_s": 4.327934588834389,
+        "spearman": 0.08809368154193074
+      },
+      "pair_error_rmse_s": 4.327934588834389,
+      "higher_order_residual": {
+        "mean_s": 0.7221408611866309,
+        "mae_s": 1.0471736860636884,
+        "rmse_s": 2.2207746071629204,
+        "max_abs_s": 7.170212972645459
+      }
+    },
+    "incident_s4_t2100": {
+      "scenario": "incident",
+      "split": "test",
+      "seed": 4,
+      "n_plan_vectors": 256,
+      "actual_joint_vs_additive": {
+        "n": 256,
+        "mae_s": 12.979324255428956,
+        "rmse_s": 13.770003759373164,
+        "spearman": 0.009505893797207598
+      },
+      "actual_joint_vs_full_qubo": {
+        "n": 256,
+        "mae_s": 13.17808161598429,
+        "rmse_s": 13.971593879533073,
+        "spearman": -0.0006687743190661478
+      },
+      "additive_spearman": 0.009505893797207598,
+      "qubo_spearman": -0.0006687743190661478,
+      "additive_best_vector": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "qubo_best_vector": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "sumo_best_vector": [
+        1,
+        0,
+        3,
+        3
+      ],
+      "additive_regret_s": 15.75858585858586,
+      "qubo_regret_s": 15.75858585858586,
+      "actual_system_baseline_s": 59.59906379024026,
+      "qubo_baseline_prediction_s": 70.20836307254946,
+      "baseline_mismatch_s": 10.609299282309202,
+      "main_effect_error": {
+        "n": 256,
+        "mae_s": 9.203395660561767,
+        "rmse_s": 13.111155694861592,
+        "spearman": null
+      },
+      "trained_pair_vs_measured_pair": {
+        "n": 256,
+        "mae_s": 0.5593112334778121,
+        "rmse_s": 0.809214934855684,
+        "spearman": 0.12147641045807173
+      },
+      "pair_error_rmse_s": 0.809214934855684,
+      "higher_order_residual": {
+        "mean_s": 0.1383404319816032,
+        "mae_s": 0.17876391808543143,
+        "rmse_s": 0.30650891854669937,
+        "max_abs_s": 1.2810735560735722
+      }
+    },
+    "peak_s4_t2100": {
+      "scenario": "peak",
+      "split": "test",
+      "seed": 4,
+      "n_plan_vectors": 256,
+      "actual_joint_vs_additive": {
+        "n": 256,
+        "mae_s": 22.15951874364,
+        "rmse_s": 24.013991545169862,
+        "spearman": 0.3244871538109407
+      },
+      "actual_joint_vs_full_qubo": {
+        "n": 256,
+        "mae_s": 22.31598145886128,
+        "rmse_s": 24.235150676098975,
+        "spearman": 0.32019340810254054
+      },
+      "additive_spearman": 0.3244871538109407,
+      "qubo_spearman": 0.32019340810254054,
+      "additive_best_vector": [
+        3,
+        3,
+        1,
+        3
+      ],
+      "qubo_best_vector": [
+        3,
+        3,
+        1,
+        3
+      ],
+      "sumo_best_vector": [
+        3,
+        0,
+        3,
+        3
+      ],
+      "additive_regret_s": 3.283858945073021,
+      "qubo_regret_s": 3.283858945073021,
+      "actual_system_baseline_s": 61.075884860753284,
+      "qubo_baseline_prediction_s": 89.9390721671345,
+      "baseline_mismatch_s": 28.863187306381214,
+      "main_effect_error": {
+        "n": 256,
+        "mae_s": 15.710655758840835,
+        "rmse_s": 19.545028433694068,
+        "spearman": null
+      },
+      "trained_pair_vs_measured_pair": {
+        "n": 256,
+        "mae_s": 9.614056997335709,
+        "rmse_s": 14.981041502703052,
+        "spearman": 0.03371130118965109
+      },
+      "pair_error_rmse_s": 14.981041502703052,
+      "higher_order_residual": {
+        "mean_s": 1.4423206837925227,
+        "mae_s": 3.210124665474333,
+        "rmse_s": 7.236102712618327,
+        "max_abs_s": 21.714010137036468
+      }
+    }
+  },
+  "validation_mean_qubo_spearman": 0.3386698186083771,
+  "test_mean_qubo_spearman": 0.1597623168917372,
+  "validation_mean_qubo_regret_s": 16.130947772175848,
+  "test_mean_qubo_regret_s": 9.52122240182944,
+  "individual_cost_error_by_junction": {
+    "J0": {
+      "n": 16,
+      "mae_s": 12.089026299144123,
+      "rmse_s": 15.50144814409324,
+      "spearman": -0.11176470588235293
+    },
+    "J1": {
+      "n": 16,
+      "mae_s": 3.8965886150982407,
+      "rmse_s": 4.89439269123507,
+      "spearman": 0.4058823529411764
+    },
+    "J2": {
+      "n": 16,
+      "mae_s": 6.355937418363317,
+      "rmse_s": 7.378471904416976,
+      "spearman": 0.5352941176470588
+    },
+    "J3": {
+      "n": 16,
+      "mae_s": 4.6605865331672325,
+      "rmse_s": 5.288633573669723,
+      "spearman": 0.8088235294117646
+    }
+  },
+  "individual_cost_error_by_scenario_and_junction": {
+    "high|J0": {
+      "n": 4,
+      "mae_s": 5.418171255168734,
+      "rmse_s": 5.470667448536145,
+      "spearman": 0.7999999999999999
+    },
+    "high|J1": {
+      "n": 4,
+      "mae_s": 5.087509129379651,
+      "rmse_s": 5.26051328688469,
+      "spearman": 1.0
+    },
+    "high|J2": {
+      "n": 4,
+      "mae_s": 9.40035057927757,
+      "rmse_s": 9.488708474124477,
+      "spearman": 0.7999999999999999
+    },
+    "high|J3": {
+      "n": 4,
+      "mae_s": 5.967279761739505,
+      "rmse_s": 6.0125692492274165,
+      "spearman": 1.0
+    },
+    "incident|J0": {
+      "n": 8,
+      "mae_s": 14.712360825754258,
+      "rmse_s": 18.67923651234707,
+      "spearman": -0.8333333333333335
+    },
+    "incident|J1": {
+      "n": 8,
+      "mae_s": 1.5103326475480743,
+      "rmse_s": 1.7917857227970462,
+      "spearman": 0.6666666666666669
+    },
+    "incident|J2": {
+      "n": 8,
+      "mae_s": 6.560479801503944,
+      "rmse_s": 7.650972863237196,
+      "spearman": 0.8333333333333335
+    },
+    "incident|J3": {
+      "n": 8,
+      "mae_s": 2.79200915143849,
+      "rmse_s": 3.5355745429972423,
+      "spearman": 0.523809523809524
+    },
+    "peak|J0": {
+      "n": 4,
+      "mae_s": 13.513212289899244,
+      "rmse_s": 15.278207439198296,
+      "spearman": -0.39999999999999997
+    },
+    "peak|J1": {
+      "n": 4,
+      "mae_s": 7.478180035917165,
+      "rmse_s": 7.856610405876828,
+      "spearman": 0.6000000000000001
+    },
+    "peak|J2": {
+      "n": 4,
+      "mae_s": 2.9024394911678124,
+      "rmse_s": 3.2645107691930058,
+      "spearman": 0.7999999999999999
+    },
+    "peak|J3": {
+      "n": 4,
+      "mae_s": 7.091048068052443,
+      "rmse_s": 7.122290125461816,
+      "spearman": 1.0
+    }
+  },
+  "joint_objective_by_scenario": {
+    "high": {
+      "n_state_vectors": 256,
+      "actual_joint_vs_additive": {
+        "n": 256,
+        "mae_s": 14.186733373841296,
+        "rmse_s": 15.870631493315422,
+        "spearman": 0.8596131837949186
+      },
+      "actual_joint_vs_qubo": {
+        "n": 256,
+        "mae_s": 14.196947560810331,
+        "rmse_s": 15.921040756782032,
+        "spearman": 0.8493033302815287
+      },
+      "additive_spearman": 0.8596131837949186,
+      "qubo_spearman": 0.8493033302815287,
+      "mean_qubo_regret_s": 0.7607541581225803
+    },
+    "incident": {
+      "n_state_vectors": 512,
+      "actual_joint_vs_additive": {
+        "n": 512,
+        "mae_s": 14.549818375913937,
+        "rmse_s": 18.69973298573418,
+        "spearman": 0.09075628569139745
+      },
+      "actual_joint_vs_qubo": {
+        "n": 512,
+        "mae_s": 14.553310946371386,
+        "rmse_s": 18.720673643275546,
+        "spearman": 0.09165706432176332
+      },
+      "additive_spearman": 0.09075628569139745,
+      "qubo_spearman": 0.09165706432176332,
+      "mean_qubo_regret_s": 23.629863622407488
+    },
+    "peak": {
+      "n_state_vectors": 256,
+      "actual_joint_vs_additive": {
+        "n": 256,
+        "mae_s": 22.15951874364,
+        "rmse_s": 24.013991545169862,
+        "spearman": 0.3244871538109407
+      },
+      "actual_joint_vs_qubo": {
+        "n": 256,
+        "mae_s": 22.31598145886128,
+        "rmse_s": 24.235150676098975,
+        "spearman": 0.32019340810254054
+      },
+      "additive_spearman": 0.3244871538109407,
+      "qubo_spearman": 0.32019340810254054,
+      "mean_qubo_regret_s": 3.283858945073021
+    }
+  },
+  "system_increment_component_by_scenario_and_junction": {
+    "high": {
+      "J0": {
+        "n": 4,
+        "increment_mae_s": 3.9046602853494914,
+        "increment_rmse_s": 6.090245127202925,
+        "predicted_mean_increment_s": -2.541552133886144,
+        "actual_mean_system_increment_s": -6.446212419235636
+      },
+      "J1": {
+        "n": 4,
+        "increment_mae_s": 1.975288121461781,
+        "increment_rmse_s": 2.3689035903915685,
+        "predicted_mean_increment_s": 1.8476471608225404,
+        "actual_mean_system_increment_s": -0.12764096063924057
+      },
+      "J2": {
+        "n": 4,
+        "increment_mae_s": 5.143945768251492,
+        "increment_rmse_s": 9.152119121564786,
+        "predicted_mean_increment_s": -0.08097764421075038,
+        "actual_mean_system_increment_s": 3.8867530407317545
+      },
+      "J3": {
+        "n": 4,
+        "increment_mae_s": 1.2562616371750188,
+        "increment_rmse_s": 1.4804410216053054,
+        "predicted_mean_increment_s": 0.4924638731035067,
+        "actual_mean_system_increment_s": 0.9003875985772076
+      }
+    },
+    "incident": {
+      "J0": {
+        "n": 8,
+        "increment_mae_s": 10.180338817926025,
+        "increment_rmse_s": 16.63327024436399,
+        "predicted_mean_increment_s": -2.432226191330154,
+        "actual_mean_system_increment_s": 5.679874987800723
+      },
+      "J1": {
+        "n": 8,
+        "increment_mae_s": 1.432425236844718,
+        "increment_rmse_s": 1.9912209103183436,
+        "predicted_mean_increment_s": 1.8888453097674218,
+        "actual_mean_system_increment_s": 3.013364968867694
+      },
+      "J2": {
+        "n": 8,
+        "increment_mae_s": 3.4494140235092408,
+        "increment_rmse_s": 4.59999763734957,
+        "predicted_mean_increment_s": -0.7558547823767785,
+        "actual_mean_system_increment_s": -3.1415551739367418
+      },
+      "J3": {
+        "n": 8,
+        "increment_mae_s": 0.9670143415637089,
+        "increment_rmse_s": 1.408885987805167,
+        "predicted_mean_increment_s": 0.48959771473016267,
+        "actual_mean_system_increment_s": 1.405506308029227
+      }
+    },
+    "peak": {
+      "J0": {
+        "n": 4,
+        "increment_mae_s": 4.967357274076266,
+        "increment_rmse_s": 7.935335653674622,
+        "predicted_mean_increment_s": -2.7969627181253527,
+        "actual_mean_system_increment_s": 0.9252709279025098
+      },
+      "J1": {
+        "n": 4,
+        "increment_mae_s": 1.7535517797114748,
+        "increment_rmse_s": 2.6159022564400933,
+        "predicted_mean_increment_s": 1.644506185182471,
+        "actual_mean_system_increment_s": 2.6553336709586723
+      },
+      "J2": {
+        "n": 4,
+        "increment_mae_s": 11.693189598026569,
+        "increment_rmse_s": 15.219828351802251,
+        "predicted_mean_increment_s": -0.2037164125334936,
+        "actual_mean_system_increment_s": 9.40037673907351
+      },
+      "J3": {
+        "n": 4,
+        "increment_mae_s": 0.6532512001514013,
+        "increment_rmse_s": 0.919455919922672,
+        "predicted_mean_increment_s": 0.2858382463897646,
+        "actual_mean_system_increment_s": -0.36741295376163663
+      }
+    }
+  },
+  "conclusion": "The frozen QUBO does not preserve held-out SUMO ranking consistently. Investigate main-effect scale/spillover and omitted higher-order effects; pair-error and higher-order residuals are quantified per state. No test-data tuning was performed. S2 remains scientifically NOT VALIDATED; stop tuning.",
+  "outputs": {
+    "plan_table": "results\\s2_plan_diagnostics_v3.csv",
+    "report": "results\\s2_diagnostic_v3.md"
+  }
+}
