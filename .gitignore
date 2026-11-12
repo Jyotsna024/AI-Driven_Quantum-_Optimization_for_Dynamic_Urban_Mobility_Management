@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mplconfig/
+
+# Superseded copies of Phase 2 data; current data is in data/raw and data/states.
+data/archive/
+data/raw_archive_phase2_v1/
+data/states_archive_phase2_v1/
+
+# Local run logs and temporary outputs
+logs/*
+*.tmp

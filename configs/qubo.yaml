@@ -1,0 +1,34 @@
+qubo:
+  n_junctions: 4
+  n_plans: 4            # K
+  n_variables: 16       # N*K
+
+  # Penalty coefficient A: must be large enough that
+  # violating the one-hot constraint costs more than any valid solution difference.
+  # Tuned in Phase 5; initial guess:
+  penalty_A: 50.0
+
+  # Solver settings
+  sa:
+    num_reads: 100
+    num_sweeps: 1000
+    beta_range: [0.1, 10.0]
+    seed: 42
+
+  qaoa:
+    p_depth: 2            # QAOA circuit depth (layers)
+    shots: 1024
+    optimizer: "COBYLA"
+    max_iter: 100
+    seed: 42
+    max_qubits_statevector: 20   # fall back to sub-instance if >20 qubits
+
+  exact:
+    enabled: true         # always run ExactSolver as reference on 16 vars
+
+  dwave_hybrid:
+    enabled: false        # auto-enabled if DWAVE_API_TOKEN env var is set
+    time_limit_s: 3
+
+  ibm_quantum:
+    enabled: false        # auto-enabled if IBMQ token is set

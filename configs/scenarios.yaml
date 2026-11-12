@@ -1,0 +1,53 @@
+simulation:
+  control_interval_s: 60
+  duration_s: 3600
+  warmup_s: 300
+  smoke_duration_s: 600
+  snapshot_interval_s: 300
+  snapshot_start_s: 600
+
+fleet:
+  car_fraction: 0.50
+  motorcycle_fraction: 0.35
+  auto_rickshaw_fraction: 0.15
+
+scenarios:
+  low:
+    description: "Low demand – free flow off-peak"
+    flow_veh_per_hour: 1200
+    flow_per_junction_veh_per_hour: 300
+    incident: false
+
+  medium:
+    description: "Medium demand – regular midday traffic"
+    flow_veh_per_hour: 2600
+    flow_per_junction_veh_per_hour: 650
+    incident: false
+
+  high:
+    description: "High demand – evening ramp-up"
+    flow_veh_per_hour: 4000
+    flow_per_junction_veh_per_hour: 1000
+    incident: false
+
+  peak:
+    description: "Peak rush hour – near saturation without gridlock"
+    flow_veh_per_hour: 5600
+    flow_per_junction_veh_per_hour: 1400
+    incident: false
+
+  incident:
+    description: "Incident bottleneck – lane closure on 14th Main approach"
+    flow_veh_per_hour: 3400
+    flow_per_junction_veh_per_hour: 850
+    incident: true
+    blocked_edge: "24480656#3"
+    blocked_lane: "24480656#3_0"
+    affected_junction: "GS_cluster_6633301856_7432359269_7432359283_7432359284"
+    incident_start_s: 1200
+    incident_end_s: 1800
+
+seeds:
+  train: [0, 1, 2]
+  val: [3]
+  test: [4]

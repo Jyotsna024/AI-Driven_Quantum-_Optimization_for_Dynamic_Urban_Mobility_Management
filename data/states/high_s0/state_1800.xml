@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2026-11-12T12:25:04.680222+05:30 by Eclipse SUMO sumo 1.28.0
+<sumoConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="C:\Users\Jyotsna\Desktop\Capstone\sumo_files\hsr.net.xml"/>
+        <route-files value="C:\Users\Jyotsna\Desktop\Capstone\sumo_files\routes\high_s0.rou.xml"/>
+    </input>
+
+    <processing>
+        <time-to-teleport value="300"/>
+    </processing>
+
+    <report>
+        <no-warnings value="true"/>
+        <no-step-log value="true"/>
+    </report>
+
+    <traci_server>
+        <remote-port value="57403"/>
+    </traci_server>
+
+    <random_number>
+        <seed value="100"/>
+    </random_number>
+
+</sumoConfiguration>
+-->
+
+<snapshot type="micro" version="1.28.0" time="1800.00" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/state_file.xsd">
+    <route id="r_J0_0" state="1" edges="1387946771#0 1374007778"/>
+    <route id="r_J0_1" state="1" edges="1387946771#0 755390844"/>
+    <route id="r_J0_2" state="1" edges="1473496401 1509685700"/>
+    <route id="r_J0_3" state="1" edges="1473496401 755390846#0"/>
+    <route id="r_J0_4" state="1" edges="1509685699 1374007778"/>
+    <route id="r_J0_5" state="1" edges="1509685699 755390844"/>
+    <route id="r_J0_6" state="1" edges="755390844 1509685700"/>
+    <route id="r_J0_7" state="1" edges="755390844 755390846#0"/>
+    <route id="r_J1_0" state="1" edges="24480656#3 1055330320#0"/>
+    <route id="r_J1_1" state="1" edges="24480656#3 1055330322#0"/>
+    <route id="r_J1_10" state="1" edges="794634832#0 1055330322#0"/>
+    <route id="r_J1_11" state="1" edges="794634832#0 1055330327#0"/>
+    <route id="r_J1_2" state="1" edges="24480656#3 1055330325#0"/>
+    <route id="r_J1_3" state="1" edges="631316440#0 1055330322#0"/>
+    <route id="r_J1_4" state="1" edges="631316440#0 1055330325#0"/>
+    <route id="r_J1_5" state="1" edges="631316440#0 1055330327#0"/>
+    <route id="r_J1_6" state="1" edges="794634831#1 1055330320#0"/>
+    <route id="r_J1_7" state="1" edges="794634831#1 1055330325#0"/>
+    <route id="r_J1_8" state="1" edges="794634831#1 1055330327#0"/>
+    <route id="r_J1_9" state="1" edges="794634832#0 1055330320#0"/>
+    <route id="r_J2_0" state="1" edges="1055330325#6 1110166140"/>
+    <route id="r_J2_1" state="1" edges="1055330325#6 1206400804#1"/>
+    <route id="r_J2_10" state="1" edges="1473869989 316018413#0"/>
+    <route id="r_J2_11" state="1" edges="1473869989 794634829#0"/>
+    <route id="r_J2_2" state="1" edges="1055330325#6 316018413#0"/>
+    <route id="r_J2_3" state="1" edges="1110166139 1110166140"/>
+    <route id="r_J2_4" state="1" edges="1110166139 1206400804#1"/>
+    <route id="r_J2_5" state="1" edges="1110166139 794634829#0"/>
+    <route id="r_J2_6" state="1" edges="1206400802#2 1110166140"/>
+    <route id="r_J2_7" state="1" edges="1206400802#2 316018413#0"/>
+    <route id="r_J2_8" state="1" edges="1206400802#2 794634829#0"/>
+    <route id="r_J2_9" state="1" edges="1473869989 1206400804#1"/>
+    <route id="r_J3_0" state="1" edges="1434254320#1 631197942#0"/>
+    <route id="r_J3_1" state="1" edges="1434254320#1 839092205"/>
+    <route id="r_J3_2" state="1" edges="1434254320#1 839092211#1"/>
+    <route id="r_J3_3" state="1" edges="151676283#1 839092205"/>
+    <route id="r_J3_4" state="1" edges="151676283#1 839092211#1"/>
+    <route id="r_J3_5" state="1" edges="610166550#13 631197942#0"/>
+    <route id="r_J3_6" state="1" edges="610166550#13 839092205"/>
+    <delay number="56" begin="1999" end="1892" depart="24322.00" time="122672.00" speedFactor="1.38" decel="3.50" loaderTime="1812000"/>
+    <vType id="auto_rickshaw" length="2.80" maxSpeed="10.00" vClass="taxi" accel="1.8" decel="3.5" sigma="0.5"/>
+    <vType id="car" length="4.50" maxSpeed="14.00" vClass="passenger" accel="2.6" decel="4.5" sigma="0.5"/>
+    <vType id="motorcycle" length="2.20" maxSpeed="14.00" vClass="motorcycle" accel="3.0" decel="5.0" sigma="0.5"/>
+    <vehicle id="veh_1370_1221" type="motorcycle" depart="1221.00" departLane="best" departSpeed="max" route="r_J0_5" distance="0 0" speedFactor="1.0122" state="2070 1642000 0 2.30 152000 156.48 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="9.59 7.39 0.00" speed="0.00 0.00" angle="178.38" posLat="0.00" waitingTime="100000 1 0 152000" lcStateBase="9.00" lcState2="0 0 0 2 0"/>
+    <vehicle id="veh_1382_1232" type="car" depart="1232.00" departLane="best" departSpeed="max" route="r_J0_5" distance="0 0" speedFactor="0.9581" state="2070 1647000 0 4.60 151000 151.98 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="4.89 0.39 0.00" speed="0.00 0.00" angle="178.38" posLat="0.00" waitingTime="100000 1 0 151000" lcStateBase="9.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1383_1233" type="motorcycle" depart="1233.00" departLane="best" departSpeed="max" route="r_J0_5" distance="0 0" speedFactor="1.1357" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="2.30 0.10 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1429_1283" type="car" depart="1283.00" departLane="best" departSpeed="max" route="r_J0_5" distance="0 0" speedFactor="1.1304" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1447_1302" type="car" depart="1302.00" departLane="best" departSpeed="max" route="r_J0_5" distance="0 0" speedFactor="0.9467" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1453_1308" type="car" depart="1308.00" departLane="best" departSpeed="max" route="r_J0_5" distance="0 0" speedFactor="1.0744" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1478_1330" type="car" depart="1330.00" departLane="best" departSpeed="max" route="r_J0_5" distance="0 0" speedFactor="0.9214" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1518_1353" type="car" depart="1353.00" departLane="best" departSpeed="max" route="r_J0_5" distance="0 0" speedFactor="0.9858" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1551_1385" type="motorcycle" depart="1385.00" departLane="best" departSpeed="max" route="r_J2_1" distance="0 0" speedFactor="1.1007" state="2070 1385000 0 2.30 35000 397.25 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="236.73 234.53 0.00" speed="0.00 0.00" angle="95.16" posLat="0.00" waitingTime="100000 2 0 35000 40000 118000" lcStateBase="12297.00" lcState2="0 0 0 1418359 0"/>
+    <vehicle id="veh_1552_1387" type="car" depart="1387.00" departLane="best" departSpeed="max" route="r_J0_5" distance="0 0" speedFactor="1.0409" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1560_1394" type="car" depart="1394.00" departLane="best" departSpeed="max" route="r_J0_5" distance="0 0" speedFactor="0.8873" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1563_1397" type="auto_rickshaw" depart="1397.00" departLane="best" departSpeed="max" route="r_J2_1" distance="0 0" speedFactor="0.9700" state="2070 1397000 0 2.90 33000 379.09 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="232.03 229.23 0.00" speed="0.00 0.00" angle="95.16" posLat="0.00" waitingTime="100000 2 0 33000 39000 117000" lcStateBase="14345.00" lcState2="0 0 0 1301003 0"/>
+    <vehicle id="veh_1594_1429" type="car" depart="1429.00" departLane="best" departSpeed="max" route="r_J2_1" distance="0 0" speedFactor="1.0434" state="2070 1429000 0 4.60 31000 354.13 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="226.73 222.23 0.00" speed="0.00 0.00" angle="90.34" posLat="0.00" waitingTime="100000 2 0 31000 38000 116000" lcStateBase="14345.00" lcState2="0 0 0 1465401 0"/>
+    <vehicle id="veh_1644_1477" type="motorcycle" depart="1477.00" departLane="best" departSpeed="max" route="r_J0_5" distance="0 0" speedFactor="1.0860" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1651_1481" type="motorcycle" depart="1481.00" departLane="best" departSpeed="max" route="r_J0_5" distance="0 0" speedFactor="1.0116" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1671_1499" type="motorcycle" depart="1499.00" departLane="best" departSpeed="max" route="r_J2_2" distance="0 0" speedFactor="0.9464" state="2070 1499000 0 2.30 36000 283.27 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="236.47 234.27 0.00" speed="0.00 0.00" angle="95.10" posLat="0.00" waitingTime="100000 3 0 36000 40000 67000 72000 117000" lcStateBase="9728.00" lcState2="0 0 0 834298 0"/>
+    <vehicle id="veh_1682_1513" type="car" depart="1513.00" departLane="best" departSpeed="max" route="r_J0_5" distance="0 0" speedFactor="1.0058" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1698_1537" type="motorcycle" depart="1537.00" departLane="best" departSpeed="max" route="r_J0_5" distance="0 0" speedFactor="1.0971" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1703_1543" type="car" depart="1543.00" departLane="best" departSpeed="max" route="r_J2_2" distance="0 0" speedFactor="1.1838" state="2070 1543000 0 4.60 32000 239.77 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="231.77 227.27 0.00" speed="0.00 0.00" angle="93.35" posLat="0.00" waitingTime="100000 3 0 32000 39000 66000 71000 114000" lcStateBase="9728.00" lcState2="0 0 0 816077 0"/>
+    <vehicle id="veh_1710_1550" type="auto_rickshaw" depart="1550.00" departLane="best" departSpeed="max" route="r_J2_5" distance="0 0" speedFactor="1.0081" state="2070 1759000 0 2.90 40000 40.00 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="2.90 0.10 0.00" speed="0.00 0.00" angle="255.60" posLat="0.00" waitingTime="100000 1 0 40000" lcStateBase="8704.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1716_1557" type="auto_rickshaw" depart="1557.00" departLane="best" departSpeed="max" route="r_J2_2" distance="0 0" speedFactor="1.0316" state="2070 1557000 0 2.90 28000 220.32 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="219.73 216.93 0.00" speed="0.00 0.00" angle="90.34" posLat="0.00" waitingTime="100000 2 0 28000 37000 115000" lcStateBase="14336.00" lcState2="0 -1673789 -18348294 1565534 0"/>
+    <vehicle id="veh_1717_1557" type="car" depart="1557.00" departLane="best" departSpeed="max" route="r_J2_3" distance="0 0" speedFactor="1.0921" state="2070 1764000 0 3.79 35000 35.00 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="3.79 0.24 0.00" speed="0.00 0.00" angle="255.98" posLat="0.00" waitingTime="100000 1 0 35000" lcStateBase="12297.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1730_1565" type="auto_rickshaw" depart="1565.00" departLane="best" departSpeed="max" route="r_J2_3" distance="0 0" speedFactor="1.0471" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="2.90 0.10 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1732_1566" type="car" depart="1566.00" departLane="best" departSpeed="max" route="r_J2_3" distance="0 0" speedFactor="0.8810" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1735_1568" type="car" depart="1568.00" departLane="best" departSpeed="max" route="r_J2_3" distance="0 0" speedFactor="0.9185" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1745_1578" type="car" depart="1578.00" departLane="best" departSpeed="max" route="r_J2_3" distance="0 0" speedFactor="0.9835" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1747_1582" type="auto_rickshaw" depart="1582.00" departLane="best" departSpeed="max" route="r_J2_4" distance="0 0" speedFactor="0.9925" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="2.90 0.10 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1763_1598" type="car" depart="1598.00" departLane="best" departSpeed="max" route="r_J2_5" distance="0 0" speedFactor="1.0462" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1769_1602" type="auto_rickshaw" depart="1602.00" departLane="best" departSpeed="max" route="r_J2_0" distance="0 0" speedFactor="0.8563" state="2070 1602000 0 2.90 31000 174.81 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="224.77 221.97 0.00" speed="0.00 0.00" angle="90.34" posLat="0.00" waitingTime="100000 3 0 31000 38000 65000 70000 113000" lcStateBase="9737.00" lcState2="0 0 0 949093 0"/>
+    <vehicle id="veh_1783_1618" type="motorcycle" depart="1618.00" departLane="best" departSpeed="max" route="r_J0_5" distance="0 0" speedFactor="0.8236" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1785_1620" type="car" depart="1620.00" departLane="best" departSpeed="max" route="r_J0_5" distance="0 0" speedFactor="1.1224" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1786_1620" type="motorcycle" depart="1620.00" departLane="best" departSpeed="max" route="r_J2_5" distance="0 0" speedFactor="1.0632" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1799_1632" type="car" depart="1632.00" departLane="best" departSpeed="max" route="r_J2_3" distance="0 0" speedFactor="0.9205" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1802_1634" type="car" depart="1634.00" departLane="best" departSpeed="max" route="r_J2_5" distance="0 0" speedFactor="0.9627" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1804_1635" type="motorcycle" depart="1635.00" departLane="best" departSpeed="max" route="r_J2_5" distance="0 0" speedFactor="1.0468" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1811_1640" type="motorcycle" depart="1640.00" departLane="best" departSpeed="max" route="r_J2_3" distance="0 0" speedFactor="0.9891" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1814_1641" type="auto_rickshaw" depart="1641.00" departLane="best" departSpeed="max" route="r_J3_4" distance="1082.99 0" speedFactor="1.0570" state="2070 1641000 1 2.90 0 9.04 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="404.38 401.58 9.11" speed="9.11 9.79" angle="191.83" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 97757715 0"/>
+    <vehicle id="veh_1821_1646" type="car" depart="1646.00" departLane="best" departSpeed="max" route="r_J2_1" distance="0 0" speedFactor="0.9469" state="2070 1646000 0 4.60 26000 138.01 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="214.43 209.93 0.00" speed="0.00 0.00" angle="90.34" posLat="0.00" waitingTime="100000 2 0 26000 36000 113000" lcStateBase="14345.00" lcState2="0 0 0 1630807 0"/>
+    <vehicle id="veh_1838_1662" type="car" depart="1662.00" departLane="best" departSpeed="max" route="r_J0_5" distance="0 0" speedFactor="0.9787" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1849_1669" type="car" depart="1669.00" departLane="best" departSpeed="max" route="r_J2_3" distance="0 0" speedFactor="0.8785" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1853_1675" type="auto_rickshaw" depart="1675.00" departLane="best" departSpeed="max" route="r_J2_1" distance="0 0" speedFactor="1.0955" state="2070 1675000 0 2.90 25000 103.55 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="207.43 204.63 0.00" speed="0.00 0.00" angle="90.34" posLat="0.00" waitingTime="100000 2 0 25000 35000 101000" lcStateBase="14345.00" lcState2="0 0 0 1914521 0"/>
+    <vehicle id="veh_1863_1680" type="auto_rickshaw" depart="1680.00" departLane="best" departSpeed="max" route="r_J2_5" distance="0 0" speedFactor="1.0261" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1872_1691" type="car" depart="1691.00" departLane="best" departSpeed="max" route="r_J2_0" distance="0 0" speedFactor="1.1821" state="2070 1691000 0 4.60 30000 92.65 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="219.47 214.97 0.00" speed="0.00 0.00" angle="90.34" posLat="0.00" waitingTime="100000 3 0 30000 37000 63000 69000 91000" lcStateBase="9737.00" lcState2="0 0 0 1150905 0"/>
+    <vehicle id="veh_1877_1695" type="auto_rickshaw" depart="1695.00" departLane="best" departSpeed="max" route="r_J0_5" distance="0 0" speedFactor="1.0015" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1879_1696" type="car" depart="1696.00" departLane="best" departSpeed="max" route="r_J3_3" distance="0 0" speedFactor="0.9930" state="2070 1696000 0 4.60 20000 26.21 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="1079.71 1075.21 0.00" speed="0.00 0.00" angle="290.28" posLat="0.00" waitingTime="100000 1 0 20000" lcStateBase="9216.00" lcState2="0 0 0 12959468 0"/>
+    <vehicle id="veh_1882_1698" type="car" depart="1698.00" departLane="best" departSpeed="max" route="r_J3_4" distance="0 0" speedFactor="0.9379" state="2070 1698000 0 4.60 18000 24.21 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="1079.71 1075.21 0.00" speed="0.00 0.00" angle="290.25" posLat="0.00" waitingTime="100000 1 0 18000" lcStateBase="10249.00" lcState2="0 0 0 15711673 0"/>
+    <vehicle id="veh_1886_1701" type="car" depart="1701.00" departLane="best" departSpeed="max" route="r_J0_5" distance="0 0" speedFactor="1.0087" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1888_1702" type="car" depart="1702.00" departLane="best" departSpeed="max" route="r_J3_3" distance="0 0" speedFactor="1.0232" state="2070 1702000 0 4.60 13000 20.71 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="1072.71 1068.21 0.00" speed="0.00 0.00" angle="290.28" posLat="0.00" waitingTime="100000 1 0 13000" lcStateBase="9216.00" lcState2="0 0 0 24053054 0"/>
+    <vehicle id="veh_1890_1705" type="car" depart="1705.00" departLane="best" departSpeed="max" route="r_J2_4" distance="0 0" speedFactor="0.9708" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1902_1714" type="car" depart="1714.00" departLane="best" departSpeed="max" route="r_J3_4" distance="0 0" speedFactor="0.8867" state="2070 1714000 0 4.60 3000 8.71 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="1072.71 1068.21 0.01" speed="0.01 0.02" angle="290.25" posLat="0.00" waitingTime="100000 1 0 3000" lcStateBase="10249.00" lcState2="0 0 0 79828756 0"/>
+    <vehicle id="veh_1907_1722" type="motorcycle" depart="1722.00" departLane="best" departSpeed="max" route="r_J0_5" distance="0 0" speedFactor="0.7467" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1911_1725" type="car" depart="1725.00" departLane="best" departSpeed="max" route="r_J2_4" distance="0 0" speedFactor="1.0202" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1913_1726" type="motorcycle" depart="1726.00" departLane="best" departSpeed="max" route="r_J3_0" distance="58.39 0" speedFactor="1.2049" state="2070 1726000 1 2.30 0 3.95 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="910.62 908.42 13.18" speed="13.18 12.80" angle="85.30" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 134554476 0"/>
+    <vehicle id="veh_1914_1727" type="car" depart="1727.00" departLane="best" departSpeed="max" route="r_J2_4" distance="0 0" speedFactor="1.0118" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1915_1727" type="auto_rickshaw" depart="1727.00" departLane="best" departSpeed="max" route="r_J3_0" distance="58.45 0" speedFactor="0.9843" state="2070 1727000 1 2.90 0 3.21 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="632.38 629.58 9.41" speed="9.41 9.77" angle="87.44" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 97975283 0"/>
+    <vehicle id="veh_1917_1729" type="car" depart="1729.00" departLane="best" departSpeed="max" route="r_J0_5" distance="0 0" speedFactor="0.9847" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1918_1729" type="car" depart="1729.00" departLane="best" departSpeed="max" route="r_J3_5" distance="75.8 0" speedFactor="0.9361" state="2070 1729000 1 4.60 0 38.37 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="339.36 334.86 12.98" speed="12.98 13.65" angle="74.09" posLat="0.00" waitingTime="100000 1 30000 61000" lcStateBase="0.00" lcState2="0 0 0 135804153 0"/>
+    <vehicle id="veh_1921_1731" type="car" depart="1731.00" departLane="best" departSpeed="max" route="r_J2_4" distance="0 0" speedFactor="0.9262" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1926_1737" type="motorcycle" depart="1737.00" departLane="best" departSpeed="max" route="r_J1_1" distance="0 0" speedFactor="0.9139" state="2070 1737000 0 2.30 54000 57.02 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="52.82 50.62 0.00" speed="0.00 0.00" angle="180.53" posLat="0.00" waitingTime="100000 1 0 54000" lcStateBase="8704.00" lcState2="0 0 0 248643 0"/>
+    <vehicle id="veh_1932_1741" type="car" depart="1741.00" departLane="best" departSpeed="max" route="r_J1_1" distance="0 0" speedFactor="1.1710" state="2070 1741000 0 4.60 52000 54.29 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="52.82 48.32 0.00" speed="0.00 0.00" angle="180.53" posLat="0.00" waitingTime="100000 1 0 52000" lcStateBase="12356.00" lcState2="0 0 -80259959 412285 0"/>
+    <vehicle id="veh_1935_1742" type="auto_rickshaw" depart="1742.00" departLane="best" departSpeed="max" route="r_J2_4" distance="0 0" speedFactor="0.9648" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1936_1742" type="auto_rickshaw" depart="1742.00" departLane="best" departSpeed="max" route="r_J3_5" distance="75.8 0" speedFactor="1.0089" state="2070 1742000 1 2.90 0 26.37 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="229.34 226.54 9.87" speed="9.87 9.39" angle="74.09" posLat="0.00" waitingTime="100000 1 29000 49000" lcStateBase="9216.00" lcState2="0 0 0 98744029 0"/>
+    <vehicle id="veh_1939_1744" type="motorcycle" depart="1744.00" departLane="best" departSpeed="max" route="r_J3_5" distance="75.8 0" speedFactor="1.0291" state="2070 1744000 1 2.30 0 27.85 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="286.97 284.77 13.17" speed="13.17 13.65" angle="74.09" posLat="0.00" waitingTime="100000 2 28000 44000 47000 49000" lcStateBase="0.00" lcState2="0 0 0 138378562 0"/>
+    <vehicle id="veh_1945_1752" type="car" depart="1752.00" departLane="best" departSpeed="max" route="r_J3_4" distance="0 0" speedFactor="1.0317" state="2070 1752000 0 4.60 0 2.37 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="629.47 624.97 12.76" speed="12.76 13.86" angle="251.78" posLat="0.00" waitingTime="100000 0" lcStateBase="9.00" lcState2="0 0 0 137510166 0"/>
+    <vehicle id="veh_1946_1754" type="car" depart="1754.00" departLane="best" departSpeed="max" route="r_J1_6" distance="0 0" speedFactor="0.8380" state="2070 1754000 0 4.60 37000 39.91 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="52.01 47.51 0.00" speed="0.00 0.00" angle="0.77" posLat="0.00" waitingTime="100000 1 0 37000" lcStateBase="10249.00" lcState2="0 0 0 1363987 0"/>
+    <vehicle id="veh_1947_1755" type="car" depart="1755.00" departLane="best" departSpeed="max" route="r_J2_2" distance="0 0" speedFactor="0.9817" state="2070 1755000 0 4.60 26000 29.15 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="212.46 207.96 0.00" speed="0.00 0.00" angle="90.34" posLat="0.00" waitingTime="100000 1 0 26000" lcStateBase="9728.00" lcState2="0 0 0 6765997 0"/>
+    <vehicle id="veh_1951_1762" type="motorcycle" depart="1762.00" departLane="best" departSpeed="max" route="r_J3_5" distance="75.8 0" speedFactor="0.9744" state="2070 1762000 1 2.30 0 12.07 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="250.60 248.40 12.78" speed="12.78 13.01" angle="74.09" posLat="0.00" waitingTime="100000 1 27000 31000" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1952_1764" type="car" depart="1764.00" departLane="best" departSpeed="max" route="r_J0_5" distance="0 0" speedFactor="0.9308" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1953_1764" type="car" depart="1764.00" departLane="best" departSpeed="max" route="r_J2_4" distance="0 0" speedFactor="1.0268" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1954_1765" type="motorcycle" depart="1765.00" departLane="best" departSpeed="max" route="r_J3_5" distance="75.8 0" speedFactor="0.9752" state="2070 1765000 1 2.30 0 10.56 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="224.35 222.15 13.16" speed="13.16 13.86" angle="74.09" posLat="0.00" waitingTime="100000 1 26000 28000" lcStateBase="10240.00" lcState2="0 0 0 137880970 0"/>
+    <vehicle id="veh_1955_1766" type="auto_rickshaw" depart="1766.00" departLane="best" departSpeed="max" route="r_J1_0" distance="0 0" speedFactor="1.0009" state="2070 1766000 0 2.90 26000 28.48 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="48.12 45.32 0.00" speed="0.00 0.00" angle="180.53" posLat="0.00" waitingTime="100000 1 0 26000" lcStateBase="9737.00" lcState2="0 0 0 4932405 0"/>
+    <vehicle id="veh_1956_1766" type="motorcycle" depart="1766.00" departLane="best" departSpeed="max" route="r_J1_1" distance="0 0" speedFactor="1.1075" state="2070 1766000 0 2.30 27000 29.46 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="45.82 43.62 0.00" speed="0.00 0.00" angle="180.53" posLat="0.00" waitingTime="100000 1 0 27000" lcStateBase="14336.00" lcState2="0 3114383 -54999 5502782 0"/>
+    <vehicle id="veh_1958_1768" type="car" depart="1768.00" departLane="best" departSpeed="max" route="r_J3_1" distance="0 0" speedFactor="1.0825" state="2070 1768000 0 4.60 25000 27.84 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="48.79 44.29 0.00" speed="0.00 0.00" angle="111.80" posLat="0.00" waitingTime="100000 1 0 25000" lcStateBase="4105.00" lcState2="0 0 0 7314975 0"/>
+    <vehicle id="veh_1959_1769" type="car" depart="1769.00" departLane="best" departSpeed="max" route="r_J1_7" distance="0 0" speedFactor="1.0048" state="2070 1769000 0 4.60 23000 25.75 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="52.01 47.51 0.00" speed="0.00 0.00" angle="0.78" posLat="0.00" waitingTime="100000 1 0 23000" lcStateBase="9225.00" lcState2="0 0 0 7406569 0"/>
+    <vehicle id="veh_1960_1771" type="car" depart="1771.00" departLane="best" departSpeed="max" route="r_J1_2" distance="0 0" speedFactor="1.0664" state="2070 1771000 0 4.60 22000 24.92 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="41.12 36.62 0.00" speed="0.00 0.00" angle="181.62" posLat="0.00" waitingTime="100000 1 0 22000" lcStateBase="10249.00" lcState2="0 0 0 8209481 0"/>
+    <vehicle id="veh_1962_1774" type="motorcycle" depart="1774.00" departLane="best" departSpeed="max" route="r_J1_0" distance="0 0" speedFactor="1.0730" state="2070 1774000 0 2.30 20000 21.60 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="42.82 40.62 0.00" speed="0.00 0.00" angle="179.68" posLat="0.00" waitingTime="100000 1 0 20000" lcStateBase="9737.00" lcState2="0 0 0 12283549 0"/>
+    <vehicle id="veh_1965_1775" type="car" depart="1775.00" departLane="best" departSpeed="max" route="r_J1_6" distance="0 0" speedFactor="0.8844" state="2070 1775000 0 4.60 17000 19.89 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="45.01 40.51 0.00" speed="0.00 0.00" angle="359.74" posLat="0.00" waitingTime="100000 1 0 17000" lcStateBase="9.00" lcState2="0 0 0 12202860 0"/>
+    <vehicle id="veh_1966_1775" type="car" depart="1775.00" departLane="best" departSpeed="max" route="r_J3_2" distance="59.96 0" speedFactor="1.0033" state="2070 1775000 1 4.60 0 2.95 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="232.31 227.81 12.68" speed="12.68 13.23" angle="206.77" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 134913963 0"/>
+    <vehicle id="veh_1968_1778" type="motorcycle" depart="1778.00" departLane="best" departSpeed="max" route="r_J1_11" distance="44.45 0" speedFactor="1.0724" state="2070 1778000 1 2.30 0 2.27 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="181.97 179.77 10.85" speed="10.85 11.01" angle="1.38" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 114495759 0"/>
+    <vehicle id="veh_1970_1781" type="motorcycle" depart="1781.00" departLane="best" departSpeed="max" route="r_J2_10" distance="131.39 0" speedFactor="0.8214" state="2070 1781000 0 2.30 0 2.48 1799000 0 0 0 1798000 1798000 1798000" pos="13.28 11.08 8.03" speed="8.03 6.40" angle="20.51" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1971_1782" type="motorcycle" depart="1782.00" departLane="best" departSpeed="max" route="r_J0_5" distance="0 0" speedFactor="1.1325" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1972_1784" type="motorcycle" depart="1784.00" departLane="best" departSpeed="max" route="r_J2_0" distance="0 0" speedFactor="0.9619" state="2070 1784000 0 2.30 0 1.14 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="196.38 194.18 9.83" speed="9.83 13.25" angle="90.34" posLat="0.00" waitingTime="100000 0" lcStateBase="521.00" lcState2="0 0 0 132268363 0"/>
+    <vehicle id="veh_1974_1785" type="car" depart="1785.00" departLane="best" departSpeed="max" route="r_J1_2" distance="0 0" speedFactor="0.9632" state="2070 1785000 0 4.60 8000 11.24 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="34.12 29.62 0.00" speed="0.00 0.00" angle="182.81" posLat="0.00" waitingTime="100000 1 0 8000" lcStateBase="9.00" lcState2="0 0 0 32378375 0"/>
+    <vehicle id="veh_1975_1786" type="car" depart="1786.00" departLane="best" departSpeed="max" route="r_J1_5" distance="42.25 0" speedFactor="1.0839" state="2070 1786000 1 4.60 0 3.45 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="75.56 71.06 11.37" speed="11.37 11.74" angle="1.29" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 -11386180 118791632 0"/>
+    <vehicle id="veh_1976_1786" type="auto_rickshaw" depart="1786.00" departLane="best" departSpeed="max" route="r_J3_1" distance="0 0" speedFactor="1.0054" state="2070 1786000 0 2.90 8000 9.11 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="41.79 38.99 0.00" speed="0.00 0.00" angle="111.80" posLat="0.00" waitingTime="100000 1 0 8000" lcStateBase="12297.00" lcState2="0 0 0 38540198 0"/>
+    <vehicle id="veh_1977_1789" type="motorcycle" depart="1789.00" departLane="best" departSpeed="max" route="r_J3_3" distance="0 0" speedFactor="1.1468" state="2070 1789000 0 2.30 0 0.42 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="136.47 134.27 13.72" speed="13.72 12.64" angle="264.38" posLat="0.00" waitingTime="100000 0" lcStateBase="1024.00" lcState2="0 0 0 137646011 0"/>
+    <vehicle id="veh_1978_1790" type="motorcycle" depart="1790.00" departLane="best" departSpeed="max" route="r_J3_3" distance="0 0" speedFactor="1.0508" state="2070 1790000 0 2.30 0 0.34 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="123.52 121.32 13.19" speed="13.19 13.03" angle="264.39" posLat="0.00" waitingTime="100000 0" lcStateBase="2048.00" lcState2="0 0 0 136847296 0"/>
+    <vehicle id="veh_1979_1792" type="car" depart="1792.00" departLane="best" departSpeed="max" route="r_J3_1" distance="0 0" speedFactor="0.9677" state="2070 1792000 0 4.60 1000 4.72 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="36.47 31.97 0.04" speed="0.04 0.10" angle="111.80" posLat="0.00" waitingTime="100000 1 0 1000" lcStateBase="10249.00" lcState2="0 0 0 82327388 0"/>
+    <vehicle id="veh_1980_1792" type="auto_rickshaw" depart="1792.00" departLane="best" departSpeed="max" route="r_J3_4" distance="0 0" speedFactor="1.0687" state="2070 1792000 0 2.90 0 0.30 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="69.86 67.06 9.89" speed="9.89 9.43" angle="268.07" posLat="0.00" waitingTime="100000 0" lcStateBase="9.00" lcState2="0 0 0 98879833 0"/>
+    <vehicle id="veh_1981_1795" type="auto_rickshaw" depart="1795.00" departLane="best" departSpeed="max" route="r_J0_0" distance="14.17 0" speedFactor="0.9694" state="2070 1795000 1 2.90 0 0.87 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="17.02 14.22 8.19" speed="8.19 7.20" angle="181.77" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 -1410493 81945665 0"/>
+    <vehicle id="veh_1982_1795" type="auto_rickshaw" depart="1795.00" departLane="best" departSpeed="max" route="r_J1_4" distance="0 0" speedFactor="0.9480" state="2070 1795000 0 2.90 0 0.70 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="35.90 33.10 5.67" speed="5.67 8.30" angle="90.22" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 92698253 0"/>
+    <vehicle id="veh_1983_1795" type="motorcycle" depart="1795.00" departLane="best" departSpeed="max" route="r_J2_0" distance="0 0" speedFactor="0.9921" state="2070 1795000 0 2.30 0 0.14 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="56.27 54.07 12.70" speed="12.70 13.99" angle="90.34" posLat="0.00" waitingTime="100000 0" lcStateBase="9.00" lcState2="0 0 0 138592131 0"/>
+    <vehicle id="veh_1984_1796" type="car" depart="1796.00" departLane="best" departSpeed="max" route="r_J3_0" distance="0 0" speedFactor="0.8936" state="2070 1796000 0 4.60 0 0.38 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="41.23 36.73 9.08" speed="9.08 13.58" angle="111.81" posLat="0.00" waitingTime="100000 0" lcStateBase="9728.00" lcState2="0 0 0 134531463 0"/>
+    <vehicle id="veh_1985_1797" type="motorcycle" depart="1797.00" departLane="best" departSpeed="max" route="r_J1_7" distance="0 0" speedFactor="0.9359" state="2070 1797000 0 2.30 0 0.17 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="21.34 19.14 9.98" speed="9.98 9.06" angle="359.75" posLat="0.00" waitingTime="100000 0" lcStateBase="9.00" lcState2="0 0 0 99799605 0"/>
+    <vehicle id="veh_1986_1798" type="auto_rickshaw" depart="1798.00" departLane="best" departSpeed="max" route="r_J1_11" distance="0 0" speedFactor="1.0516" state="2070 1798000 0 2.90 0 0.05 1799000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="12.40 9.60 9.50" speed="9.50 10.00" angle="269.84" posLat="0.00" waitingTime="100000 0" lcStateBase="9.00" lcState2="0 0 0 94992555 0"/>
+    <vehicle id="veh_1987_1799" type="motorcycle" depart="1799.00" departLane="best" departSpeed="max" route="r_J2_5" distance="0 0" speedFactor="0.9771" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1988_1799" type="car" depart="1799.00" departLane="best" departSpeed="max" route="r_J2_7" distance="0 0" speedFactor="1.0685" state="2070 1799000 0 4.60 0 0.00 1800000 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="4.60 0.10 11.87" speed="11.87 11.87" angle="181.34" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1989_1801" type="car" depart="1801.00" departLane="best" departSpeed="max" route="r_J1_8" distance="0 0" speedFactor="0.8417" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1990_1801" type="auto_rickshaw" depart="1801.00" departLane="best" departSpeed="max" route="r_J2_3" distance="0 0" speedFactor="1.0295" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1991_1802" type="car" depart="1802.00" departLane="best" departSpeed="max" route="r_J1_8" distance="0 0" speedFactor="0.8926" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1992_1804" type="car" depart="1804.00" departLane="best" departSpeed="max" route="r_J1_2" distance="0 0" speedFactor="0.9868" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1993_1805" type="car" depart="1805.00" departLane="best" departSpeed="max" route="r_J1_11" distance="0 0" speedFactor="1.1166" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1994_1805" type="motorcycle" depart="1805.00" departLane="best" departSpeed="max" route="r_J3_5" distance="0 0" speedFactor="1.0031" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1995_1806" type="motorcycle" depart="1806.00" departLane="best" departSpeed="max" route="r_J3_0" distance="0 0" speedFactor="0.9314" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1996_1810" type="motorcycle" depart="1810.00" departLane="best" departSpeed="max" route="r_J0_7" distance="0 0" speedFactor="1.0892" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1997_1811" type="car" depart="1811.00" departLane="best" departSpeed="max" route="r_J3_2" distance="0 0" speedFactor="0.9891" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <vehicle id="veh_1998_1812" type="motorcycle" depart="1812.00" departLane="best" departSpeed="max" route="r_J2_1" distance="0 0" speedFactor="1.1100" state="2070 9223372036854774807 0 -1.00 0 0.00 0 0 0 0 9223372036854774807 9223372036854774807 9223372036854774807" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0" lcStateBase="0.00" lcState2="0 0 0 0 0"/>
+    <lane id=":cluster_10049312966_10860559949_11178931798_11178931802_#5more_4_0">
+        <vehicles value="veh_1970_1781"/>
+    </lane>
+    <lane id="1055330325#6_0">
+        <vehicles value="veh_1983_1795 veh_1972_1784 veh_1947_1755 veh_1872_1691 veh_1769_1602 veh_1703_1543 veh_1671_1499"/>
+    </lane>
+    <lane id="1055330325#6_1">
+        <vehicles value="veh_1853_1675 veh_1821_1646 veh_1716_1557 veh_1594_1429 veh_1563_1397 veh_1551_1385"/>
+    </lane>
+    <lane id="1055330327#0_0">
+        <vehicles value="veh_1968_1778"/>
+    </lane>
+    <lane id="1055330327#0_1">
+        <vehicles value="veh_1975_1786"/>
+    </lane>
+    <lane id="1110166139_0">
+        <vehicles value="veh_1710_1550"/>
+    </lane>
+    <lane id="1110166139_1">
+        <vehicles value="veh_1717_1557"/>
+    </lane>
+    <lane id="1206400802#2_1">
+        <vehicles value="veh_1988_1799"/>
+    </lane>
+    <lane id="1374007778_1">
+        <vehicles value="veh_1981_1795"/>
+    </lane>
+    <lane id="1434254320#1_0">
+        <vehicles value="veh_1984_1796"/>
+    </lane>
+    <lane id="1434254320#1_1">
+        <vehicles value="veh_1979_1792 veh_1976_1786 veh_1958_1768"/>
+    </lane>
+    <lane id="1509685699_0">
+        <vehicles value="veh_1382_1232 veh_1370_1221"/>
+    </lane>
+    <lane id="151676283#1_0">
+        <vehicles value="veh_1977_1789 veh_1888_1702 veh_1879_1696"/>
+    </lane>
+    <lane id="151676283#1_1">
+        <vehicles value="veh_1980_1792 veh_1978_1790 veh_1945_1752 veh_1902_1714 veh_1882_1698"/>
+    </lane>
+    <lane id="24480656#3_0">
+        <vehicles value="veh_1962_1774 veh_1955_1766 veh_1926_1737"/>
+    </lane>
+    <lane id="24480656#3_1">
+        <vehicles value="veh_1974_1785 veh_1960_1771 veh_1956_1766 veh_1932_1741"/>
+    </lane>
+    <lane id="631197942#0_0">
+        <vehicles value="veh_1936_1742 veh_1951_1762 veh_1939_1744 veh_1918_1729 veh_1915_1727 veh_1913_1726"/>
+    </lane>
+    <lane id="631197942#0_1">
+        <vehicles value="veh_1954_1765"/>
+    </lane>
+    <lane id="631316440#0_0">
+        <vehicles value="veh_1982_1795"/>
+    </lane>
+    <lane id="794634831#1_0">
+        <vehicles value="veh_1985_1797 veh_1959_1769"/>
+    </lane>
+    <lane id="794634831#1_1">
+        <vehicles value="veh_1965_1775 veh_1946_1754"/>
+    </lane>
+    <lane id="794634832#0_0">
+        <vehicles value="veh_1986_1798"/>
+    </lane>
+    <lane id="839092211#1_0">
+        <vehicles value="veh_1966_1775 veh_1814_1641"/>
+    </lane>
+    <tlLogic id="GS_cluster_12067305554_6017833806_6017833807_6131076159" programID="0" phase="3" duration="6000" until="1800000" cycleTime="0" active="0"/>
+    <tlLogic id="GS_cluster_12067305554_6017833806_6017833807_6131076159" programID="1" phase="3" duration="6000" until="1800000" cycleTime="0" active="0"/>
+    <tlLogic id="GS_cluster_12067305554_6017833806_6017833807_6131076159" programID="2" phase="3" duration="6000" until="1800000" cycleTime="0" active="0"/>
+    <tlLogic id="GS_cluster_12067305554_6017833806_6017833807_6131076159" programID="3" phase="2" duration="30000" until="1809000" cycleTime="75000" active="1"/>
+    <tlLogic id="GS_cluster_6633301856_7432359269_7432359283_7432359284" programID="0" phase="3" duration="6000" until="1800000" cycleTime="0" active="0"/>
+    <tlLogic id="GS_cluster_6633301856_7432359269_7432359283_7432359284" programID="1" phase="3" duration="6000" until="1800000" cycleTime="0" active="0"/>
+    <tlLogic id="GS_cluster_6633301856_7432359269_7432359283_7432359284" programID="2" phase="3" duration="6000" until="1800000" cycleTime="0" active="1"/>
+    <tlLogic id="GS_cluster_6633301856_7432359269_7432359283_7432359284" programID="3" phase="2" duration="30000" until="1809000" cycleTime="75000" active="0"/>
+    <tlLogic id="cluster_10049312966_10860559949_11178931798_11178931802_#5more" programID="0" phase="7" duration="6000" until="1800000" cycleTime="0" active="0"/>
+    <tlLogic id="cluster_10049312966_10860559949_11178931798_11178931802_#5more" programID="1" phase="7" duration="6000" until="1800000" cycleTime="0" active="0"/>
+    <tlLogic id="cluster_10049312966_10860559949_11178931798_11178931802_#5more" programID="2" phase="7" duration="6000" until="1800000" cycleTime="0" active="0"/>
+    <tlLogic id="cluster_10049312966_10860559949_11178931798_11178931802_#5more" programID="3" phase="5" duration="3000" until="1803000" cycleTime="75000" active="1"/>
+    <tlLogic id="cluster_2387385680_3826045400" programID="0" phase="3" duration="6000" until="1800000" cycleTime="0" active="1"/>
+    <tlLogic id="joinedS_12067305543_12067305544" programID="0" phase="3" duration="3000" until="1800000" cycleTime="0" active="0"/>
+    <tlLogic id="joinedS_12067305543_12067305544" programID="1" phase="3" duration="3000" until="1800000" cycleTime="0" active="1"/>
+    <tlLogic id="joinedS_12067305543_12067305544" programID="2" phase="3" duration="3000" until="1800000" cycleTime="0" active="0"/>
+    <tlLogic id="joinedS_12067305543_12067305544" programID="3" phase="2" duration="30000" until="1812000" cycleTime="75000" active="0"/>
+</snapshot>

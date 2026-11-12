@@ -1,0 +1,5 @@
+junction,mean_throughput,mean_arrivals,max_interval_throughput,approach_capacity_veh_min,reconciliation_abs_diff,within_capacity
+J0,14.11,14.16,43,60.0,0.05,True
+J1,14.01,14.06,46,60.0,0.05,True
+J2,13.5,13.82,39,60.0,0.32,True
+J3,14.01,14.13,47,60.0,0.12,True

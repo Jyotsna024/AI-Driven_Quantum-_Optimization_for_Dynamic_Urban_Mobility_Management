@@ -1,0 +1,31 @@
+simulation:
+  sumo_home: "C:/Program Files (x86)/SUMO"
+  sumo_binary: "C:/Program Files (x86)/SUMO/bin/sumo.exe"
+  network: "sumo_files/hsr.net.xml"
+  control_interval_s: 60
+  prediction_horizon: 3        # intervals
+  step_length: 1.0             # simulation seconds per step
+  smoke_duration_s: 600        # for --smoke mode
+  full_duration_s: 7200        # 2-hour episode
+
+intersections:
+  n: 4
+  plans_k: 4
+
+scenarios:
+  names: [low, medium, high, peak, incident]
+  seeds: [42, 123, 456, 789, 1337]
+
+data:
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+  train_scenarios: [low, medium, high]
+  val_scenarios: [peak]
+  test_scenarios: [incident]
+
+model:
+  random_seed: 42
+
+logging:
+  log_dir: "logs"
+  level: "INFO"

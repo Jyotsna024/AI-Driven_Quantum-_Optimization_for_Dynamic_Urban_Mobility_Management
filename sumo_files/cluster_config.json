@@ -1,0 +1,758 @@
+{
+  "network_source": "OpenStreetMap_official_API",
+  "bbox": {
+    "min_lon": 77.636,
+    "min_lat": 12.91,
+    "max_lon": 77.649,
+    "max_lat": 12.927
+  },
+  "cluster_tls_ids": [
+    "joinedS_12067305543_12067305544",
+    "GS_cluster_6633301856_7432359269_7432359283_7432359284",
+    "cluster_10049312966_10860559949_11178931798_11178931802_#5more",
+    "GS_cluster_12067305554_6017833806_6017833807_6131076159"
+  ],
+  "tls_meta": {
+    "joinedS_12067305543_12067305544": {
+      "short_id": "J0",
+      "name": "14th Main & 15th Cross",
+      "description": "Commercial junction on 14th Main corridor near 15th Cross",
+      "approx_coords": [
+        635.5,
+        908.0
+      ],
+      "controlled_junctions": [
+        "12067305543",
+        "12067305544"
+      ]
+    },
+    "GS_cluster_6633301856_7432359269_7432359283_7432359284": {
+      "short_id": "J1",
+      "name": "14th Main & 17th Cross",
+      "description": "Major 4-way intersection connecting 14th Main and 17th Cross",
+      "approx_coords": [
+        626.6,
+        523.2
+      ],
+      "controlled_junctions": [
+        "cluster_6633301856_7432359269_7432359283_7432359284"
+      ]
+    },
+    "cluster_10049312966_10860559949_11178931798_11178931802_#5more": {
+      "short_id": "J2",
+      "name": "19th Main & 17th Cross",
+      "description": "Multi-phase intersection on 17th Cross connecting to 19th Main",
+      "approx_coords": [
+        1323.8,
+        510.9
+      ],
+      "controlled_junctions": [
+        "cluster_10049312966_10860559949_11178931798_11178931802_#5more"
+      ]
+    },
+    "GS_cluster_12067305554_6017833806_6017833807_6131076159": {
+      "short_id": "J3",
+      "name": "14th Main & Sarjapur Road",
+      "description": "Arterial junction at the intersection of 14th Main and Sarjapur Road",
+      "approx_coords": [
+        818.1,
+        1805.0
+      ],
+      "controlled_junctions": [
+        "cluster_12067305554_6017833806_6017833807_6131076159"
+      ]
+    }
+  },
+  "plans": {
+    "joinedS_12067305543_12067305544": [
+      {
+        "plan_id": 0,
+        "name": "baseline",
+        "description": "Original fixed-time durations from netconvert",
+        "phases": [
+          {
+            "duration": 42.0,
+            "state": "rrrGGGrrrGGG",
+            "minDur": 5.0,
+            "maxDur": 50.0
+          },
+          {
+            "duration": 3.0,
+            "state": "rrryyyrrryyy",
+            "minDur": null,
+            "maxDur": null
+          },
+          {
+            "duration": 42.0,
+            "state": "GGGrrrGGGrrr",
+            "minDur": 5.0,
+            "maxDur": 50.0
+          },
+          {
+            "duration": 3.0,
+            "state": "yyyrrryyyrrr",
+            "minDur": null,
+            "maxDur": null
+          }
+        ],
+        "offset": 0.0
+      },
+      {
+        "plan_id": 1,
+        "name": "main_heavy",
+        "description": "Main-corridor phases scaled x1.3 green; side approaches x0.7",
+        "phases": [
+          {
+            "duration": 56.0,
+            "state": "rrrGGGrrrGGG",
+            "minDur": 5.0,
+            "maxDur": 50.0
+          },
+          {
+            "duration": 3.0,
+            "state": "rrryyyrrryyy",
+            "minDur": null,
+            "maxDur": null
+          },
+          {
+            "duration": 28.0,
+            "state": "GGGrrrGGGrrr",
+            "minDur": 5.0,
+            "maxDur": 50.0
+          },
+          {
+            "duration": 3.0,
+            "state": "yyyrrryyyrrr",
+            "minDur": null,
+            "maxDur": null
+          }
+        ],
+        "offset": 0.0
+      },
+      {
+        "plan_id": 2,
+        "name": "side_heavy",
+        "description": "Side-road approaches scaled x1.3 green; main corridor x0.7",
+        "phases": [
+          {
+            "duration": 28.0,
+            "state": "rrrGGGrrrGGG",
+            "minDur": 5.0,
+            "maxDur": 50.0
+          },
+          {
+            "duration": 3.0,
+            "state": "rrryyyrrryyy",
+            "minDur": null,
+            "maxDur": null
+          },
+          {
+            "duration": 56.0,
+            "state": "GGGrrrGGGrrr",
+            "minDur": 5.0,
+            "maxDur": 50.0
+          },
+          {
+            "duration": 3.0,
+            "state": "yyyrrryyyrrr",
+            "minDur": null,
+            "maxDur": null
+          }
+        ],
+        "offset": 0.0
+      },
+      {
+        "plan_id": 3,
+        "name": "shifted_offset",
+        "description": "Baseline phase durations with +15s coordinated progression offset",
+        "phases": [
+          {
+            "duration": 42.0,
+            "state": "rrrGGGrrrGGG",
+            "minDur": 5.0,
+            "maxDur": 50.0
+          },
+          {
+            "duration": 3.0,
+            "state": "rrryyyrrryyy",
+            "minDur": null,
+            "maxDur": null
+          },
+          {
+            "duration": 42.0,
+            "state": "GGGrrrGGGrrr",
+            "minDur": 5.0,
+            "maxDur": 50.0
+          },
+          {
+            "duration": 3.0,
+            "state": "yyyrrryyyrrr",
+            "minDur": null,
+            "maxDur": null
+          }
+        ],
+        "offset": 15.0
+      }
+    ],
+    "GS_cluster_6633301856_7432359269_7432359283_7432359284": [
+      {
+        "plan_id": 0,
+        "name": "baseline",
+        "description": "Original fixed-time durations from netconvert",
+        "phases": [
+          {
+            "duration": 39.0,
+            "state": "GGGgrrrrGGGgrrrr",
+            "minDur": 5.0,
+            "maxDur": 50.0
+          },
+          {
+            "duration": 6.0,
+            "state": "yyyyrrrryyyyrrrr",
+            "minDur": null,
+            "maxDur": null
+          },
+          {
+            "duration": 39.0,
+            "state": "rrrrGGGgrrrrGGGg",
+            "minDur": 13.0,
+            "maxDur": 50.0
+          },
+          {
+            "duration": 6.0,
+            "state": "rrrryyyyrrrryyyy",
+            "minDur": null,
+            "maxDur": null
+          }
+        ],
+        "offset": 0.0
+      },
+      {
+        "plan_id": 1,
+        "name": "main_heavy",
+        "description": "Main-corridor phases scaled x1.3 green; side approaches x0.7",
+        "phases": [
+          {
+            "duration": 54.0,
+            "state": "GGGgrrrrGGGgrrrr",
+            "minDur": 5.0,
+            "maxDur": 50.0
+          },
+          {
+            "duration": 6.0,
+            "state": "yyyyrrrryyyyrrrr",
+            "minDur": null,
+            "maxDur": null
+          },
+          {
+            "duration": 24.0,
+            "state": "rrrrGGGgrrrrGGGg",
+            "minDur": 13.0,
+            "maxDur": 50.0
+          },
+          {
+            "duration": 6.0,
+            "state": "rrrryyyyrrrryyyy",
+            "minDur": null,
+            "maxDur": null
+          }
+        ],
+        "offset": 0.0
+      },
+      {
+        "plan_id": 2,
+        "name": "side_heavy",
+        "description": "Side-road approaches scaled x1.3 green; main corridor x0.7",
+        "phases": [
+          {
+            "duration": 24.0,
+            "state": "GGGgrrrrGGGgrrrr",
+            "minDur": 5.0,
+            "maxDur": 50.0
+          },
+          {
+            "duration": 6.0,
+            "state": "yyyyrrrryyyyrrrr",
+            "minDur": null,
+            "maxDur": null
+          },
+          {
+            "duration": 54.0,
+            "state": "rrrrGGGgrrrrGGGg",
+            "minDur": 13.0,
+            "maxDur": 50.0
+          },
+          {
+            "duration": 6.0,
+            "state": "rrrryyyyrrrryyyy",
+            "minDur": null,
+            "maxDur": null
+          }
+        ],
+        "offset": 0.0
+      },
+      {
+        "plan_id": 3,
+        "name": "shifted_offset",
+        "description": "Baseline phase durations with +15s coordinated progression offset",
+        "phases": [
+          {
+            "duration": 39.0,
+            "state": "GGGgrrrrGGGgrrrr",
+            "minDur": 5.0,
+            "maxDur": 50.0
+          },
+          {
+            "duration": 6.0,
+            "state": "yyyyrrrryyyyrrrr",
+            "minDur": null,
+            "maxDur": null
+          },
+          {
+            "duration": 39.0,
+            "state": "rrrrGGGgrrrrGGGg",
+            "minDur": 13.0,
+            "maxDur": 50.0
+          },
+          {
+            "duration": 6.0,
+            "state": "rrrryyyyrrrryyyy",
+            "minDur": null,
+            "maxDur": null
+          }
+        ],
+        "offset": 15.0
+      }
+    ],
+    "cluster_10049312966_10860559949_11178931798_11178931802_#5more": [
+      {
+        "plan_id": 0,
+        "name": "baseline",
+        "description": "Original fixed-time durations from netconvert",
+        "phases": [
+          {
+            "duration": 27.0,
+            "state": "rGGrrrrrrGGrrrrr",
+            "minDur": 13.0,
+            "maxDur": 50.0
+          },
+          {
+            "duration": 6.0,
+            "state": "ryyrrrrrryyrrrrr",
+            "minDur": null,
+            "maxDur": null
+          },
+          {
+            "duration": 6.0,
+            "state": "GrrgrrrrGrrgrrrr",
+            "minDur": 13.0,
+            "maxDur": 50.0
+          },
+          {
+            "duration": 6.0,
+            "state": "yrryrrrryrryrrrr",
+            "minDur": null,
+            "maxDur": null
+          },
+          {
+            "duration": 27.0,
+            "state": "rrrrgGGgrrrrgGGg",
+            "minDur": 5.0,
+            "maxDur": 50.0
+          },
+          {
+            "duration": 6.0,
+            "state": "rrrrgyygrrrrgyyg",
+            "minDur": null,
+            "maxDur": null
+          },
+          {
+            "duration": 6.0,
+            "state": "rrrrGrrgrrrrGrrg",
+            "minDur": 5.0,
+            "maxDur": 50.0
+          },
+          {
+            "duration": 6.0,
+            "state": "rrrryrryrrrryrry",
+            "minDur": null,
+            "maxDur": null
+          }
+        ],
+        "offset": 0.0
+      },
+      {
+        "plan_id": 1,
+        "name": "main_heavy",
+        "description": "Main-corridor phases scaled x1.3 green; side approaches x0.7",
+        "phases": [
+          {
+            "duration": 39.0,
+            "state": "rGGrrrrrrGGrrrrr",
+            "minDur": 13.0,
+            "maxDur": 50.0
+          },
+          {
+            "duration": 6.0,
+            "state": "ryyrrrrrryyrrrrr",
+            "minDur": null,
+            "maxDur": null
+          },
+          {
+            "duration": 6.0,
+            "state": "GrrgrrrrGrrgrrrr",
+            "minDur": 13.0,
+            "maxDur": 50.0
+          },
+          {
+            "duration": 6.0,
+            "state": "yrryrrrryrryrrrr",
+            "minDur": null,
+            "maxDur": null
+          },
+          {
+            "duration": 15.0,
+            "state": "rrrrgGGgrrrrgGGg",
+            "minDur": 5.0,
+            "maxDur": 50.0
+          },
+          {
+            "duration": 6.0,
+            "state": "rrrrgyygrrrrgyyg",
+            "minDur": null,
+            "maxDur": null
+          },
+          {
+            "duration": 6.0,
+            "state": "rrrrGrrgrrrrGrrg",
+            "minDur": 5.0,
+            "maxDur": 50.0
+          },
+          {
+            "duration": 6.0,
+            "state": "rrrryrryrrrryrry",
+            "minDur": null,
+            "maxDur": null
+          }
+        ],
+        "offset": 0.0
+      },
+      {
+        "plan_id": 2,
+        "name": "side_heavy",
+        "description": "Side-road approaches scaled x1.3 green; main corridor x0.7",
+        "phases": [
+          {
+            "duration": 15.0,
+            "state": "rGGrrrrrrGGrrrrr",
+            "minDur": 13.0,
+            "maxDur": 50.0
+          },
+          {
+            "duration": 6.0,
+            "state": "ryyrrrrrryyrrrrr",
+            "minDur": null,
+            "maxDur": null
+          },
+          {
+            "duration": 6.0,
+            "state": "GrrgrrrrGrrgrrrr",
+            "minDur": 13.0,
+            "maxDur": 50.0
+          },
+          {
+            "duration": 6.0,
+            "state": "yrryrrrryrryrrrr",
+            "minDur": null,
+            "maxDur": null
+          },
+          {
+            "duration": 39.0,
+            "state": "rrrrgGGgrrrrgGGg",
+            "minDur": 5.0,
+            "maxDur": 50.0
+          },
+          {
+            "duration": 6.0,
+            "state": "rrrrgyygrrrrgyyg",
+            "minDur": null,
+            "maxDur": null
+          },
+          {
+            "duration": 6.0,
+            "state": "rrrrGrrgrrrrGrrg",
+            "minDur": 5.0,
+            "maxDur": 50.0
+          },
+          {
+            "duration": 6.0,
+            "state": "rrrryrryrrrryrry",
+            "minDur": null,
+            "maxDur": null
+          }
+        ],
+        "offset": 0.0
+      },
+      {
+        "plan_id": 3,
+        "name": "shifted_offset",
+        "description": "Baseline phase durations with +15s coordinated progression offset",
+        "phases": [
+          {
+            "duration": 27.0,
+            "state": "rGGrrrrrrGGrrrrr",
+            "minDur": 13.0,
+            "maxDur": 50.0
+          },
+          {
+            "duration": 6.0,
+            "state": "ryyrrrrrryyrrrrr",
+            "minDur": null,
+            "maxDur": null
+          },
+          {
+            "duration": 6.0,
+            "state": "GrrgrrrrGrrgrrrr",
+            "minDur": 13.0,
+            "maxDur": 50.0
+          },
+          {
+            "duration": 6.0,
+            "state": "yrryrrrryrryrrrr",
+            "minDur": null,
+            "maxDur": null
+          },
+          {
+            "duration": 27.0,
+            "state": "rrrrgGGgrrrrgGGg",
+            "minDur": 5.0,
+            "maxDur": 50.0
+          },
+          {
+            "duration": 6.0,
+            "state": "rrrrgyygrrrrgyyg",
+            "minDur": null,
+            "maxDur": null
+          },
+          {
+            "duration": 6.0,
+            "state": "rrrrGrrgrrrrGrrg",
+            "minDur": 5.0,
+            "maxDur": 50.0
+          },
+          {
+            "duration": 6.0,
+            "state": "rrrryrryrrrryrry",
+            "minDur": null,
+            "maxDur": null
+          }
+        ],
+        "offset": 15.0
+      }
+    ],
+    "GS_cluster_12067305554_6017833806_6017833807_6131076159": [
+      {
+        "plan_id": 0,
+        "name": "baseline",
+        "description": "Original fixed-time durations from netconvert",
+        "phases": [
+          {
+            "duration": 39.0,
+            "state": "GGGgrrrrGGgG",
+            "minDur": 13.0,
+            "maxDur": 50.0
+          },
+          {
+            "duration": 6.0,
+            "state": "yyyyrrrrGyyy",
+            "minDur": null,
+            "maxDur": null
+          },
+          {
+            "duration": 39.0,
+            "state": "rrrrGGGGGrrr",
+            "minDur": 5.0,
+            "maxDur": 50.0
+          },
+          {
+            "duration": 6.0,
+            "state": "rrrryyyyGrrr",
+            "minDur": null,
+            "maxDur": null
+          }
+        ],
+        "offset": 0.0
+      },
+      {
+        "plan_id": 1,
+        "name": "main_heavy",
+        "description": "Main-corridor phases scaled x1.3 green; side approaches x0.7",
+        "phases": [
+          {
+            "duration": 54.0,
+            "state": "GGGgrrrrGGgG",
+            "minDur": 13.0,
+            "maxDur": 50.0
+          },
+          {
+            "duration": 6.0,
+            "state": "yyyyrrrrGyyy",
+            "minDur": null,
+            "maxDur": null
+          },
+          {
+            "duration": 24.0,
+            "state": "rrrrGGGGGrrr",
+            "minDur": 5.0,
+            "maxDur": 50.0
+          },
+          {
+            "duration": 6.0,
+            "state": "rrrryyyyGrrr",
+            "minDur": null,
+            "maxDur": null
+          }
+        ],
+        "offset": 0.0
+      },
+      {
+        "plan_id": 2,
+        "name": "side_heavy",
+        "description": "Side-road approaches scaled x1.3 green; main corridor x0.7",
+        "phases": [
+          {
+            "duration": 24.0,
+            "state": "GGGgrrrrGGgG",
+            "minDur": 13.0,
+            "maxDur": 50.0
+          },
+          {
+            "duration": 6.0,
+            "state": "yyyyrrrrGyyy",
+            "minDur": null,
+            "maxDur": null
+          },
+          {
+            "duration": 54.0,
+            "state": "rrrrGGGGGrrr",
+            "minDur": 5.0,
+            "maxDur": 50.0
+          },
+          {
+            "duration": 6.0,
+            "state": "rrrryyyyGrrr",
+            "minDur": null,
+            "maxDur": null
+          }
+        ],
+        "offset": 0.0
+      },
+      {
+        "plan_id": 3,
+        "name": "shifted_offset",
+        "description": "Baseline phase durations with +15s coordinated progression offset",
+        "phases": [
+          {
+            "duration": 39.0,
+            "state": "GGGgrrrrGGgG",
+            "minDur": 13.0,
+            "maxDur": 50.0
+          },
+          {
+            "duration": 6.0,
+            "state": "yyyyrrrrGyyy",
+            "minDur": null,
+            "maxDur": null
+          },
+          {
+            "duration": 39.0,
+            "state": "rrrrGGGGGrrr",
+            "minDur": 5.0,
+            "maxDur": 50.0
+          },
+          {
+            "duration": 6.0,
+            "state": "rrrryyyyGrrr",
+            "minDur": null,
+            "maxDur": null
+          }
+        ],
+        "offset": 15.0
+      }
+    ]
+  },
+  "connectivity": [
+    {
+      "from_tls": "joinedS_12067305543_12067305544",
+      "to_tls": "GS_cluster_6633301856_7432359269_7432359283_7432359284",
+      "distance_m": 358.3,
+      "hops": 8
+    },
+    {
+      "from_tls": "joinedS_12067305543_12067305544",
+      "to_tls": "cluster_10049312966_10860559949_11178931798_11178931802_#5more",
+      "distance_m": 771.2,
+      "hops": 11
+    },
+    {
+      "from_tls": "joinedS_12067305543_12067305544",
+      "to_tls": "GS_cluster_12067305554_6017833806_6017833807_6131076159",
+      "distance_m": 778.0,
+      "hops": 13
+    },
+    {
+      "from_tls": "GS_cluster_6633301856_7432359269_7432359283_7432359284",
+      "to_tls": "joinedS_12067305543_12067305544",
+      "distance_m": 349.0,
+      "hops": 5
+    },
+    {
+      "from_tls": "GS_cluster_6633301856_7432359269_7432359283_7432359284",
+      "to_tls": "cluster_10049312966_10860559949_11178931798_11178931802_#5more",
+      "distance_m": 649.2,
+      "hops": 4
+    },
+    {
+      "from_tls": "GS_cluster_6633301856_7432359269_7432359283_7432359284",
+      "to_tls": "GS_cluster_12067305554_6017833806_6017833807_6131076159",
+      "distance_m": 1127.0,
+      "hops": 17
+    },
+    {
+      "from_tls": "cluster_10049312966_10860559949_11178931798_11178931802_#5more",
+      "to_tls": "joinedS_12067305543_12067305544",
+      "distance_m": 776.7,
+      "hops": 9
+    },
+    {
+      "from_tls": "cluster_10049312966_10860559949_11178931798_11178931802_#5more",
+      "to_tls": "GS_cluster_6633301856_7432359269_7432359283_7432359284",
+      "distance_m": 648.4,
+      "hops": 5
+    },
+    {
+      "from_tls": "cluster_10049312966_10860559949_11178931798_11178931802_#5more",
+      "to_tls": "GS_cluster_12067305554_6017833806_6017833807_6131076159",
+      "distance_m": 1554.7,
+      "hops": 16
+    },
+    {
+      "from_tls": "GS_cluster_12067305554_6017833806_6017833807_6131076159",
+      "to_tls": "joinedS_12067305543_12067305544",
+      "distance_m": 855.1,
+      "hops": 5
+    },
+    {
+      "from_tls": "GS_cluster_12067305554_6017833806_6017833807_6131076159",
+      "to_tls": "GS_cluster_6633301856_7432359269_7432359283_7432359284",
+      "distance_m": 1196.6,
+      "hops": 8
+    },
+    {
+      "from_tls": "GS_cluster_12067305554_6017833806_6017833807_6131076159",
+      "to_tls": "cluster_10049312966_10860559949_11178931798_11178931802_#5more",
+      "distance_m": 1609.5,
+      "hops": 11
+    }
+  ]
+}

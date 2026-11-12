@@ -1,0 +1,32 @@
+{
+  "ST-GNN": {
+    "H1_MAE": 2.378,
+    "H1_RMSE": 3.658,
+    "H2_MAE": 2.441,
+    "H2_RMSE": 3.631,
+    "H3_MAE": 2.41,
+    "H3_RMSE": 3.602,
+    "Overall_MAE": 2.41,
+    "Overall_RMSE": 3.63
+  },
+  "Persistence": {
+    "H1_MAE": 3.892,
+    "H1_RMSE": 5.736,
+    "H2_MAE": 4.024,
+    "H2_RMSE": 5.98,
+    "H3_MAE": 2.718,
+    "H3_RMSE": 4.14,
+    "Overall_MAE": 3.544,
+    "Overall_RMSE": 5.348
+  },
+  "Historical_Average": {
+    "H1_MAE": 5.959,
+    "H1_RMSE": 10.14,
+    "H2_MAE": 6.021,
+    "H2_RMSE": 10.342,
+    "H3_MAE": 6.07,
+    "H3_RMSE": 10.45,
+    "Overall_MAE": 6.017,
+    "Overall_RMSE": 10.311
+  }
+}

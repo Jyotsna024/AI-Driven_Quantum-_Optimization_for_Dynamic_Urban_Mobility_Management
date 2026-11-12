@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='utf-8'?>
+<routes>
+  <vType id="car" accel="2.6" decel="4.5" sigma="0.5" length="4.5" maxSpeed="14.0" vClass="passenger" />
+  <vType id="motorcycle" accel="3.0" decel="5.0" sigma="0.5" length="2.2" maxSpeed="14.0" vClass="motorcycle" />
+  <vType id="auto_rickshaw" accel="1.8" decel="3.5" sigma="0.5" length="2.8" maxSpeed="10.0" vClass="taxi" />
+  <route id="r_J0_J1" edges="755390846#0 1509685698 1509685699 1374007778 1335927786#3 24480656#1 24480656#3" />
+  <route id="r_J0_J2" edges="755390846#0 1509685698 1509685699 1374007778 1335927786#3 -1238363941#2 -1238363941#1 -1238363941#0 -1308999493#4 -1308999493#3 -1308999493#2 -1308999493#1 -1308999493#0 -233128998#5 -233128998#3 -233128998#2 -233128998#1 1206400802#0 1206400802#1 1206400802#2" />
+  <route id="r_J0_J3" edges="755390846#0 1509685698 610166550#0 610166550#2 610166550#3 610166550#4 610166550#5 610166550#6 610166550#7 610166550#8 610166550#9 610166550#10 610166550#11 610166550#12 610166550#13" />
+  <route id="r_J1_J0" edges="1055330327#0 232422095#0 232422095#2 1473496401" />
+  <route id="r_J1_J2" edges="1055330325#0 1055330325#2 1055330325#6" />
+  <route id="r_J1_J3" edges="1055330327#0 232422095#0 232422095#2 1473496401 755390846#0 1509685698 610166550#0 610166550#2 610166550#3 610166550#4 610166550#5 610166550#6 610166550#7 610166550#8 610166550#9 610166550#10 610166550#11 610166550#12 610166550#13" />
+  <route id="r_J2_J0" edges="1206400804#1 233128998#0 233128998#2 233128998#3 233128998#4 1308999493#0 1308999493#1 1308999493#2 1308999493#3 1308999493#4 1238363941#0 1238363941#1 1238363941#2 232422095#2 1473496401" />
+  <route id="r_J2_J1" edges="794634829#0 794634829#2 794634829#4 794634832#0" />
+  <route id="r_J2_J3" edges="1206400804#1 233128998#0 233128998#2 233128998#3 233128998#4 1308999493#0 1308999493#1 1308999493#2 1308999493#3 1308999493#4 1238363941#0 1238363941#1 1238363941#2 232422095#2 1473496401 755390846#0 1509685698 610166550#0 610166550#2 610166550#3 610166550#4 610166550#5 610166550#6 610166550#7 610166550#8 610166550#9 610166550#10 610166550#11 610166550#12 610166550#13" />
+  <route id="r_J3_J0" edges="839092205 -310456177#2 1462502674 -1462502675#0 -310456177#0 123624213#3 123624213#4 123624213#5 123624213#6 123624213#7 123624213#8 123624213#9 123624213#10 123624213#11 123624213#12 123624213#13 123624213#14 123624213#15 123624213#16 123624213#17 123624213#18 123624213#19 123624213#20 123624213#21 -123624216#1 310456168#0 310456168#1 310456168#2 1183630171#1 1183630171#2 1183630171#3 1183630171#4 1183630171#5 1227998546#0 1227998546#1 1227998546#2 462949896 -372542723#3 123624219#1 123624219#2 123624219#3 -123624224#0 -123624215#1 1303669687#2 1509685699 755390844" />
+  <route id="r_J3_J1" edges="839092205 -310456177#2 1462502674 -1462502675#0 -310456177#0 123624213#3 123624213#4 123624213#5 123624213#6 123624213#7 123624213#8 123624213#9 123624213#10 123624213#11 123624213#12 123624213#13 123624213#14 123624213#15 123624213#16 123624213#17 123624213#18 123624213#19 123624213#20 123624213#21 -123624216#1 310456168#0 310456168#1 310456168#2 1183630171#1 1183630171#2 1183630171#3 1183630171#4 1183630171#5 1227998546#0 1227998546#1 1227998546#2 462949896 -372542723#3 123624219#1 123624219#2 123624219#3 -123624224#0 -123624215#1 1303669687#2 1509685699 1374007778 1335927786#3 24480656#1 24480656#3" />
+  <route id="r_J3_J2" edges="839092205 -310456177#2 1462502674 -1462502675#0 -310456177#0 123624213#3 123624213#4 123624213#5 123624213#6 123624213#7 123624213#8 123624213#9 123624213#10 123624213#11 123624213#12 123624213#13 123624213#14 123624213#15 123624213#16 123624213#17 123624213#18 123624213#19 123624213#20 123624213#21 -123624216#1 310456168#0 310456168#1 310456168#2 1183630171#1 1183630171#2 1183630171#3 1183630171#4 1183630171#5 1227998546#0 1227998546#1 1227998546#2 462949896 -372542723#3 123624219#1 123624219#2 123624219#3 -123624224#0 -123624215#1 1303669687#2 1509685699 1374007778 1335927786#3 -1238363941#2 -1238363941#1 -1238363941#0 -1308999493#4 -1308999493#3 -1308999493#2 -1308999493#1 -1308999493#0 -233128998#5 -233128998#3 -233128998#2 -233128998#1 1206400802#0 1206400802#1 1206400802#2" />
+  <vehicle id="veh_0_10" type="car" route="r_J1_J2" depart="10.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_1_24" type="motorcycle" route="r_J0_J2" depart="24.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_2_30" type="auto_rickshaw" route="r_J2_J0" depart="30.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_3_32" type="car" route="r_J2_J1" depart="32.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_4_35" type="motorcycle" route="r_J1_J0" depart="35.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_5_56" type="car" route="r_J2_J1" depart="56.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_6_85" type="auto_rickshaw" route="r_J0_J1" depart="85.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_7_115" type="car" route="r_J1_J2" depart="115.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_8_149" type="motorcycle" route="r_J3_J2" depart="149.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_9_162" type="car" route="r_J2_J3" depart="162.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_10_184" type="car" route="r_J1_J0" depart="184.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_11_208" type="motorcycle" route="r_J3_J0" depart="208.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_12_210" type="auto_rickshaw" route="r_J3_J2" depart="210.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_13_212" type="car" route="r_J2_J0" depart="212.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_14_228" type="motorcycle" route="r_J1_J3" depart="228.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_15_242" type="auto_rickshaw" route="r_J1_J3" depart="242.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_16_247" type="car" route="r_J3_J1" depart="247.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_17_274" type="car" route="r_J2_J3" depart="274.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_18_282" type="motorcycle" route="r_J1_J2" depart="282.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_19_291" type="car" route="r_J2_J0" depart="291.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_20_315" type="motorcycle" route="r_J0_J2" depart="315.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_21_318" type="car" route="r_J2_J1" depart="318.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_22_337" type="car" route="r_J1_J3" depart="337.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_23_339" type="car" route="r_J3_J1" depart="339.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_24_360" type="motorcycle" route="r_J2_J0" depart="360.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_25_372" type="motorcycle" route="r_J2_J3" depart="372.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_26_415" type="car" route="r_J1_J0" depart="415.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_27_422" type="auto_rickshaw" route="r_J3_J2" depart="422.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_28_433" type="car" route="r_J1_J2" depart="433.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_29_455" type="auto_rickshaw" route="r_J3_J2" depart="455.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_30_466" type="car" route="r_J0_J3" depart="466.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_31_473" type="auto_rickshaw" route="r_J2_J3" depart="473.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_32_487" type="motorcycle" route="r_J1_J0" depart="487.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_33_494" type="car" route="r_J2_J0" depart="494.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_34_595" type="car" route="r_J0_J1" depart="595.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_35_595" type="auto_rickshaw" route="r_J1_J2" depart="595.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_36_598" type="car" route="r_J1_J0" depart="598.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_37_605" type="car" route="r_J1_J3" depart="605.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_38_615" type="car" route="r_J0_J1" depart="615.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_39_642" type="motorcycle" route="r_J2_J0" depart="642.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_40_661" type="car" route="r_J3_J1" depart="661.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_41_674" type="car" route="r_J3_J2" depart="674.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_42_688" type="car" route="r_J3_J1" depart="688.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_43_704" type="auto_rickshaw" route="r_J1_J2" depart="704.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_44_721" type="car" route="r_J2_J1" depart="721.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_45_732" type="auto_rickshaw" route="r_J3_J0" depart="732.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_46_735" type="auto_rickshaw" route="r_J3_J2" depart="735.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_47_759" type="car" route="r_J3_J1" depart="759.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_48_805" type="car" route="r_J1_J0" depart="805.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_49_813" type="motorcycle" route="r_J1_J2" depart="813.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_50_866" type="car" route="r_J1_J2" depart="866.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_51_898" type="car" route="r_J3_J1" depart="898.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_52_909" type="car" route="r_J0_J3" depart="909.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_53_949" type="motorcycle" route="r_J1_J0" depart="949.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_54_986" type="car" route="r_J3_J2" depart="986.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_55_1014" type="car" route="r_J2_J3" depart="1014.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_56_1024" type="car" route="r_J2_J1" depart="1024.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_57_1054" type="motorcycle" route="r_J2_J1" depart="1054.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_58_1084" type="car" route="r_J1_J0" depart="1084.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_59_1084" type="car" route="r_J2_J1" depart="1084.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_60_1096" type="motorcycle" route="r_J0_J3" depart="1096.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_61_1119" type="car" route="r_J3_J1" depart="1119.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_62_1135" type="car" route="r_J3_J2" depart="1135.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_63_1145" type="car" route="r_J2_J1" depart="1145.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_64_1153" type="car" route="r_J1_J0" depart="1153.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_65_1162" type="car" route="r_J2_J1" depart="1162.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_66_1170" type="car" route="r_J2_J0" depart="1170.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_67_1175" type="car" route="r_J1_J0" depart="1175.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_68_1183" type="motorcycle" route="r_J3_J1" depart="1183.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_69_1194" type="auto_rickshaw" route="r_J0_J1" depart="1194.0" departLane="best" departSpeed="max" />
+  <vehicle id="veh_70_1194" type="car" route="r_J1_J3" depart="1194.0" departLane="best" departSpeed="max" />
+</routes>
