@@ -52,10 +52,15 @@ python run_all.py --all --smoke
 pytest tests/ -v
 ```
 
-## Launch Dashboard (Phase 9+)
+## Live SUMO Dashboard
+
+The dashboard displays the real HSR SUMO road network and moving vehicles from an active TraCI simulation. Choose a scenario and route seed, select one of the four existing signal plans per junction, then start the simulation. It auto-plays and can be paused or stepped; requested signal plans are applied at safe cycle boundaries.
+
 ```powershell
-streamlit run dashboard/app.py
+streamlit run dashboard/app.py --server.port 8765
 ```
+
+The default scenario is high demand, seed 0. The dashboard runs SUMO locally; it does not control real traffic signals. Solver-driven control is not offered because the S2 objective is scientifically unvalidated.
 
 ---
 
