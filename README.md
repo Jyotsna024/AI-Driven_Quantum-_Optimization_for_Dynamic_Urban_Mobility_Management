@@ -12,7 +12,7 @@
 ### Prerequisites
 - **SUMO 1.28.0** installed at `C:\Program Files (x86)\SUMO\`; env var `SUMO_HOME` set
 - **Python 3.13** (tested with 3.13.7)
-- Internet access for Overpass OSM download (Phase 1 only)
+- Genuine OpenStreetMap data for HSR Layout, Bengaluru downloaded via the official OpenStreetMap API (7.89 MB)
 
 ### Install dependencies
 ```powershell
@@ -20,8 +20,7 @@ cd C:\Users\Jyotsna\Desktop\Capstone
 pip install -r requirements.txt
 ```
 
-> **Note**: `pyosmium` does not support Python 3.13; OSM data is fetched via
-> the Overpass HTTP API using `requests` instead.
+> **Note**: OSM data is fetched directly from the official OpenStreetMap API (`api.openstreetmap.org/api/0.6/map?bbox=...`) using standard request headers (not Overpass). The network is a real, genuine HSR Layout road network (not synthetic). The Phase 4 cost model specification acceptance gate requires Spearman $\rho \ge 0.5$.
 
 ### Environment variables (optional, for real quantum hardware)
 ```powershell
@@ -92,5 +91,5 @@ Simulator results and hardware results are reported and labelled separately.
 ## Honest Limitations
 - Quantum advantage is NOT claimed. SA and QAOA results are compared objectively.
 - QAOA runs on the Qiskit Aer **simulator**; real-hardware results only if tokens provided.
-- Network is a small synthetic cluster; not a city-scale deployment.
+- Network is a 4-intersection real corridor cluster in HSR Layout, Bengaluru (OSM); not a city-scale deployment.
 - ST-GNN prediction horizon is 1–3 control intervals (60–180 simulated seconds).

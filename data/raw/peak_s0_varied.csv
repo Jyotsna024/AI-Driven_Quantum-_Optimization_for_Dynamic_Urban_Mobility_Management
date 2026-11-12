@@ -1,4 +1,4 @@
-Start-Process .\data\raw\peak_s0_varied.csvrun_id,scenario,seed,mode,split,timestamp_s,is_warmup,junction_id,junction_short,vehicle_count,queue_length,queue_length_m,max_lane_queue,queue_major,queue_minor,mean_speed_mps,mean_delay_s,waiting_time_s,current_plan_id,current_phase,throughput,arrivals,is_incident_active
+run_id,scenario,seed,mode,split,timestamp_s,is_warmup,junction_id,junction_short,vehicle_count,queue_length,queue_length_m,max_lane_queue,queue_major,queue_minor,mean_speed_mps,mean_delay_s,waiting_time_s,current_plan_id,current_phase,throughput,arrivals,is_incident_active
 peak_s0_varied,peak,0,varied,train,60,True,joinedS_12067305543_12067305544,J0,4,3,15.3,1,1,2,1.51,5.75,23.0,0,2,11,15,False
 peak_s0_varied,peak,0,varied,train,60,True,GS_cluster_6633301856_7432359269_7432359283_7432359284,J1,3,2,14.0,1,1,1,2.08,8.67,26.0,0,2,23,26,False
 peak_s0_varied,peak,0,varied,train,60,True,cluster_10049312966_10860559949_11178931798_11178931802_#5more,J2,7,2,14.0,1,2,0,7.34,2.43,17.0,0,4,15,22,False

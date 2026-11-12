@@ -1,0 +1,133 @@
+{
+  "val_overall": {
+    "mae": 2.31,
+    "rmse": 3.3862
+  },
+  "test_overall": {
+    "mae": 2.4141,
+    "rmse": 3.6313
+  },
+  "val_per_horizon": {
+    "H1": {
+      "mae": 2.2181,
+      "rmse": 3.2667
+    },
+    "H2": {
+      "mae": 2.3576,
+      "rmse": 3.4136
+    },
+    "H3": {
+      "mae": 2.3544,
+      "rmse": 3.4749
+    }
+  },
+  "test_per_horizon": {
+    "H1": {
+      "mae": 2.3886,
+      "rmse": 3.6616
+    },
+    "H2": {
+      "mae": 2.4414,
+      "rmse": 3.629
+    },
+    "H3": {
+      "mae": 2.4125,
+      "rmse": 3.6032
+    }
+  },
+  "val_per_junction": {
+    "J0": {
+      "mae": 1.4593,
+      "rmse": 1.8029
+    },
+    "J1": {
+      "mae": 2.1115,
+      "rmse": 2.7963
+    },
+    "J2": {
+      "mae": 3.7397,
+      "rmse": 5.2268
+    },
+    "J3": {
+      "mae": 1.9297,
+      "rmse": 2.7342
+    }
+  },
+  "test_per_junction": {
+    "J0": {
+      "mae": 1.4629,
+      "rmse": 1.8061,
+      "norm_mae": 0.4667
+    },
+    "J1": {
+      "mae": 2.066,
+      "rmse": 2.8379,
+      "norm_mae": 0.4582
+    },
+    "J2": {
+      "mae": 3.8708,
+      "rmse": 5.6802,
+      "norm_mae": 0.2016
+    },
+    "J3": {
+      "mae": 2.2569,
+      "rmse": 3.0275,
+      "norm_mae": 0.5056
+    }
+  },
+  "test_mean_queue_per_junction": {
+    "J0": 3.135,
+    "J1": 4.509,
+    "J2": 19.204,
+    "J3": 4.464
+  },
+  "test_per_scenario": {
+    "high": {
+      "mae": 2.9541,
+      "rmse": 4.2502
+    },
+    "incident": {
+      "mae": 2.2784,
+      "rmse": 3.1461
+    },
+    "low": {
+      "mae": 1.2098,
+      "rmse": 1.5113
+    },
+    "medium": {
+      "mae": 1.9259,
+      "rmse": 2.5212
+    },
+    "peak": {
+      "mae": 3.7025,
+      "rmse": 5.4158
+    }
+  },
+  "persistence_lag_analysis": {
+    "lag_60s": {
+      "mae": 3.5445,
+      "rmse": 5.3481
+    },
+    "lag_120s": {
+      "mae": 3.5967,
+      "rmse": 5.451
+    }
+  },
+  "leakage_check": {
+    "train_seeds": [
+      0,
+      1,
+      2
+    ],
+    "val_seeds": [
+      3
+    ],
+    "test_seeds": [
+      4
+    ],
+    "train_val_overlap": [],
+    "train_test_overlap": [],
+    "no_leakage": true
+  },
+  "elapsed_s": 4.93
+}

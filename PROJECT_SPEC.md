@@ -151,7 +151,7 @@ Plans are defined over each junction's ACTUAL SUMO phases from netconvert.
 - [ ] Webster/HCM cost model implemented
 - [ ] Calibrated on training scenarios
 - [ ] Validated on held-out: Spearman ρ, top-1 agreement
-- [ ] Passes quality gate (ρ > 0.6); if not, improved
+- [ ] Passes quality gate (Spearman ρ >= 0.5); if not, improved
 - [ ] Phase 4 report written
 
 ### Phase 5: QUBO

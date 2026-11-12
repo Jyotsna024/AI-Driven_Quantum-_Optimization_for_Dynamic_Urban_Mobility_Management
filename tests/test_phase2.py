@@ -29,15 +29,20 @@ REQUIRED_COLUMNS = [
 
 @pytest.fixture(scope="module")
 def dataset():
-    """Load all raw run CSVs."""
-    csv_files = list(DATA_RAW_DIR.glob("*_s*_*csv"))
-    assert len(csv_files) > 0, f"No run CSVs found in {DATA_RAW_DIR}"
-    
-    dfs = []
-    for f in csv_files:
-        if f.name == "manifest.csv":
-            continue
-        dfs.append(pd.read_csv(f))
+    """Load all raw run CSVs listed in manifest (excludes non-run CSVs)."""
+    manifest_p = DATA_RAW_DIR / "manifest.csv"
+    if manifest_p.exists():
+        manifest = pd.read_csv(manifest_p)
+        run_ids = manifest["run_id"].dropna().tolist()
+        dfs = []
+        for rid in run_ids:
+            fp = DATA_RAW_DIR / f"{rid}.csv"
+            if fp.exists():
+                dfs.append(pd.read_csv(fp))
+    else:
+        csv_files = list(DATA_RAW_DIR.glob("*_s*_*.csv"))
+        dfs = [pd.read_csv(f) for f in csv_files if f.name != "manifest.csv"]
+    assert len(dfs) > 0, f"No run CSVs found in {DATA_RAW_DIR}"
     full_df = pd.concat(dfs, ignore_index=True)
     return full_df
 
