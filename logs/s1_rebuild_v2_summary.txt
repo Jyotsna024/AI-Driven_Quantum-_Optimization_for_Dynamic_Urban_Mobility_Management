@@ -1,0 +1,3 @@
+S1 v2 command: python scripts/rebuild_s1_cost_model.py --workers 6
+interventions=720 snapshots=45 outcome_rows=2880 elapsed_s=163.66
+validation_top1=34/60 (0.5666666666666667); test_top1=23/60 (0.38333333333333336)

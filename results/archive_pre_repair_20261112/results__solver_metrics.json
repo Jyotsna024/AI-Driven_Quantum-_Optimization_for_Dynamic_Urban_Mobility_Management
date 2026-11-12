@@ -1,0 +1,94 @@
+{
+  "summary": {
+    "identical_qubo_verified": true,
+    "qubo_variables": 16,
+    "penalty_A": 50.0,
+    "exact_best_energy": -127.5102,
+    "exact_best_plans": [
+      1,
+      2,
+      3,
+      3
+    ],
+    "sa_matches_exact": true,
+    "qaoa_matches_exact": false,
+    "sa_approx_ratio": 1.0,
+    "qaoa_approx_ratio": 1.0013,
+    "sa_feasible_rate": 1.0
+  },
+  "ExactSolver": {
+    "solver": "ExactSolver (dimod)",
+    "best_energy": -127.5102,
+    "exact_best_energy": -127.5102,
+    "traffic_delay_s": 72.4898,
+    "approx_ratio": 1.0,
+    "feasible": true,
+    "best_plans": [
+      1,
+      2,
+      3,
+      3
+    ],
+    "best_plans_dict": {
+      "J0": 1,
+      "J1": 2,
+      "J2": 3,
+      "J3": 3
+    },
+    "runtime_s": 0.0466
+  },
+  "SimulatedAnnealing": {
+    "solver": "Simulated Annealing (dwave-neal)",
+    "best_energy": -127.5102,
+    "exact_best_energy": -127.5102,
+    "traffic_delay_s": 72.4898,
+    "approx_ratio": 1.0,
+    "feasible_rate": 1.0,
+    "mean_energy": -127.5051,
+    "std_energy": 0.0102,
+    "best_plans": [
+      1,
+      2,
+      3,
+      3
+    ],
+    "best_plans_dict": {
+      "J0": 1,
+      "J1": 2,
+      "J2": 3,
+      "J3": 3
+    },
+    "mean_runtime_s": 0.0558,
+    "total_runtime_s": 0.5581,
+    "n_seeds": 10
+  },
+  "QAOA_Aer": {
+    "solver": "QAOA (Qiskit Aer Simulator)",
+    "hardware_label": "Aer simulator (no quantum hardware; classical statevector/shot execution)",
+    "reps_p": 1,
+    "optimized_angles": {
+      "gamma": 1.5,
+      "beta": 0.3
+    },
+    "best_energy": -127.3487,
+    "exact_best_energy": -127.5102,
+    "traffic_delay_s": 72.6513,
+    "approx_ratio": 1.0013,
+    "feasible": true,
+    "feasible_rate": 1.0,
+    "best_plans": [
+      1,
+      3,
+      3,
+      3
+    ],
+    "best_plans_dict": {
+      "J0": 1,
+      "J1": 3,
+      "J2": 3,
+      "J3": 3
+    },
+    "optimization_runtime_s": 1.8199,
+    "n_seeds": 10
+  }
+}
