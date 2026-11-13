@@ -69,6 +69,8 @@ class LiveSimulation:
         tls_by_j: dict[str, str],
         incident: dict[str, Any],
         temp_dir: Path,
+        controller=None,
+        controller_error: str | None = None,
     ):
         self.traci = traci_module
         self.conn = connection
@@ -79,6 +81,9 @@ class LiveSimulation:
         self.tls_by_j = tls_by_j
         self.incident = incident
         self.temp_dir = temp_dir
+        self.controller = controller
+        self.controller_error = controller_error
+        self.auto_control_enabled = bool(controller.enabled) if controller is not None else False
         self.view_id = connection.gui.getIDList()[0]
         self.time_s = float(connection.simulation.getTime())
         self.target_plans = {junction: 0 for junction in JUNCTIONS}
@@ -97,7 +102,11 @@ class LiveSimulation:
             self.actual_plans[junction] = int(program) if program.isdigit() else 0
 
     @classmethod
-    def start(cls, scenario: str, seed: int) -> "LiveSimulation":
+    def start(cls, scenario: str, seed: int, auto_control: bool = True) -> "LiveSimulation":
+        sumo_home = Path(os.environ.get("SUMO_HOME", r"C:\Program Files (x86)\SUMO"))
+        tools_path = sumo_home / "tools"
+        if tools_path.is_dir() and str(tools_path) not in os.sys.path:
+            os.sys.path.insert(0, str(tools_path))
         import traci
 
         cfg = json.loads((ROOT / "sumo_files" / "cluster_config.json").read_text(encoding="utf-8"))
@@ -129,7 +138,6 @@ class LiveSimulation:
         route = ROOT / "sumo_files" / "routes" / f"{scenario}_s{seed}.rou.xml"
         if not route.exists():
             raise FileNotFoundError(f"Route file not found: {route}")
-        sumo_home = Path(os.environ.get("SUMO_HOME", r"C:\Program Files (x86)\SUMO"))
         sumo_gui = sumo_home / "bin" / "sumo-gui.exe"
         if not sumo_gui.exists():
             raise FileNotFoundError(f"SUMO-GUI not found: {sumo_gui}. Set SUMO_HOME to the SUMO installation.")
@@ -147,10 +155,27 @@ class LiveSimulation:
         try:
             traci.start(command, label=label, numRetries=60)
             connection = traci.getConnection(label)
+            predictor = None
+            predictor_error = None
+            try:
+                import sys
+                sys.path.insert(0, str(ROOT / "src"))
+                from stgnn import STGNNPredictor
+                predictor = STGNNPredictor()
+            except Exception as exc:
+                predictor_error = f"{type(exc).__name__}: {exc}"
+            controller = None
+            controller_error = None
+            try:
+                from adaptive_signal_controller import AdaptiveSignalController
+                controller = AdaptiveSignalController(connection, tls_by_j, incoming, predictor,
+                                                     enabled=auto_control, predictor_error=predictor_error)
+            except Exception as exc:
+                controller_error = f"{type(exc).__name__}: {exc}"
             simulation = cls(
                 traci, connection, label, scenario, seed, incoming, tls_by_j,
                 __import__("yaml").safe_load((ROOT / "configs" / "scenarios.yaml").read_text(encoding="utf-8"))["scenarios"][scenario],
-                temp_dir,
+                temp_dir, controller, controller_error,
             )
             # Keep all four selected junctions in frame; this is SUMO-GUI's own view.
             connection.gui.setBoundary(simulation.view_id, 350, 300, 1650, 1950)
@@ -188,23 +213,36 @@ class LiveSimulation:
 
     @property
     def signal_status(self) -> list[dict[str, Any]]:
+        if self.controller is not None and not self.closed:
+            return [self.controller.junction_status(junction) for junction in JUNCTIONS]
         rows = []
         for junction in JUNCTIONS:
             tid = self.tls_by_j[junction]
-            if self.closed:
-                phase, state = "—", "Stopped"
-            else:
-                phase = self.conn.trafficlight.getPhase(tid)
-                state = self.conn.trafficlight.getRedYellowGreenState(tid)
-            rows.append({
-                "Junction": junction,
-                "Applied plan": self.actual_plans[junction],
-                "Requested plan": self.target_plans[junction],
-                "Phase": phase,
-                "Signal state": state,
-                "Queue": sum(self.conn.lane.getLastStepHaltingNumber(lane) for lane in self.incoming[junction]) if not self.closed else 0,
-            })
+            phase = "—" if self.closed else self.conn.trafficlight.getPhase(tid)
+            state = "Stopped" if self.closed else self.conn.trafficlight.getRedYellowGreenState(tid)
+            rows.append({"Junction": junction, "Phase": phase, "Signal state": state,
+                         "Queue": sum(self.conn.lane.getLastStepHaltingNumber(lane) for lane in self.incoming[junction]) if not self.closed else 0,
+                         "Controller": self.controller_error or "Native SUMO program"})
         return rows
+
+    def set_auto_control(self, enabled: bool) -> None:
+        self.auto_control_enabled = bool(enabled)
+        if self.controller is not None:
+            self.controller.set_enabled(enabled)
+
+    @property
+    def controller_status(self) -> str:
+        if self.controller is not None:
+            return self.controller.status
+        return f"Fallback: native SUMO program active ({self.controller_error or 'controller unavailable'})"
+
+    @property
+    def model_status(self) -> str:
+        return self.controller.model_status if self.controller is not None else "ST-GNN/controller unavailable"
+
+    @property
+    def decision_history(self) -> list[dict[str, Any]]:
+        return self.controller.decision_history[-100:] if self.controller is not None else []
 
     def _switch_if_safe(self, cycle_wraps: set[str] | None = None) -> None:
         cycle_wraps = cycle_wraps or set()
@@ -285,6 +323,8 @@ class LiveSimulation:
                 if previous_phases[j] != 0 and self.conn.trafficlight.getPhase(self.tls_by_j[j]) == 0
             }
             self._switch_if_safe(wrapped)
+            if self.controller is not None:
+                self.controller.after_step(previous_phases)
             if self.conn.simulation.getMinExpectedNumber() == 0:
                 self.finished = True
                 break

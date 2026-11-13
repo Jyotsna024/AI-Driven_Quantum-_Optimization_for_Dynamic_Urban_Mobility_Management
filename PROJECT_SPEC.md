@@ -178,12 +178,13 @@ Plans are defined over each junction's ACTUAL SUMO phases from netconvert.
 - [ ] Phase 7 report written
 
 ### Phase 8: EVALUATION
-- [ ] All controllers evaluated on identical scenarios/seeds
-- [ ] Avg waiting time, queue, travel time, throughput, runtime
-- [ ] Mean ± std, % vs fixed-time computed
-- [ ] CSV + Matplotlib figures saved
+- [x] All controllers evaluated on identical scenarios/seeds
+- [x] Avg waiting time, queue, travel time, throughput, runtime
+- [x] Mean ± std computed
+- [ ] % vs fixed-time computed
+- [x] CSV + Matplotlib figures saved
 - [ ] Expansion gate: ask user about scaling to 6 intersections
-- [ ] Phase 8 report written
+- [x] Phase 8 report written
 
 ### Phase 9: DASHBOARD
 - [x] Streamlit app displays the real SUMO network and live vehicle positions from TraCI

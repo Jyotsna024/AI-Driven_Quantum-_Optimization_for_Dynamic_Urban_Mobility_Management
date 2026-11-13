@@ -1,0 +1,226 @@
+{
+  "result_path": "C:\\Users\\Vinod Biradar\\Desktop\\AI-Driven_Quantum-_Optimization_for_Dynamic_Urban_Mobility_Management\\results\\adaptive_ai_verified_seed4",
+  "status": "COMPLETE",
+  "scenario": "low",
+  "seed": 4,
+  "sumo_seed": 104,
+  "duration_s": 600,
+  "identical_route_and_seed": true,
+  "fixed_time": {
+    "mode": "fixed_time",
+    "scenario": "low",
+    "seed": 4,
+    "sumo_seed": 104,
+    "duration_s": 600,
+    "total_waiting_time_vehicle_s": 2970.0,
+    "average_queue_vehicles": 1.575,
+    "maximum_queue_vehicles": 8,
+    "throughput_total_junction_crossings": 197,
+    "throughput_by_junction": {
+      "J0": 54,
+      "J1": 44,
+      "J2": 50,
+      "J3": 49
+    },
+    "decision_count": 0,
+    "decisions_by_junction": {
+      "J0": 0,
+      "J1": 0,
+      "J2": 0,
+      "J3": 0
+    },
+    "green_duration_unique_s_by_junction": {
+      "J0": [],
+      "J1": [],
+      "J2": [],
+      "J3": []
+    },
+    "green_duration_count_by_junction": {
+      "J0": 0,
+      "J1": 0,
+      "J2": 0,
+      "J3": 0
+    },
+    "phase_selection_counts_by_junction": {
+      "J0": {
+        "0": 0,
+        "2": 0
+      },
+      "J1": {
+        "0": 0,
+        "2": 0
+      },
+      "J2": {
+        "0": 0,
+        "2": 0,
+        "4": 0,
+        "6": 0
+      },
+      "J3": {
+        "0": 0,
+        "2": 0
+      }
+    },
+    "stgnn_status": "Pressure-only fallback: ST-GNN unavailable",
+    "controller_status": "Automatic AI control off; SUMO native program active",
+    "controller_error": null,
+    "telemetry_samples": 10
+  },
+  "adaptive": {
+    "mode": "adaptive",
+    "scenario": "low",
+    "seed": 4,
+    "sumo_seed": 104,
+    "duration_s": 600,
+    "total_waiting_time_vehicle_s": 2911.0,
+    "average_queue_vehicles": 1.3,
+    "maximum_queue_vehicles": 6,
+    "throughput_total_junction_crossings": 196,
+    "throughput_by_junction": {
+      "J0": 54,
+      "J1": 43,
+      "J2": 50,
+      "J3": 49
+    },
+    "decision_count": 81,
+    "decisions_by_junction": {
+      "J0": 23,
+      "J1": 20,
+      "J2": 17,
+      "J3": 21
+    },
+    "green_duration_unique_s_by_junction": {
+      "J0": [
+        10.33,
+        14.58,
+        19.43,
+        20.73,
+        22.09,
+        22.73,
+        23.03,
+        23.37,
+        23.55,
+        23.69,
+        23.73,
+        23.77,
+        24.11,
+        24.19,
+        24.3,
+        24.62,
+        25.78,
+        27.21,
+        27.3,
+        27.55,
+        27.91,
+        29.54,
+        31.88
+      ],
+      "J1": [
+        10.33,
+        15.22,
+        21.0,
+        21.6,
+        22.01,
+        22.57,
+        23.63,
+        24.1,
+        24.26,
+        24.74,
+        24.77,
+        25.18,
+        25.27,
+        25.76,
+        25.91,
+        27.31,
+        27.8,
+        27.9,
+        29.73
+      ],
+      "J2": [
+        10.33,
+        15.84,
+        21.0,
+        24.6,
+        25.73,
+        26.94,
+        26.96,
+        27.46,
+        30.98,
+        32.08,
+        35.98,
+        36.34,
+        36.63,
+        37.37,
+        38.21,
+        38.35,
+        41.35
+      ],
+      "J3": [
+        10.33,
+        15.84,
+        19.62,
+        19.81,
+        21.34,
+        21.42,
+        21.6,
+        22.09,
+        22.25,
+        22.63,
+        22.87,
+        23.03,
+        23.48,
+        23.49,
+        24.23,
+        24.26,
+        24.31,
+        24.59,
+        27.07,
+        27.26
+      ]
+    },
+    "green_duration_count_by_junction": {
+      "J0": 23,
+      "J1": 20,
+      "J2": 17,
+      "J3": 21
+    },
+    "phase_selection_counts_by_junction": {
+      "J0": {
+        "0": 12,
+        "2": 11
+      },
+      "J1": {
+        "0": 11,
+        "2": 9
+      },
+      "J2": {
+        "0": 4,
+        "2": 2,
+        "4": 6,
+        "6": 5
+      },
+      "J3": {
+        "0": 11,
+        "2": 10
+      }
+    },
+    "stgnn_status": "ST-GNN predictions active (60/120/180 s)",
+    "controller_status": "Automatic AI control active",
+    "controller_error": null,
+    "telemetry_samples": 10
+  },
+  "adaptive_minus_fixed": {
+    "total_waiting_time_vehicle_s": {
+      "adaptive_minus_fixed": -59.0,
+      "relative_change_pct": -1.9865319865319866
+    },
+    "average_queue_vehicles": {
+      "adaptive_minus_fixed": -0.2749999999999999,
+      "relative_change_pct": -17.460317460317455
+    },
+    "throughput_total_junction_crossings": {
+      "adaptive_minus_fixed": -1,
+      "relative_change_pct": -0.5076142131979695
+    }
+  }
+}
