@@ -1,0 +1,73 @@
+time_s,scenario,seed,controller,junction,old_plan_id,applied_plan_id,signal_state,transition,error
+181,low,0,sa_qubo,J0,0,0,rrrGGGrrrGGG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+181,low,0,sa_qubo,J2,0,1,rGGrrrrrrGGrrrrr,cycle boundary after yellow clearance,
+181,low,0,sa_qubo,J3,0,0,GGGgrrrrGGgG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+271,low,0,sa_qubo,J0,0,0,rrrGGGrrrGGG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+271,low,0,sa_qubo,J3,0,1,GGGgrrrrGGgG,cycle boundary after yellow clearance,
+361,low,0,sa_qubo,J0,0,0,rrrGGGrrrGGG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+451,low,0,sa_qubo,J0,0,0,rrrGGGrrrGGG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+541,low,0,sa_qubo,J0,0,0,rrrGGGrrrGGG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+541,low,0,sa_qubo,J1,0,0,GGGgrrrrGGGgrrrr,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+541,low,0,sa_qubo,J3,1,0,GGGgrrrrGGgG,cycle boundary after yellow clearance,
+631,low,0,sa_qubo,J0,0,0,rrrGGGrrrGGG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+631,low,0,sa_qubo,J1,0,0,GGGgrrrrGGGgrrrr,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+631,low,0,sa_qubo,J3,0,1,GGGgrrrrGGgG,cycle boundary after yellow clearance,
+721,low,0,sa_qubo,J0,0,0,rrrGGGrrrGGG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+721,low,0,sa_qubo,J1,0,1,GGGgrrrrGGGgrrrr,cycle boundary after yellow clearance,
+811,low,0,sa_qubo,J0,0,0,rrrGGGrrrGGG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+811,low,0,sa_qubo,J1,1,1,GGGgrrrrGGGgrrrr,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+811,low,0,sa_qubo,J3,1,1,GGGgrrrrGGgG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+901,low,0,sa_qubo,J0,0,0,rrrGGGrrrGGG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+901,low,0,sa_qubo,J1,1,0,GGGgrrrrGGGgrrrr,cycle boundary after yellow clearance,
+991,low,0,sa_qubo,J0,0,0,rrrGGGrrrGGG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+991,low,0,sa_qubo,J1,0,0,GGGgrrrrGGGgrrrr,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+1081,low,0,sa_qubo,J0,0,0,rrrGGGrrrGGG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+1171,low,0,sa_qubo,J0,0,0,rrrGGGrrrGGG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+1171,low,0,sa_qubo,J1,0,1,GGGgrrrrGGGgrrrr,cycle boundary after yellow clearance,
+1261,low,0,sa_qubo,J0,0,0,rrrGGGrrrGGG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+1261,low,0,sa_qubo,J1,1,1,GGGgrrrrGGGgrrrr,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+1351,low,0,sa_qubo,J0,0,0,rrrGGGrrrGGG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+1441,low,0,sa_qubo,J0,0,0,rrrGGGrrrGGG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+1441,low,0,sa_qubo,J1,1,0,GGGgrrrrGGGgrrrr,cycle boundary after yellow clearance,
+1441,low,0,sa_qubo,J3,1,0,GGGgrrrrGGgG,cycle boundary after yellow clearance,
+1531,low,0,sa_qubo,J0,0,0,rrrGGGrrrGGG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+1531,low,0,sa_qubo,J3,0,1,GGGgrrrrGGgG,cycle boundary after yellow clearance,
+1621,low,0,sa_qubo,J0,0,0,rrrGGGrrrGGG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+1711,low,0,sa_qubo,J0,0,0,rrrGGGrrrGGG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+1711,low,0,sa_qubo,J1,0,1,GGGgrrrrGGGgrrrr,cycle boundary after yellow clearance,
+1801,low,0,sa_qubo,J0,0,0,rrrGGGrrrGGG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+1801,low,0,sa_qubo,J1,1,0,GGGgrrrrGGGgrrrr,cycle boundary after yellow clearance,
+1801,low,0,sa_qubo,J3,1,1,GGGgrrrrGGgG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+1891,low,0,sa_qubo,J0,0,0,rrrGGGrrrGGG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+1981,low,0,sa_qubo,J0,0,0,rrrGGGrrrGGG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+1981,low,0,sa_qubo,J1,0,0,GGGgrrrrGGGgrrrr,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+2071,low,0,sa_qubo,J0,0,0,rrrGGGrrrGGG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+2071,low,0,sa_qubo,J3,1,1,GGGgrrrrGGgG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+2161,low,0,sa_qubo,J0,0,0,rrrGGGrrrGGG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+2251,low,0,sa_qubo,J0,0,0,rrrGGGrrrGGG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+2251,low,0,sa_qubo,J3,1,0,GGGgrrrrGGgG,cycle boundary after yellow clearance,
+2341,low,0,sa_qubo,J0,0,0,rrrGGGrrrGGG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+2341,low,0,sa_qubo,J1,0,0,GGGgrrrrGGGgrrrr,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+2341,low,0,sa_qubo,J3,0,1,GGGgrrrrGGgG,cycle boundary after yellow clearance,
+2431,low,0,sa_qubo,J0,0,0,rrrGGGrrrGGG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+2521,low,0,sa_qubo,J0,0,0,rrrGGGrrrGGG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+2611,low,0,sa_qubo,J0,0,0,rrrGGGrrrGGG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+2701,low,0,sa_qubo,J0,0,0,rrrGGGrrrGGG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+2701,low,0,sa_qubo,J1,0,0,GGGgrrrrGGGgrrrr,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+2791,low,0,sa_qubo,J0,0,0,rrrGGGrrrGGG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+2791,low,0,sa_qubo,J1,0,1,GGGgrrrrGGGgrrrr,cycle boundary after yellow clearance,
+2881,low,0,sa_qubo,J0,0,0,rrrGGGrrrGGG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+2881,low,0,sa_qubo,J1,1,0,GGGgrrrrGGGgrrrr,cycle boundary after yellow clearance,
+2881,low,0,sa_qubo,J3,1,0,GGGgrrrrGGgG,cycle boundary after yellow clearance,
+2971,low,0,sa_qubo,J0,0,0,rrrGGGrrrGGG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+3061,low,0,sa_qubo,J0,0,0,rrrGGGrrrGGG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+3061,low,0,sa_qubo,J3,0,0,GGGgrrrrGGgG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+3151,low,0,sa_qubo,J0,0,0,rrrGGGrrrGGG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+3151,low,0,sa_qubo,J3,0,1,GGGgrrrrGGgG,cycle boundary after yellow clearance,
+3241,low,0,sa_qubo,J0,0,0,rrrGGGrrrGGG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+3331,low,0,sa_qubo,J0,0,0,rrrGGGrrrGGG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+3331,low,0,sa_qubo,J1,0,1,GGGgrrrrGGGgrrrr,cycle boundary after yellow clearance,
+3421,low,0,sa_qubo,J0,0,0,rrrGGGrrrGGG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+3421,low,0,sa_qubo,J1,1,0,GGGgrrrrGGGgrrrr,cycle boundary after yellow clearance,
+3421,low,0,sa_qubo,J3,1,0,GGGgrrrrGGgG,cycle boundary after yellow clearance,
+3511,low,0,sa_qubo,J0,0,0,rrrGGGrrrGGG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')

@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "completed": [
+    "fixed_time_low_s0_600",
+    "max_pressure_low_s0_600",
+    "sa_qubo_low_s0_600",
+    "qaoa_aer_sampled_low_s0_600"
+  ],
+  "failures": []
+}

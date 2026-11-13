@@ -1,0 +1,708 @@
+{
+  "schema_version": 2,
+  "status": "COMPLETE",
+  "input_file": "models\\qubo_s2_v3.npz",
+  "input_sha256": "5e138648219654f240c71486c18f34c83c54c40ab0f89f2344fb86bc943584b0",
+  "identical_serialized_input": true,
+  "qubo_variables": 16,
+  "penalty_A": 86.02675840846875,
+  "exact_energy": -291.7751610610578,
+  "exact_delay_s": 52.33187257281719,
+  "seed_schedule": {
+    "SA": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "QAOA": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ]
+  },
+  "sample_policy": "Feasibility computed over raw sampler samples; no forced one-hot decoding.",
+  "independent_verification": {
+    "ExactSolver": {
+      "energy_recomputed": -291.7751610610578,
+      "feasible_recomputed": true,
+      "plan_recomputed": [
+        3,
+        3,
+        1,
+        3
+      ],
+      "delay_recomputed_s": 52.33187257281719
+    },
+    "SimulatedAnnealing": {
+      "energy_recomputed": -291.7751610610578,
+      "feasible_recomputed": true,
+      "plan_recomputed": [
+        3,
+        3,
+        1,
+        3
+      ],
+      "delay_recomputed_s": 52.33187257281719
+    },
+    "QAOA": {
+      "energy_recomputed": -291.7751610610578,
+      "feasible_recomputed": true,
+      "plan_recomputed": [
+        3,
+        3,
+        1,
+        3
+      ],
+      "delay_recomputed_s": 52.33187257281719
+    }
+  },
+  "solvers": {
+    "ExactSolver": {
+      "solver": "dimod ExactSolver",
+      "best_x": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "best_plans": [
+        3,
+        3,
+        1,
+        3
+      ],
+      "best_energy": -291.7751610610579,
+      "traffic_delay_s": 52.33187257281713,
+      "n_raw_samples": 65536,
+      "n_feasible_samples": 256,
+      "feasible_rate": 0.00390625,
+      "runtime_s": 0.052769600006286055,
+      "approx_ratio": 1.0,
+      "exact_reference_delay_s": 52.33187257281719
+    },
+    "SimulatedAnnealing": {
+      "solver": "dwave-neal simulated annealing",
+      "best_x": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "best_plans": [
+        3,
+        3,
+        1,
+        3
+      ],
+      "best_energy": -291.7751610610568,
+      "traffic_delay_s": 52.33187257281821,
+      "approx_ratio": 0.9999999999999805,
+      "n_raw_samples": 2500,
+      "n_feasible_samples": 2500,
+      "feasible_rate": 1.0,
+      "runtime_s": 0.28267910000431584,
+      "n_seeds": 10,
+      "reads_per_seed": 250,
+      "per_seed": [
+        {
+          "seed": 0,
+          "runtime_s": 0.038475699999253266,
+          "best_feasible_energy": -291.7751610610568,
+          "best_feasible_x": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "seed": 1,
+          "runtime_s": 0.025688399997306988,
+          "best_feasible_energy": -291.7751610610568,
+          "best_feasible_x": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "seed": 2,
+          "runtime_s": 0.026588200002152007,
+          "best_feasible_energy": -291.7751610610568,
+          "best_feasible_x": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "seed": 3,
+          "runtime_s": 0.027264899996225722,
+          "best_feasible_energy": -291.7751610610568,
+          "best_feasible_x": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "seed": 4,
+          "runtime_s": 0.0255232999988948,
+          "best_feasible_energy": -291.7751610610568,
+          "best_feasible_x": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "seed": 5,
+          "runtime_s": 0.02745390000200132,
+          "best_feasible_energy": -291.7751610610568,
+          "best_feasible_x": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "seed": 6,
+          "runtime_s": 0.02746550000301795,
+          "best_feasible_energy": -291.7751610610568,
+          "best_feasible_x": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "seed": 7,
+          "runtime_s": 0.027962699998170137,
+          "best_feasible_energy": -291.7751610610568,
+          "best_feasible_x": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "seed": 8,
+          "runtime_s": 0.02853529999993043,
+          "best_feasible_energy": -291.7751610610568,
+          "best_feasible_x": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "seed": 9,
+          "runtime_s": 0.02769550000084564,
+          "best_feasible_energy": -291.7751610610568,
+          "best_feasible_x": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    "QAOA": {
+      "solver": "QAOA p=1 on Qiskit Aer",
+      "hardware_label": "Aer simulator; no quantum hardware",
+      "best_x": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "best_plans": [
+        3,
+        3,
+        1,
+        3
+      ],
+      "best_energy": -291.7751610610578,
+      "traffic_delay_s": 52.33187257281719,
+      "approx_ratio": 1.0,
+      "n_raw_samples": 15000,
+      "n_feasible_samples": 150,
+      "feasible_rate": 0.01,
+      "runtime_s": 21.487124300001597,
+      "n_seeds": 10,
+      "shots_per_seed": 1500,
+      "ising_offset": 485.05205652312736,
+      "per_seed": [
+        {
+          "seed": 0,
+          "optimizer_success": false,
+          "optimizer_message": "Return from COBYLA because the objective function has been evaluated MAXFUN times.",
+          "objective_evaluations": 15,
+          "optimized_parameters_in_circuit_order": [
+            0.33053999417881785,
+            0.4448772655326352
+          ],
+          "best_feasible_energy": -284.4169871504445,
+          "best_feasible_x": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "seed": 1,
+          "optimizer_success": false,
+          "optimizer_message": "Return from COBYLA because the objective function has been evaluated MAXFUN times.",
+          "objective_evaluations": 15,
+          "optimized_parameters_in_circuit_order": [
+            0.16001708026677236,
+            0.20738622591384634
+          ],
+          "best_feasible_energy": -287.38541184143656,
+          "best_feasible_x": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "seed": 2,
+          "optimizer_success": false,
+          "optimizer_message": "Return from COBYLA because the objective function has been evaluated MAXFUN times.",
+          "objective_evaluations": 15,
+          "optimized_parameters_in_circuit_order": [
+            0.22869930384602938,
+            0.6440330079622567
+          ],
+          "best_feasible_energy": -269.6526689167963,
+          "best_feasible_x": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "seed": 3,
+          "optimizer_success": false,
+          "optimizer_message": "Return from COBYLA because the objective function has been evaluated MAXFUN times.",
+          "objective_evaluations": 15,
+          "optimized_parameters_in_circuit_order": [
+            0.21264972861220008,
+            0.5395166045238334
+          ],
+          "best_feasible_energy": -263.70934548193406,
+          "best_feasible_x": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "seed": 4,
+          "optimizer_success": false,
+          "optimizer_message": "Return from COBYLA because the objective function has been evaluated MAXFUN times.",
+          "objective_evaluations": 15,
+          "optimized_parameters_in_circuit_order": [
+            0.21225189963237057,
+            0.6585343943116573
+          ],
+          "best_feasible_energy": -287.38541184143656,
+          "best_feasible_x": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "seed": 5,
+          "optimizer_success": false,
+          "optimizer_message": "Return from COBYLA because the objective function has been evaluated MAXFUN times.",
+          "objective_evaluations": 15,
+          "optimized_parameters_in_circuit_order": [
+            0.39992955575749506,
+            0.25070358909080365
+          ],
+          "best_feasible_energy": -291.7751610610578,
+          "best_feasible_x": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "seed": 6,
+          "optimizer_success": false,
+          "optimizer_message": "Return from COBYLA because the objective function has been evaluated MAXFUN times.",
+          "objective_evaluations": 15,
+          "optimized_parameters_in_circuit_order": [
+            0.3159319426008371,
+            0.40241299991988777
+          ],
+          "best_feasible_energy": -279.5525550062647,
+          "best_feasible_x": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "seed": 7,
+          "optimizer_success": false,
+          "optimizer_message": "Return from COBYLA because the objective function has been evaluated MAXFUN times.",
+          "objective_evaluations": 15,
+          "optimized_parameters_in_circuit_order": [
+            0.4198419238918766,
+            0.47140535118174803
+          ],
+          "best_feasible_energy": -288.01984270708095,
+          "best_feasible_x": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "seed": 8,
+          "optimizer_success": false,
+          "optimizer_message": "Return from COBYLA because the objective function has been evaluated MAXFUN times.",
+          "objective_evaluations": 15,
+          "optimized_parameters_in_circuit_order": [
+            0.2740108568455681,
+            -0.0740985058080679
+          ],
+          "best_feasible_energy": -290.5748401224217,
+          "best_feasible_x": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "seed": 9,
+          "optimizer_success": false,
+          "optimizer_message": "Return from COBYLA because the objective function has been evaluated MAXFUN times.",
+          "objective_evaluations": 15,
+          "optimized_parameters_in_circuit_order": [
+            0.5215318519422061,
+            0.8326515379353436
+          ],
+          "best_feasible_energy": -287.38541184143656,
+          "best_feasible_x": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      ]
+    }
+  }
+}

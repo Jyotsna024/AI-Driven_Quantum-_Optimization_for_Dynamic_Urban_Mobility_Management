@@ -1,0 +1,15 @@
+time_s,scenario,seed,controller,junction,old_plan_id,applied_plan_id,signal_state,transition
+91,incident,1,max_pressure,J0,0,1,rrrGGGrrrGGG,cycle boundary after yellow clearance
+91,incident,1,max_pressure,J1,0,1,GGGgrrrrGGGgrrrr,cycle boundary after yellow clearance
+91,incident,1,max_pressure,J2,0,1,rGGrrrrrrGGrrrrr,cycle boundary after yellow clearance
+91,incident,1,max_pressure,J3,0,1,GGGgrrrrGGgG,cycle boundary after yellow clearance
+451,incident,1,max_pressure,J1,1,0,GGGgrrrrGGGgrrrr,cycle boundary after yellow clearance
+541,incident,1,max_pressure,J1,0,1,GGGgrrrrGGGgrrrr,cycle boundary after yellow clearance
+1081,incident,1,max_pressure,J1,1,0,GGGgrrrrGGGgrrrr,cycle boundary after yellow clearance
+1081,incident,1,max_pressure,J3,1,2,GGGgrrrrGGgG,cycle boundary after yellow clearance
+1171,incident,1,max_pressure,J1,0,1,GGGgrrrrGGGgrrrr,cycle boundary after yellow clearance
+1171,incident,1,max_pressure,J3,2,1,GGGgrrrrGGgG,cycle boundary after yellow clearance
+2341,incident,1,max_pressure,J1,1,0,GGGgrrrrGGGgrrrr,cycle boundary after yellow clearance
+2431,incident,1,max_pressure,J1,0,1,GGGgrrrrGGGgrrrr,cycle boundary after yellow clearance
+3241,incident,1,max_pressure,J3,1,2,GGGgrrrrGGgG,cycle boundary after yellow clearance
+3331,incident,1,max_pressure,J3,2,1,GGGgrrrrGGgG,cycle boundary after yellow clearance

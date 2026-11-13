@@ -1,0 +1,822 @@
+{
+  "stage": "S2 v3",
+  "status": "VALIDATION_LIMITED",
+  "implementation_status": "EXECUTED",
+  "scientific_validation_pass": false,
+  "validation_note": "Exhaustive SUMO grid and QUBO mechanics pass, but held-out ranking/regret remain weak; do not use for closed-loop control.",
+  "n_training_pair_rollouts": 810,
+  "n_full_joint_validation_rollouts": 1024,
+  "n_joint_intervention_runs": 1834,
+  "train_seeds_used_for_cost_and_interactions": [
+    0,
+    1,
+    2
+  ],
+  "validation_snapshots": [
+    "high_s3_t2100",
+    "incident_s3_t2100"
+  ],
+  "test_snapshots": [
+    "peak_s4_t2100",
+    "incident_s4_t2100"
+  ],
+  "all_256_plan_vectors_evaluated_per_snapshot": true,
+  "cost_inputs_use_actual_stgnn_predictions": true,
+  "pairwise_terms_use_joint_sumo_rollouts": true,
+  "cost_matrix_s": [
+    [
+      32.06003894938245,
+      32.67902689752731,
+      34.02098790699318,
+      19.941887227442034
+    ],
+    [
+      12.026606847917146,
+      15.597080079307592,
+      17.507278741606097,
+      11.561691352153435
+    ],
+    [
+      20.210333948937446,
+      16.548887631971834,
+      24.42793629155221,
+      18.21153573310003
+    ],
+    [
+      5.717346699593303,
+      6.55517424515081,
+      9.017132397137143,
+      4.5553991069626205
+    ]
+  ],
+  "pair_interaction_support": {
+    "J0:0|J1:0": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J0:0|J1:1": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J0:0|J1:2": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J0:0|J1:3": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J0:1|J1:0": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J0:1|J1:1": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.9190563892906207,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:1|J1:2": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": -0.02160983168266147,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:1|J1:3": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.6372888369390286,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:2|J1:0": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J0:2|J1:1": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": -0.02653641261084729,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:2|J1:2": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.0587922929033058,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:2|J1:3": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": -0.10554686708047498,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:3|J1:0": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J0:3|J1:1": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": -0.003035994414870184,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:3|J1:2": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": -0.003431653641361976,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:3|J1:3": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": -0.08780075826897639,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:0|J2:0": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J0:0|J2:1": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J0:0|J2:2": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J0:0|J2:3": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J0:1|J2:0": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J0:1|J2:1": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.2624766251660063,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:1|J2:2": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.6987960774885112,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:1|J2:3": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.0280370821194668,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:2|J2:0": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J0:2|J2:1": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.005247925973860154,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:2|J2:2": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.08816542250976767,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:2|J2:3": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.19740125012310847,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:3|J2:0": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J0:3|J2:1": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.08028784945213706,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:3|J2:2": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.09536119386780063,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:3|J2:3": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": -0.09242390177655366,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:0|J3:0": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J0:0|J3:1": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J0:0|J3:2": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J0:0|J3:3": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J0:1|J3:0": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J0:1|J3:1": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": -0.015665458943969195,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:1|J3:2": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 1.069407762441964,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:1|J3:3": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.25647733495384323,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:2|J3:0": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J0:2|J3:1": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.024822037980371192,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:2|J3:2": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.13586780918041394,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:2|J3:3": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": -0.06751098869561976,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:3|J3:0": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J0:3|J3:1": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.04960528693810839,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:3|J3:2": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.07008838127339274,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:3|J3:3": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": -0.012605338820816788,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J1:0|J2:0": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J1:0|J2:1": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J1:0|J2:2": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J1:0|J2:3": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J1:1|J2:0": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J1:1|J2:1": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.013918398482838039,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J1:1|J2:2": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.5727081645957438,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J1:1|J2:3": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": -0.18324140198700978,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J1:2|J2:0": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J1:2|J2:1": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": -0.4220259587672073,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J1:2|J2:2": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.13941255713987127,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J1:2|J2:3": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.0918343178711981,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J1:3|J2:0": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J1:3|J2:1": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.022194156743877376,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J1:3|J2:2": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.013370300070617938,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J1:3|J2:3": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": -0.23995084828559807,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J1:0|J3:0": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J1:0|J3:1": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J1:0|J3:2": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J1:0|J3:3": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J1:1|J3:0": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J1:1|J3:1": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": -0.5403331671000984,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J1:1|J3:2": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.009398336874004324,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J1:1|J3:3": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": -0.05497703308074383,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J1:2|J3:0": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J1:2|J3:1": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": -0.18119983988487387,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J1:2|J3:2": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.05723183103321574,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J1:2|J3:3": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": -0.33839312993264486,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J1:3|J3:0": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J1:3|J3:1": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": -0.02222997951226991,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J1:3|J3:2": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.06266655815756815,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J1:3|J3:3": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": -0.13450444167272432,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J2:0|J3:0": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J2:0|J3:1": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J2:0|J3:2": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J2:0|J3:3": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J2:1|J3:0": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J2:1|J3:1": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": -0.05757596647649781,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J2:1|J3:2": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.1836913110806428,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J2:1|J3:3": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": -0.14356421314622972,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J2:2|J3:0": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J2:2|J3:1": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.16823056867956013,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J2:2|J3:2": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": -0.5478543157749253,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J2:2|J3:3": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": -0.12115623130220143,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J2:3|J3:0": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J2:3|J3:1": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": 0.2097025698530274,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J2:3|J3:2": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": -0.12392683340407563,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J2:3|J3:3": {
+      "n_train_snapshots": 15,
+      "mean_interaction_s": -0.17103461938011813,
+      "source": "matched joint SUMO rollouts"
+    }
+  },
+  "penalty_A": 86.02675840846875,
+  "base_objective_bounds": {
+    "feasible_min": 52.33187257281719,
+    "feasible_max": 85.02675840846875,
+    "infeasible_min": 0.0,
+    "infeasible_max": 283.141747500275,
+    "onehot_base_range": 32.69488583565156
+  },
+  "independent_brute_force": {
+    "n_bitstrings": 65536,
+    "n_feasible": 256,
+    "n_infeasible": 65280,
+    "best_x": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "best_plans": [
+      3,
+      3,
+      1,
+      3
+    ],
+    "best_energy": -291.7751610610578,
+    "best_base_objective": 52.33187257281719,
+    "best_predicted_delay_s": 52.331371857850854,
+    "max_feasible_energy": -259.08027522540624,
+    "min_infeasible_energy": -225.67017163239342,
+    "penalty_gap_s": 33.41010359301282,
+    "penalty_gap_ok": true,
+    "one_hot_verified_all_feasible": true
+  },
+  "validation_by_snapshot": {
+    "high_s3_t2100": {
+      "split": "val",
+      "scenario": "high",
+      "seed": 3,
+      "n_plans": 256,
+      "mae_s": 14.19694756081033,
+      "rmse_s": 15.921040756782027,
+      "spearman": 0.8493033302815287,
+      "predicted_best_plan_vector": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "sumo_best_plan_vector": [
+        3,
+        3,
+        3,
+        0
+      ],
+      "top1_match": false,
+      "predicted_best_sumo_delay_s": 53.33390044179518,
+      "sumo_optimal_delay_s": 52.5731462836726,
+      "regret_s": 0.7607541581225803,
+      "qubo_optimum_is_exact": true,
+      "snapshot_conditioned_cost_matrix_s": [
+        [
+          37.48417229127111,
+          39.36467234168942,
+          38.28338650480525,
+          24.638249491774076
+        ],
+        [
+          18.38874664869179,
+          22.942684854007318,
+          22.033844963373987,
+          17.580298771984225
+        ],
+        [
+          28.477667703380618,
+          26.479953961028812,
+          32.84384932597781,
+          25.785289246292233
+        ],
+        [
+          11.86937667628889,
+          14.3531811452,
+          12.892892319304064,
+          10.331912056776634
+        ]
+      ],
+      "snapshot_penalty_A": 112.30718024088489,
+      "snapshot_exact_plan_vector": [
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    "incident_s3_t2100": {
+      "split": "val",
+      "scenario": "incident",
+      "seed": 3,
+      "n_plans": 256,
+      "mae_s": 15.928540276758488,
+      "rmse_s": 22.48825933195937,
+      "spearman": -0.1719636930647745,
+      "predicted_best_plan_vector": [
+        3,
+        3,
+        1,
+        3
+      ],
+      "sumo_best_plan_vector": [
+        2,
+        3,
+        3,
+        0
+      ],
+      "top1_match": false,
+      "predicted_best_sumo_delay_s": 93.19249941092048,
+      "sumo_optimal_delay_s": 61.69135802469136,
+      "regret_s": 31.501141386229115,
+      "qubo_optimum_is_exact": true,
+      "snapshot_conditioned_cost_matrix_s": [
+        [
+          30.95043428541164,
+          30.939953214748463,
+          33.73390518199252,
+          19.119031549617933
+        ],
+        [
+          15.185235477383033,
+          19.725286908973892,
+          19.155868362819685,
+          13.878573866732282
+        ],
+        [
+          17.335451143266525,
+          12.828493822866127,
+          22.404309158964576,
+          15.114307791456433
+        ],
+        [
+          9.477087266679495,
+          11.211395309037774,
+          11.57896563094663,
+          7.195619724440691
+        ]
+      ],
+      "snapshot_penalty_A": 88.67421588565176,
+      "snapshot_exact_plan_vector": [
+        3,
+        3,
+        1,
+        3
+      ]
+    },
+    "incident_s4_t2100": {
+      "split": "test",
+      "scenario": "incident",
+      "seed": 4,
+      "n_plans": 256,
+      "mae_s": 13.178081615984294,
+      "rmse_s": 13.971593879533076,
+      "spearman": -0.0006687743190661478,
+      "predicted_best_plan_vector": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "sumo_best_plan_vector": [
+        1,
+        0,
+        3,
+        3
+      ],
+      "top1_match": false,
+      "predicted_best_sumo_delay_s": 60.42881794131794,
+      "sumo_optimal_delay_s": 44.670232082732085,
+      "regret_s": 15.758585858585853,
+      "qubo_optimum_is_exact": true,
+      "snapshot_conditioned_cost_matrix_s": [
+        [
+          34.549956758113524,
+          36.22463502111475,
+          35.79106440426669,
+          21.2347742281939
+        ],
+        [
+          13.557542971278279,
+          17.459010989427718,
+          18.556094224417503,
+          12.56426347175223
+        ],
+        [
+          17.427068946342946,
+          14.35027739132346,
+          19.779054589498415,
+          13.764279255705173
+        ],
+        [
+          4.6742951117810545,
+          4.677052097697349,
+          7.976531866948086,
+          3.7313642241524203
+        ]
+      ],
+      "snapshot_penalty_A": 85.16074488190486,
+      "snapshot_exact_plan_vector": [
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    "peak_s4_t2100": {
+      "split": "test",
+      "scenario": "peak",
+      "seed": 4,
+      "n_plans": 256,
+      "mae_s": 22.31598145886128,
+      "rmse_s": 24.235150676098975,
+      "spearman": 0.32019340810254054,
+      "predicted_best_plan_vector": [
+        3,
+        3,
+        1,
+        3
+      ],
+      "sumo_best_plan_vector": [
+        3,
+        0,
+        3,
+        3
+      ],
+      "top1_match": false,
+      "predicted_best_sumo_delay_s": 59.44625300625301,
+      "sumo_optimal_delay_s": 56.16239406117999,
+      "regret_s": 3.283858945073021,
+      "qubo_optimum_is_exact": true,
+      "snapshot_conditioned_cost_matrix_s": [
+        [
+          40.18448056358015,
+          42.64618582074023,
+          40.8025370366838,
+          25.916867960815015
+        ],
+        [
+          19.865978351789195,
+          25.698826883770213,
+          23.7062999315954,
+          16.770832980731857
+        ],
+        [
+          15.201213200535761,
+          11.755437044836544,
+          19.765894629205537,
+          13.267442277431229
+        ],
+        [
+          14.687900766195728,
+          17.183041612008694,
+          16.24962143536237,
+          11.774392236775178
+        ]
+      ],
+      "snapshot_penalty_A": 108.09674151973502,
+      "snapshot_exact_plan_vector": [
+        3,
+        3,
+        1,
+        3
+      ]
+    }
+  },
+  "mean_validation_spearman": 0.3386698186083771,
+  "mean_test_spearman": 0.1597623168917372,
+  "mean_validation_regret_s": 16.130947772175848,
+  "mean_test_regret_s": 9.521222401829437,
+  "elapsed_s": 389.72
+}

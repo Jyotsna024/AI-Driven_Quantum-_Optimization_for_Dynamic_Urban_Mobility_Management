@@ -1,5 +1,6 @@
-"""tests/test_s2_qubo.py"""
-import json, numpy as np
+"""tests/test_s2_qubo.py - S2 QUBO Formulation Test Suite"""
+import json
+import numpy as np
 from pathlib import Path
 PROJECT = Path(__file__).resolve().parents[1]
 
@@ -8,8 +9,7 @@ def test_qubo_npz():
     assert p.exists()
     d = np.load(p)
     assert "Q" in d
-    Q = d["Q"]
-    assert Q.shape == (16, 16)
+    assert d["Q"].shape == (16, 16)
 
 def test_qubo_meta():
     p = PROJECT / "models" / "qubo_meta.json"
@@ -19,26 +19,26 @@ def test_qubo_meta():
     assert d["K"] == 4
     assert d["penalty_gap_ok"] is True
 
-def test_qubo_metrics():
+def test_qubo_brute_force():
     p = PROJECT / "results" / "qubo_metrics.json"
     assert p.exists()
     d = json.loads(p.read_text())
     bf = d["brute_force"]
-    assert bf["n_feasible"] == 256, f"Expected 256 feasible, got {bf['n_feasible']}"
+    assert bf["n_feasible"] == 256
+    assert bf["n_infeasible"] == 65280
     assert bf["penalty_gap_ok"] is True
 
-def test_manual_energy():
-    """Verify best solution is consistent: x^T Q x equals stored best_energy."""
-    import numpy as np
+def test_energy_delay_consistency():
     mq = json.loads((PROJECT / "models" / "qubo_meta.json").read_text())
-    d  = np.load(PROJECT / "models" / "qubo.npz")
-    Q  = d["Q"]
-    x  = np.array(mq["best_x"], dtype=float)
+    d = np.load(PROJECT / "models" / "qubo.npz")
+    Q = d["Q"]
+    A = float(d["A"][0])
+    x = np.array(mq["best_x"], dtype=float)
     computed_e = float(x @ Q @ x)
-    stored_e   = mq["best_energy"]
-    assert abs(computed_e - stored_e) < 0.1, f"Energy mismatch: computed={computed_e} stored={stored_e}"
-    # Also verify feasibility
-    K = mq["K"]
-    for i in range(4):
-        s = int(sum(x[i*K:(i+1)*K]))
-        assert s == 1, f"Junction {i} not one-hot: sum={s}"
+    stored_e = mq["best_energy"]
+    assert abs(computed_e - stored_e) < 1e-3
+    c = np.array(mq["cost_matrix"])
+    bp = mq["best_plans"]
+    manual_delay = sum(c[i, bp[i]] for i in range(4))
+    qubo_delay = computed_e + 4.0 * A
+    assert abs(manual_delay - qubo_delay) < 1e-3

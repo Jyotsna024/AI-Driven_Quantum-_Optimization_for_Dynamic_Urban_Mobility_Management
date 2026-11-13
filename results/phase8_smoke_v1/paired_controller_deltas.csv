@@ -1,0 +1,4 @@
+scenario,seed,controller,waiting_time_delta_vehicle_s,travel_time_delta_s,time_loss_delta_s,average_queue_delta_vehicles,throughput_delta_crossings
+low,0,max_pressure,316.0,-0.940661050779795,310.2592343408178,0.19999999999999996,-2
+low,0,sa_qubo,-413.0,-2.38313922292712,-439.89363354978605,-0.25,3
+low,0,qaoa_aer_sampled,0.0,0.0,0.0,0.0,0

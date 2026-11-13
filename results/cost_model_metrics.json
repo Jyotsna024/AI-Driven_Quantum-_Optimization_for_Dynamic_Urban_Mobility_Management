@@ -79,65 +79,81 @@
       }
     }
   },
-  "model_type": "Ridge regression",
+  "model_type": "Leakage-Free Ridge Regression (pre-decision observations + ST-GNN + plan interactions)",
+  "leakage_free": true,
   "calibrated_params": {
-    "alpha": 1.0
+    "alpha": 50.0
+  },
+  "seed_partition": {
+    "train_seeds": [
+      0,
+      1,
+      2
+    ],
+    "val_seeds": [
+      3
+    ],
+    "test_seeds": [
+      4
+    ]
   },
   "val_metrics": {
     "n": 341,
-    "mae": 6.038,
-    "rmse": 11.325,
-    "spearman": 0.8301,
-    "top1_pct": 22.4,
+    "mae": 5.882,
+    "rmse": 11.327,
+    "spearman": 0.8444,
+    "top1_pct": 41.2,
+    "top1_counts": "35/85",
     "per_junction": {
       "J0": {
         "n": 84,
-        "mae": 14.927,
-        "spearman": 0.115
+        "mae": 14.731,
+        "spearman": 0.203
       },
       "J1": {
         "n": 82,
-        "mae": 3.783,
-        "spearman": 0.134
+        "mae": 3.449,
+        "spearman": 0.4215
       },
       "J2": {
         "n": 88,
-        "mae": 3.661,
-        "spearman": 0.079
+        "mae": 3.831,
+        "spearman": 0.1171
       },
       "J3": {
         "n": 87,
-        "mae": 1.988,
-        "spearman": -0.089
+        "mae": 1.704,
+        "spearman": -0.008
       }
     }
   },
   "test_metrics": {
     "n": 341,
-    "mae": 4.719,
-    "rmse": 7.05,
-    "spearman": 0.8275,
-    "top1_pct": 23.5,
+    "mae": 4.386,
+    "rmse": 6.563,
+    "spearman": 0.8591,
+    "top1_pct": 43.5,
+    "top1_counts": "37/85",
     "per_junction": {
       "J0": {
         "n": 84,
-        "mae": 10.119,
-        "spearman": -0.154
+        "mae": 9.296,
+        "spearman": 0.3325
       },
       "J1": {
         "n": 81,
-        "mae": 2.561,
-        "spearman": 0.281
+        "mae": 2.437,
+        "spearman": 0.4799
       },
       "J2": {
         "n": 88,
-        "mae": 4.244,
-        "spearman": -0.023
+        "mae": 4.073,
+        "spearman": 0.1985
       },
       "J3": {
         "n": 88,
-        "mae": 2.026,
-        "spearman": -0.085
+        "mae": 1.806,
+        "spearman": 0.0747
       }
     }
   },

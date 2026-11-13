@@ -1,0 +1,23 @@
+time_s,scenario,seed,controller,junction,old_plan_id,applied_plan_id,signal_state,transition,error
+901,peak,1,qaoa_aer_sampled,J0,0,1,rrrGGGrrrGGG,cycle boundary after yellow clearance,
+901,peak,1,qaoa_aer_sampled,J2,0,0,rGGrrrrrrGGrrrrr,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+991,peak,1,qaoa_aer_sampled,J2,0,0,rGGrrrrrrGGrrrrr,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+1081,peak,1,qaoa_aer_sampled,J2,0,0,rGGrrrrrrGGrrrrr,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+1171,peak,1,qaoa_aer_sampled,J2,0,0,rGGrrrrrrGGrrrrr,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+1261,peak,1,qaoa_aer_sampled,J2,0,0,rGGrrrrrrGGrrrrr,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+1351,peak,1,qaoa_aer_sampled,J2,0,0,rGGrrrrrrGGrrrrr,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+1441,peak,1,qaoa_aer_sampled,J2,0,0,rGGrrrrrrGGrrrrr,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+1531,peak,1,qaoa_aer_sampled,J2,0,0,rGGrrrrrrGGrrrrr,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+1621,peak,1,qaoa_aer_sampled,J2,0,0,rGGrrrrrrGGrrrrr,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+1711,peak,1,qaoa_aer_sampled,J2,0,0,rGGrrrrrrGGrrrrr,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+1801,peak,1,qaoa_aer_sampled,J0,1,0,rrrGGGrrrGGG,cycle boundary after yellow clearance,
+1801,peak,1,qaoa_aer_sampled,J3,0,0,GGGgrrrrGGgG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+1891,peak,1,qaoa_aer_sampled,J3,0,0,GGGgrrrrGGgG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+1981,peak,1,qaoa_aer_sampled,J3,0,0,GGGgrrrrGGgG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+2071,peak,1,qaoa_aer_sampled,J3,0,0,GGGgrrrrGGgG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+2161,peak,1,qaoa_aer_sampled,J3,0,0,GGGgrrrrGGgG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+2251,peak,1,qaoa_aer_sampled,J3,0,0,GGGgrrrrGGgG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+2341,peak,1,qaoa_aer_sampled,J3,0,0,GGGgrrrrGGgG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+2431,peak,1,qaoa_aer_sampled,J3,0,0,GGGgrrrrGGgG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+2521,peak,1,qaoa_aer_sampled,J3,0,0,GGGgrrrrGGgG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')
+2611,peak,1,qaoa_aer_sampled,J3,0,0,GGGgrrrrGGgG,safe-switch rejected; controller fallback queued,RuntimeError('candidate program would change signal state at transition')

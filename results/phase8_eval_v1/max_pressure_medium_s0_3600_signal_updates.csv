@@ -1,0 +1,27 @@
+time_s,scenario,seed,controller,junction,old_plan_id,applied_plan_id,signal_state,transition
+91,medium,0,max_pressure,J0,0,1,rrrGGGrrrGGG,cycle boundary after yellow clearance
+91,medium,0,max_pressure,J1,0,1,GGGgrrrrGGGgrrrr,cycle boundary after yellow clearance
+91,medium,0,max_pressure,J2,0,1,rGGrrrrrrGGrrrrr,cycle boundary after yellow clearance
+91,medium,0,max_pressure,J3,0,1,GGGgrrrrGGgG,cycle boundary after yellow clearance
+271,medium,0,max_pressure,J1,1,2,GGGgrrrrGGGgrrrr,cycle boundary after yellow clearance
+361,medium,0,max_pressure,J1,2,1,GGGgrrrrGGGgrrrr,cycle boundary after yellow clearance
+361,medium,0,max_pressure,J2,1,0,rGGrrrrrrGGrrrrr,cycle boundary after yellow clearance
+451,medium,0,max_pressure,J1,1,0,GGGgrrrrGGGgrrrr,cycle boundary after yellow clearance
+451,medium,0,max_pressure,J2,0,1,rGGrrrrrrGGrrrrr,cycle boundary after yellow clearance
+541,medium,0,max_pressure,J1,0,1,GGGgrrrrGGGgrrrr,cycle boundary after yellow clearance
+721,medium,0,max_pressure,J2,1,2,rGGrrrrrrGGrrrrr,cycle boundary after yellow clearance
+811,medium,0,max_pressure,J2,2,1,rGGrrrrrrGGrrrrr,cycle boundary after yellow clearance
+901,medium,0,max_pressure,J3,1,0,GGGgrrrrGGgG,cycle boundary after yellow clearance
+991,medium,0,max_pressure,J3,0,1,GGGgrrrrGGgG,cycle boundary after yellow clearance
+1531,medium,0,max_pressure,J2,1,2,rGGrrrrrrGGrrrrr,cycle boundary after yellow clearance
+1621,medium,0,max_pressure,J2,2,0,rGGrrrrrrGGrrrrr,cycle boundary after yellow clearance
+1621,medium,0,max_pressure,J3,1,0,GGGgrrrrGGgG,cycle boundary after yellow clearance
+1711,medium,0,max_pressure,J2,0,2,rGGrrrrrrGGrrrrr,cycle boundary after yellow clearance
+1711,medium,0,max_pressure,J3,0,1,GGGgrrrrGGgG,cycle boundary after yellow clearance
+1801,medium,0,max_pressure,J2,2,1,rGGrrrrrrGGrrrrr,cycle boundary after yellow clearance
+2881,medium,0,max_pressure,J2,1,2,rGGrrrrrrGGrrrrr,cycle boundary after yellow clearance
+2881,medium,0,max_pressure,J3,1,2,GGGgrrrrGGgG,cycle boundary after yellow clearance
+2971,medium,0,max_pressure,J1,1,0,GGGgrrrrGGGgrrrr,cycle boundary after yellow clearance
+2971,medium,0,max_pressure,J3,2,1,GGGgrrrrGGgG,cycle boundary after yellow clearance
+3061,medium,0,max_pressure,J1,0,1,GGGgrrrrGGGgrrrr,cycle boundary after yellow clearance
+3061,medium,0,max_pressure,J2,2,1,rGGrrrrrrGGrrrrr,cycle boundary after yellow clearance

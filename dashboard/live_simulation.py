@@ -1,57 +1,75 @@
-"""Live SUMO/TraCI session and lightweight network renderer for the dashboard."""
+"""One live SUMO-GUI process controlled by the dashboard through TraCI."""
 from __future__ import annotations
 
 import json
 import os
+import shutil
+import tempfile
 import time
 import uuid
 import xml.etree.ElementTree as ET
 from pathlib import Path
 from typing import Any
 
-import matplotlib.pyplot as plt
-import numpy as np
-import streamlit as st
-from matplotlib.collections import LineCollection
-
 ROOT = Path(__file__).resolve().parents[1]
 JUNCTIONS = ("J0", "J1", "J2", "J3")
+FRAME_WIDTH = 1400
+FRAME_HEIGHT = 900
 
 
-@st.cache_data(show_spinner="Loading HSR road network")
-def load_map_geometry(net_path: Path, config_path: Path) -> dict[str, Any]:
-    """Read real lane geometries and selected junction positions from project files."""
-    net_path, config_path = Path(net_path), Path(config_path)
-    root = ET.parse(net_path).getroot()
-    segments: list[list[tuple[float, float]]] = []
-    for edge in root.findall("edge"):
-        if edge.get("function") == "internal" or edge.get("id", "").startswith(":"):
-            continue
-        for lane in edge.findall("lane"):
-            raw = lane.get("shape", "")
-            if not raw:
-                continue
-            points = []
-            for point in raw.split():
-                x, y = point.split(",")[:2]
-                points.append((float(x), float(y)))
-            if len(points) >= 2:
-                segments.append(points)
-
-    cfg = json.loads(config_path.read_text(encoding="utf-8"))
-    junctions = []
-    for _tls_id, meta in cfg["tls_meta"].items():
-        short_id = meta["short_id"]
-        if short_id in JUNCTIONS:
-            x, y = meta["approx_coords"]
-            junctions.append({"junction": short_id, "x": float(x), "y": float(y), "name": meta.get("name", short_id)})
-    return {"segments": segments, "junctions": junctions}
+def _write_gui_settings(path: Path) -> None:
+    """Make vehicles visible at the dashboard's zoom while retaining SUMO drawing."""
+    settings = """<?xml version="1.0" encoding="UTF-8"?>
+<viewsettings>
+  <scheme name="capstone-live">
+    <background backgroundColor="18,24,33" showGrid="0"/>
+    <edges laneEdgeMode="0" laneShowBorders="1" widthExaggeration="1.1">
+      <colorScheme name="uniform">
+        <entry color="114,130,149" name="road"/>
+        <entry color="67,78,91" name="sidewalk"/>
+        <entry color="192,112,77" name="bike lane"/>
+        <entry color="18,24,33" name="green verge"/>
+        <entry color="52,66,80" name="waterway"/>
+      </colorScheme>
+    </edges>
+    <vehicles vehicleMode="8" vehicleQuality="2" vehicle_minSize="2.0"
+      vehicle_exaggeration="1.5" vehicle_constantSize="1">
+      <colorScheme name="given vehicle/type/route color"><entry color="yellow"/></colorScheme>
+      <colorScheme name="uniform"><entry color="yellow"/></colorScheme>
+      <colorScheme name="given/assigned vehicle color"><entry color="yellow"/></colorScheme>
+      <colorScheme name="given/assigned type color"><entry color="yellow"/></colorScheme>
+      <colorScheme name="given/assigned route color"><entry color="yellow"/></colorScheme>
+      <colorScheme name="depart position as HSV"><entry color="yellow"/></colorScheme>
+      <colorScheme name="arrival position as HSV"><entry color="yellow"/></colorScheme>
+      <colorScheme name="direction/distance as HSV"><entry color="yellow"/></colorScheme>
+      <colorScheme name="by speed" interpolated="1">
+        <entry color="red" threshold="0.0"/>
+        <entry color="yellow" threshold="8.33"/>
+        <entry color="green" threshold="15.28"/>
+        <entry color="cyan" threshold="22.22"/>
+      </colorScheme>
+    </vehicles>
+  </scheme>
+</viewsettings>
+"""
+    path.write_text(settings, encoding="utf-8")
 
 
 class LiveSimulation:
-    """A single user-controlled SUMO simulation instance."""
+    """The GUI screenshot, traffic metrics, signal state and controls share one TraCI session."""
 
-    def __init__(self, traci_module, connection, label: str, scenario: str, seed: int, incoming: dict[str, list[str]], tls_by_j: dict[str, str], incident: dict[str, Any]):
+    def __init__(
+        self,
+        traci_module,
+        connection,
+        label: str,
+        scenario: str,
+        seed: int,
+        incoming: dict[str, list[str]],
+        tls_by_j: dict[str, str],
+        incident: dict[str, Any],
+        temp_dir: Path,
+    ):
         self.traci = traci_module
         self.conn = connection
         self.label = label
@@ -60,12 +78,17 @@ class LiveSimulation:
         self.incoming = incoming
         self.tls_by_j = tls_by_j
         self.incident = incident
+        self.temp_dir = temp_dir
+        self.view_id = connection.gui.getIDList()[0]
         self.time_s = float(connection.simulation.getTime())
-        self.target_plans = {j: 0 for j in JUNCTIONS}
-        self.actual_plans = {}
+        self.target_plans = {junction: 0 for junction in JUNCTIONS}
+        self.actual_plans: dict[str, int] = {}
         self.closed = False
         self.finished = False
-        self._old_incident_speed = None
+        self.frame_bytes: bytes | None = None
+        self._frame_number = 0
+        self.last_signal_error: str | None = None
+        self._old_incident_speed: float | None = None
         self._incident_applied = False
         self._incident_restored = False
         for junction in JUNCTIONS:
@@ -79,7 +102,8 @@ class LiveSimulation:
 
         cfg = json.loads((ROOT / "sumo_files" / "cluster_config.json").read_text(encoding="utf-8"))
         tls_by_j = {meta["short_id"]: tls_id for tls_id, meta in cfg["tls_meta"].items()}
-        net_root = ET.parse(ROOT / "sumo_files" / "hsr.net.xml").getroot()
+        net_path = ROOT / "sumo_files" / "hsr.net.xml"
+        net_root = ET.parse(net_path).getroot()
         edge_lanes = {edge.get("id"): [lane.get("id") for lane in edge.findall("lane")] for edge in net_root.findall("edge")}
         incoming = {junction: [] for junction in JUNCTIONS}
         for connection in net_root.findall(".//connection"):
@@ -90,28 +114,57 @@ class LiveSimulation:
             for lane in edge_lanes.get(connection.get("from"), []):
                 if lane not in incoming[junction]:
                     incoming[junction].append(lane)
-        if any(not incoming[j] for j in JUNCTIONS):
-            raise RuntimeError("The selected network is missing controlled incoming lanes")
+        if any(not incoming[junction] for junction in JUNCTIONS):
+            raise RuntimeError("The HSR network is missing controlled incoming lanes")
+
+        plans = cfg["plans"]
+        for junction, tid in tls_by_j.items():
+            plan_list = plans[tid]
+            if [plan["plan_id"] for plan in plan_list] != [0, 1, 2, 3]:
+                raise RuntimeError(f"{junction}: expected the four configured signal plans")
+            phase_sequences = [[phase["state"] for phase in plan["phases"]] for plan in plan_list]
+            if any(sequence != phase_sequences[0] for sequence in phase_sequences[1:]):
+                raise RuntimeError(f"{junction}: signal plans do not share a legal phase sequence")
 
         route = ROOT / "sumo_files" / "routes" / f"{scenario}_s{seed}.rou.xml"
         if not route.exists():
             raise FileNotFoundError(f"Route file not found: {route}")
         sumo_home = Path(os.environ.get("SUMO_HOME", r"C:\Program Files (x86)\SUMO"))
-        sumo = sumo_home / "bin" / "sumo.exe"
-        if not sumo.exists():
-            raise FileNotFoundError(f"SUMO executable not found: {sumo}. Set SUMO_HOME to your SUMO installation.")
-        label = f"dashboard_{uuid.uuid4().hex[:10]}"
+        sumo_gui = sumo_home / "bin" / "sumo-gui.exe"
+        if not sumo_gui.exists():
+            raise FileNotFoundError(f"SUMO-GUI not found: {sumo_gui}. Set SUMO_HOME to the SUMO installation.")
+
+        temp_dir = Path(tempfile.mkdtemp(prefix="hsr_sumo_dashboard_"))
+        settings_path = temp_dir / "viewsettings.xml"
+        _write_gui_settings(settings_path)
+        label = f"dashboard_gui_{uuid.uuid4().hex[:10]}"
         command = [
-            str(sumo), "-n", str(ROOT / "sumo_files" / "hsr.net.xml"), "-r", str(route),
-            "--seed", str(int(seed) + 100), "--no-step-log", "true", "--no-warnings", "true",
-            "--time-to-teleport", "300",
+            str(sumo_gui), "-n", str(net_path), "-r", str(route),
+            "--seed", str(int(seed) + 100), "--start",
+            "--window-size", "1400,900", "--gui-settings-file", str(settings_path),
+            "--no-step-log", "true", "--no-warnings", "true", "--time-to-teleport", "300",
         ]
-        traci.start(command, label=label)
-        connection = traci.getConnection(label)
-        for junction in JUNCTIONS:
-            connection.trafficlight.setProgram(tls_by_j[junction], "0")
-        scenario_cfg = __import__("yaml").safe_load((ROOT / "configs" / "scenarios.yaml").read_text(encoding="utf-8"))["scenarios"][scenario]
-        return cls(traci, connection, label, scenario, seed, incoming, tls_by_j, scenario_cfg)
+        try:
+            traci.start(command, label=label, numRetries=60)
+            connection = traci.getConnection(label)
+            simulation = cls(
+                traci, connection, label, scenario, seed, incoming, tls_by_j,
+                __import__("yaml").safe_load((ROOT / "configs" / "scenarios.yaml").read_text(encoding="utf-8"))["scenarios"][scenario],
+                temp_dir,
+            )
+            # Keep all four selected junctions in frame; this is SUMO-GUI's own view.
+            connection.gui.setBoundary(simulation.view_id, 350, 300, 1650, 1950)
+            for junction in JUNCTIONS:
+                connection.trafficlight.setProgram(tls_by_j[junction], "0")
+            return simulation
+        except Exception:
+            try:
+                if traci.isLoaded():
+                    traci.close(wait=True)
+            except Exception:
+                pass
+            shutil.rmtree(temp_dir, ignore_errors=True)
+            raise
 
     @property
     def vehicle_count(self) -> int:
@@ -127,17 +180,11 @@ class LiveSimulation:
     def total_queue(self) -> int:
         if self.closed or self.finished:
             return 0
-        return sum(self.conn.lane.getLastStepHaltingNumber(lane) for lanes in self.incoming.values() for lane in lanes)
-
-    @property
-    def vehicle_positions(self) -> list[tuple[float, float, float]]:
-        if self.closed or self.finished:
-            return []
-        positions = []
-        for vehicle in self.conn.vehicle.getIDList():
-            x, y = self.conn.vehicle.getPosition(vehicle)
-            positions.append((float(x), float(y), float(self.conn.vehicle.getSpeed(vehicle))))
-        return positions
+        return sum(
+            self.conn.lane.getLastStepHaltingNumber(lane)
+            for lanes in self.incoming.values()
+            for lane in lanes
+        )
 
     @property
     def signal_status(self) -> list[dict[str, Any]]:
@@ -155,41 +202,61 @@ class LiveSimulation:
                 "Requested plan": self.target_plans[junction],
                 "Phase": phase,
                 "Signal state": state,
+                "Queue": sum(self.conn.lane.getLastStepHaltingNumber(lane) for lane in self.incoming[junction]) if not self.closed else 0,
             })
         return rows
 
-    def request_plans(self, plans: dict[str, int]) -> None:
-        for junction in JUNCTIONS:
-            self.target_plans[junction] = int(plans[junction])
-        self._apply_safe_plans()
-
-    def _apply_safe_plans(self, cycle_wraps: set[str] | None = None) -> None:
+    def _switch_if_safe(self, cycle_wraps: set[str] | None = None) -> None:
         cycle_wraps = cycle_wraps or set()
         for junction in JUNCTIONS:
-            desired = self.target_plans[junction]
-            if desired == self.actual_plans[junction]:
+            requested = self.target_plans[junction]
+            if requested == self.actual_plans[junction]:
                 continue
             tid = self.tls_by_j[junction]
-            phase = self.conn.trafficlight.getPhase(tid)
-            if phase != 0 and junction not in cycle_wraps:
+            if self.conn.trafficlight.getPhase(tid) != 0 and junction not in cycle_wraps:
                 continue
-            old_program = self.actual_plans[junction]
+            old_plan = self.actual_plans[junction]
             old_state = self.conn.trafficlight.getRedYellowGreenState(tid)
             try:
-                self.conn.trafficlight.setProgram(tid, str(desired))
-                new_state = self.conn.trafficlight.getRedYellowGreenState(tid)
-                if new_state != old_state:
-                    self.conn.trafficlight.setProgram(tid, str(old_program))
-                    raise RuntimeError(f"{junction}: requested plan changes the active signal state")
-                self.actual_plans[junction] = desired
-            except Exception:
-                # Keep the actual program unchanged and leave the request pending.
-                self.target_plans[junction] = old_program
+                self.conn.trafficlight.setProgram(tid, str(requested))
+                if self.conn.trafficlight.getRedYellowGreenState(tid) != old_state:
+                    self.conn.trafficlight.setProgram(tid, str(old_plan))
+                    raise RuntimeError("requested program would change the active signal state")
+                self.actual_plans[junction] = requested
+                self.last_signal_error = None
+            except Exception as exc:
+                self.last_signal_error = f"{junction}: plan {requested} remains pending: {exc}"
 
-    def advance(self, seconds: int, wall_delay_s: float = 0.0) -> None:
+    def request_plans(self, plans: dict[str, int]) -> None:
+        for junction in JUNCTIONS:
+            plan = int(plans[junction])
+            if plan not in (0, 1, 2, 3):
+                raise ValueError(f"{junction}: plan must be 0, 1, 2, or 3")
+            self.target_plans[junction] = plan
+        self._switch_if_safe()
+
+    def _request_gui_frame(self, path: Path) -> None:
+        self.conn.gui.screenshot(self.view_id, str(path), FRAME_WIDTH, FRAME_HEIGHT)
+
+    def _read_gui_frame(self, path: Path, timeout_s: float = 3.0) -> None:
+        deadline = time.monotonic() + timeout_s
+        while time.monotonic() < deadline:
+            if path.exists() and path.stat().st_size > 1000:
+                previous = self.temp_dir / f"frame_{self._frame_number}.png"
+                self.frame_bytes = path.read_bytes()
+                self._frame_number += 1
+                if previous.exists() and previous != path:
+                    previous.unlink(missing_ok=True)
+                return
+            time.sleep(0.02)
+        raise TimeoutError("SUMO-GUI did not produce a frame; the GUI view may have closed")
+
+    def advance(self, seconds: int = 1) -> None:
         if self.closed or self.finished:
             return
-        for _ in range(int(seconds)):
+        count = max(1, int(seconds))
+        captured_path = self.temp_dir / f"frame_{self._frame_number + 1}.png"
+        for offset in range(count):
             current_t = int(self.conn.simulation.getTime())
             blocked_lane = self.incident.get("blocked_lane")
             if self.incident.get("incident") and blocked_lane:
@@ -202,60 +269,44 @@ class LiveSimulation:
                 if current_t >= end and self._incident_applied and not self._incident_restored:
                     self.conn.lane.setMaxSpeed(blocked_lane, self._old_incident_speed)
                     self._incident_restored = True
+
             previous_phases = {j: self.conn.trafficlight.getPhase(self.tls_by_j[j]) for j in JUNCTIONS}
+            if offset == count - 1:
+                captured_path = self.temp_dir / f"frame_{self._frame_number + 1}.png"
+                self._request_gui_frame(captured_path)
             try:
                 self.conn.simulationStep()
             except Exception as exc:
                 self.finished = True
-                raise RuntimeError(f"SUMO stopped before the next simulation step: {exc}") from exc
+                raise RuntimeError(f"SUMO-GUI/TraCI connection failed: {exc}") from exc
             self.time_s = float(self.conn.simulation.getTime())
             wrapped = {
                 j for j in JUNCTIONS
                 if previous_phases[j] != 0 and self.conn.trafficlight.getPhase(self.tls_by_j[j]) == 0
             }
-            self._apply_safe_plans(wrapped)
+            self._switch_if_safe(wrapped)
             if self.conn.simulation.getMinExpectedNumber() == 0:
                 self.finished = True
                 break
-            if wall_delay_s:
-                time.sleep(wall_delay_s)
+        # The GUI writes asynchronously at the simulation step boundary. Always
+        # poll for the file; checking existence immediately races the renderer.
+        self._read_gui_frame(captured_path, timeout_s=5.0)
 
     def close(self) -> None:
         if self.closed:
             return
         try:
-            self.conn.close()
+            self.conn.close(wait=True)
+        except Exception:
+            process = getattr(self.conn, "_process", None)
+            if process is not None and process.poll() is None:
+                process.terminate()
+                try:
+                    process.wait(timeout=5)
+                except Exception:
+                    process.kill()
+                    process.wait(timeout=5)
         finally:
             self.closed = True
-
-
-def render_simulation(geometry: dict[str, Any], vehicles: list[tuple[float, float, float]], signal_status: list[dict[str, Any]]):
-    """Render the actual SUMO road geometry, vehicle coordinates, and junctions."""
-    fig, ax = plt.subplots(figsize=(13, 7), facecolor="#111827")
-    ax.set_facecolor("#111827")
-    roads = LineCollection(geometry["segments"], colors="#607080", linewidths=0.48, alpha=0.66, zorder=1)
-    ax.add_collection(roads)
-
-    if vehicles:
-        x, y, speed = np.asarray(vehicles, dtype=float).T
-        points = ax.scatter(x, y, c=speed, cmap="RdYlGn", vmin=0, vmax=14, s=12, alpha=0.95, linewidths=0, zorder=3)
-        colorbar = fig.colorbar(points, ax=ax, fraction=0.024, pad=0.012)
-        colorbar.set_label("Vehicle speed (m/s)", color="#e5e7eb")
-        colorbar.ax.yaxis.set_tick_params(color="#e5e7eb")
-        plt.setp(colorbar.ax.get_yticklabels(), color="#e5e7eb")
-
-    for junction in geometry["junctions"]:
-        ax.scatter([junction["x"]], [junction["y"]], marker="s", s=60, color="#38bdf8", edgecolor="white", linewidth=0.7, zorder=4)
-        ax.annotate(junction["junction"], (junction["x"], junction["y"]), xytext=(5, 6), textcoords="offset points", color="white", fontsize=9, weight="bold", zorder=5)
-
-    if geometry["segments"]:
-        all_x = [p[0] for segment in geometry["segments"] for p in segment]
-        all_y = [p[1] for segment in geometry["segments"] for p in segment]
-        ax.set_xlim(min(all_x), max(all_x))
-        ax.set_ylim(min(all_y), max(all_y))
-    ax.set_aspect("equal", adjustable="box")
-    ax.axis("off")
-    ax.set_title("Live SUMO network · moving vehicles · HSR Layout", color="white", loc="left", pad=10, fontsize=13)
-    fig.tight_layout(pad=0.5)
-    return fig
+            shutil.rmtree(self.temp_dir, ignore_errors=True)
 

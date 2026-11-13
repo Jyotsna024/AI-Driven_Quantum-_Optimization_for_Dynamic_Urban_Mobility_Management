@@ -1,197 +1,227 @@
 """
-scripts/stage_s2_qubo.py  -  S2: QUBO formulation from cost model.
+scripts/stage_s2_qubo.py - S2: Build and Validate QUBO Matrix (Audited & Leakage-Free).
+
+QUBO formulation:
+- Variables: x[i, k] in {0, 1}, where i in {0..3} (junction), k in {0..3} (signal plan). N = 16 binary variables.
+- Objective: Minimize total corridor delay: sum_{i=0}^3 sum_{k=0}^3 c[i, k] * x[i, k]
+- One-hot Constraint: For each junction i, sum_{k=0}^3 x[i, k] = 1
+- Penalty formulation: A * sum_{i=0}^3 (sum_{k=0}^3 x[i, k] - 1)^2
+  Expanded for binary x: (sum x - 1)^2 = sum x^2 + 2 sum_{k<l} x_k x_l - 2 sum x + 1
+                        = - sum x + 2 sum_{k<l} x_k x_l + 1
+  QUBO matrix (upper-triangular):
+    Q[i*K+k, i*K+k] = c[i, k] - A
+    Q[i*K+k, i*K+l] = 2 * A  (for k < l)
+  Feasible constant shift: sum_{i=0}^3 (-A) = -4A.
+  For any feasible x: x^T Q x + 4A = sum_{i=0}^3 c[i, k_i*] (exact traffic delay in seconds).
+
 Outputs:
-  models/qubo.npz              - Q matrix, variable map
-  results/qubo_metrics.json    - energy checks, feasibility, brute-force verify
-  tests/test_s2_qubo.py        - unit tests
+  models/qubo.npz
+  models/qubo_meta.json
+  results/qubo_metrics.json
+  tests/test_s2_qubo.py
 """
-import os, sys, json, math, pickle, itertools
+
+import os
+import sys
+import json
+import pickle
+import math
+import itertools
 from pathlib import Path
 import numpy as np
 import pandas as pd
+import torch
 
-PROJECT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(PROJECT))
-RESULTS = PROJECT / "results"
-MODELS  = PROJECT / "models"
-RESULTS.mkdir(exist_ok=True)
-MODELS.mkdir(exist_ok=True)
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+RAW_DIR = PROJECT_ROOT / "data" / "raw"
+MODELS_DIR = PROJECT_ROOT / "models"
+RESULTS_DIR = PROJECT_ROOT / "results"
+TESTS_DIR = PROJECT_ROOT / "tests"
 
-JUNCTION_ORDER = ["J0","J1","J2","J3"]
-K = 4   # plans per junction
-N = len(JUNCTION_ORDER) * K   # 16 binary variables
+MODELS_DIR.mkdir(parents=True, exist_ok=True)
+RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+TESTS_DIR.mkdir(parents=True, exist_ok=True)
 
-# =========================================================================
-# 1. Build cost vector c[i,k] from Ridge model on rollouts
-#    c[i,k] = predicted mean delay at junction i under plan k
-#    Use median conditions (queue/throughput) from high+peak rollouts
-# =========================================================================
-def build_cost_vector():
-    """Return c: (4 junctions x 4 plans) numpy array."""
-    with open(MODELS / "cost_model.pkl", "rb") as f:
+JUNCTION_ORDER = ["J0", "J1", "J2", "J3"]
+K = 4
+N = 16
+
+
+def build_cost_matrix():
+    """Evaluate clean leakage-free cost model on representative corridor conditions."""
+    with open(MODELS_DIR / "cost_model.pkl", "rb") as f:
         cm = pickle.load(f)
-    model   = cm["model"]
-    scaler  = cm["scaler"]
+    model = cm["model"]
+    scaler = cm["scaler"]
     feat_cols = cm["feat_cols"]
 
-    # Get median queue/throughput per junction from high+peak rollouts
-    df = pd.read_csv(RESULTS / "rollouts.csv")
-    df_hp = df[df["scenario"].isin(["high","peak"])].copy()
-    junc_stats = df_hp.groupby("junction")[["mean_queue_m","throughput"]].median()
+    # Load rollouts and extract median pre-decision conditions per junction
+    rollouts = pd.read_csv(RESULTS_DIR / "rollouts.csv")
+    raw_cache = {}
+    def get_raw_df(sc, sd):
+        k = (sc, sd)
+        if k not in raw_cache:
+            fp = RAW_DIR / f"{sc}_s{sd}_varied.csv"
+            if not fp.exists():
+                fp = RAW_DIR / f"{sc}_s{sd}_fixed.csv"
+            df = pd.read_csv(fp)
+            df["mean_speed_mps"] = df["mean_speed_mps"].fillna(0.0)
+            df["mean_delay_s"] = df["mean_delay_s"].fillna(0.0)
+            df["waiting_time_s"] = df["waiting_time_s"].fillna(0.0)
+            raw_cache[k] = df
+        return raw_cache[k]
 
-    rows = []
-    for ji, jid in enumerate(JUNCTION_ORDER):
-        q_med = float(junc_stats.loc[jid, "mean_queue_m"]) if jid in junc_stats.index else 20.0
-        thr_med = float(junc_stats.loc[jid, "throughput"]) if jid in junc_stats.index else 5.0
-        for k in range(K):
-            feat = {f"plan_{p}": float(p==k) for p in range(K)}
-            feat.update({f"junc_{jj}": float(jj==jid) for jj in JUNCTION_ORDER})
-            feat["mean_queue_m"] = q_med
-            feat["throughput"]   = thr_med
-            X = np.array([[feat[fc] for fc in feat_cols]])
-            pred_delay = float(model.predict(scaler.transform(X))[0])
-            rows.append({"junction": jid, "ji": ji, "plan": k, "cost": pred_delay})
+    conditions = []
+    for _, r in rollouts[rollouts["scenario"].isin(["high", "peak"])].iterrows():
+        raw_df = get_raw_df(r["scenario"], int(r["seed"]))
+        sub = raw_df[(raw_df["timestamp_s"] == int(r["snapshot_time"])) & (raw_df["junction_short"] == r["junction"])]
+        if not sub.empty:
+            raw_r = sub.iloc[0]
+            conditions.append({
+                "junction": r["junction"],
+                "pre_queue_m": float(raw_r["queue_length_m"]),
+                "pre_delay": float(raw_r["mean_delay_s"]),
+                "pre_arrivals": float(raw_r["arrivals"]),
+                "pre_throughput": float(raw_r["throughput"]),
+                "pre_speed": float(raw_r["mean_speed_mps"]),
+                "pre_vehs": float(raw_r["vehicle_count"]),
+                "stgnn_q_h1": float(raw_r["queue_length"]),
+                "stgnn_q_h2": float(raw_r["queue_length"]),
+                "stgnn_q_h3": float(raw_r["queue_length"]),
+                "stgnn_q_mean": float(raw_r["queue_length"]),
+            })
+    df_cond = pd.DataFrame(conditions)
+    med_stats = df_cond.groupby("junction").median()
 
-    df_costs = pd.DataFrame(rows)
     c = np.zeros((4, K))
-    for _, r in df_costs.iterrows():
-        c[int(r["ji"]), int(r["plan"])] = r["cost"]
-    return c, df_costs
+    for ji, jid in enumerate(JUNCTION_ORDER):
+        st = med_stats.loc[jid]
+        for k in range(K):
+            row_dict = {
+                "pre_queue_m": float(st["pre_queue_m"]),
+                "pre_delay": float(st["pre_delay"]),
+                "pre_arrivals": float(st["pre_arrivals"]),
+                "pre_throughput": float(st["pre_throughput"]),
+                "pre_speed": float(st["pre_speed"]),
+                "pre_vehs": float(st["pre_vehs"]),
+                "stgnn_q_h1": float(st["stgnn_q_h1"]),
+                "stgnn_q_h2": float(st["stgnn_q_h2"]),
+                "stgnn_q_h3": float(st["stgnn_q_h3"]),
+                "stgnn_q_mean": float(st["stgnn_q_mean"]),
+            }
+            for p in range(K):
+                row_dict[f"plan_{p}"] = float(k == p)
+            for j in JUNCTION_ORDER:
+                row_dict[f"junc_{j}"] = float(jid == j)
+            for p in range(K):
+                for j in JUNCTION_ORDER:
+                    row_dict[f"p{p}_j_{j}"] = float(k == p and jid == j)
+                row_dict[f"p{p}_q"] = float(k == p) * row_dict["pre_queue_m"]
+                row_dict[f"p{p}_stgnn"] = float(k == p) * row_dict["stgnn_q_mean"]
+                row_dict[f"p{p}_arr"] = float(k == p) * row_dict["pre_arrivals"]
 
-# =========================================================================
-# 2. Build QUBO Q matrix
-#    Variables: x[i,k] = 1 if junction i uses plan k
-#    Objective: minimize Σ_{i,k} c[i,k] * x[i,k]
-#    Constraint: Σ_k x[i,k] = 1  for each junction i
-#      Penalty: A * Σ_i (Σ_k x[i,k] - 1)^2
-#
-# QUBO convention: minimize x^T Q x  (upper-triangular)
-# Variable index: var(i,k) = i*K + k
-# =========================================================================
-def build_qubo(c, A):
-    """Build N×N upper-triangular QUBO matrix."""
-    N = 4 * K
+            feat_vector = np.array([[row_dict[col] for col in feat_cols]])
+            scaled_feat = scaler.transform(feat_vector)
+            pred_delay = float(model.predict(scaled_feat)[0])
+            c[ji, k] = pred_delay
+
+    return c
+
+
+def build_qubo(c, A=50.0):
+    """Build upper-triangular 16x16 QUBO matrix."""
     Q = np.zeros((N, N))
-
-    # Linear terms: c[i,k] on diagonal + constraint diagonal
-    # (Σ_k x[i,k] - 1)^2 = Σ_k x[i,k]^2 + 2 Σ_{k<l} x[i,k]x[i,l] - 2 Σ_k x[i,k] + 1
-    # For binary vars: x^2 = x, so diagonal += -2A per var + A*1 (const dropped)
-    # Cross terms within junction: +2A
     for i in range(4):
         for k in range(K):
-            vi = i*K + k
-            # Objective linear
-            Q[vi, vi] += c[i, k]
-            # Constraint diagonal  (-2A from expansion of -(Σ=1) part + A from x^2=x)
-            Q[vi, vi] += A * (1 - 2)  # = -A
-        # Constraint cross-terms within junction
+            vi = i * K + k
+            Q[vi, vi] += c[i, k] - A
         for k in range(K):
-            for l in range(k+1, K):
-                vi = i*K + k
-                vj = i*K + l
-                Q[vi, vj] += 2 * A
-
+            for l in range(k + 1, K):
+                vi = i * K + k
+                vj = i * K + l
+                Q[vi, vj] += 2.0 * A
     return Q
 
-def qubo_energy(Q, x):
-    """Compute QUBO energy x^T Q x."""
-    return float(x @ Q @ x)
 
-def is_feasible(x, K=4):
-    """Check one-hot constraint: each junction has exactly one plan."""
-    x = np.array(x)
+def is_feasible(x):
     for i in range(4):
-        if x[i*K:(i+1)*K].sum() != 1:
+        if sum(x[i * K:(i + 1) * K]) != 1:
             return False
     return True
 
-# =========================================================================
-# 3. Tune A: find minimum A such that all feasible solutions beat all infeasible
-# =========================================================================
-def tune_penalty(c):
-    """Binary search for A: feasible solutions must have lower energy than infeasible."""
-    # Max cost difference between any two feasible assignments
-    max_obj_range = float(c.max() - c.min()) * 4  # rough bound
 
-    # Brute-force 256 combinations with A=candidate, check feasibility ordering
-    def check_A(A):
-        Q = build_qubo(c, A)
-        energies = []
-        for bits in itertools.product(range(2), repeat=N):
-            x = np.array(bits, dtype=float)
-            e = qubo_energy(Q, x)
-            feas = is_feasible(x)
-            energies.append((e, feas))
-        min_infeas = min(e for e, f in energies if not f)
-        max_feas   = max(e for e, f in energies if f)
-        min_feas   = min(e for e, f in energies if f)
-        return min_infeas > max_feas, min_feas, min_infeas
+def brute_force_solve(Q, c, A):
+    """Exhaustive check across all 2^16 = 65,536 bitstrings."""
+    best_feasible_e = math.inf
+    best_feasible_x = None
+    min_infeasible_e = math.inf
+    max_feasible_e = -math.inf
+    n_feasible = 0
+    n_infeasible = 0
 
-    for A_cand in [5, 10, 20, 50, 100, 200, 500]:
-        ok, min_f, min_inf = check_A(A_cand)
-        print(f"  A={A_cand}: feasible_min={min_f:.2f} infeasible_min={min_inf:.2f} -> {'OK' if ok else 'FAIL'}")
-        if ok:
-            return A_cand, min_f, min_inf
-    return 500, None, None
-
-# =========================================================================
-# 4. Brute-force verify: ExactSolver equivalent (all 256 combos)
-# =========================================================================
-def brute_force(Q):
-    """Return (best_x, best_energy, all_energies) over all 256 binary strings."""
-    best_x, best_e = None, math.inf
-    energies = []
     for bits in itertools.product(range(2), repeat=N):
         x = np.array(bits, dtype=float)
-        e = qubo_energy(Q, x)
+        e = float(x @ Q @ x)
         feas = is_feasible(x)
-        energies.append({"bits": list(bits), "energy": e, "feasible": feas})
-        if feas and e < best_e:
-            best_e = e
-            best_x = list(bits)
-    return best_x, best_e, energies
+        if feas:
+            n_feasible += 1
+            if e < best_feasible_e:
+                best_feasible_e = e
+                best_feasible_x = list(bits)
+            if e > max_feasible_e:
+                max_feasible_e = e
+        else:
+            n_infeasible += 1
+            if e < min_infeasible_e:
+                min_infeasible_e = e
 
-# =========================================================================
-# MAIN
-# =========================================================================
-if __name__ == "__main__":
-    print("[1/5] Building cost vector from Ridge model...")
-    c, df_costs = build_cost_vector()
-    print("  Cost matrix c[junction, plan] (delay in seconds):")
-    for i, jid in enumerate(JUNCTION_ORDER):
-        print(f"    {jid}: {[round(c[i,k],2) for k in range(K)]}")
+    best_plans = [int(np.argmax(best_feasible_x[i * K:(i + 1) * K])) for i in range(4)]
+    manual_delay = float(sum(c[i, best_plans[i]] for i in range(4)))
+    qubo_delay = float(best_feasible_e + 4.0 * A)
+    penalty_gap_ok = bool(min_infeasible_e > max_feasible_e)
 
-    print("[2/5] Tuning penalty coefficient A...")
-    A, min_feas, min_infeas = tune_penalty(c)
-    print(f"  Selected A={A}")
+    return {
+        "n_feasible": n_feasible,
+        "n_infeasible": n_infeasible,
+        "best_energy": round(best_feasible_e, 4),
+        "best_x": best_feasible_x,
+        "best_plans": best_plans,
+        "best_plans_dict": dict(zip(JUNCTION_ORDER, best_plans)),
+        "manual_delay_s": round(manual_delay, 4),
+        "qubo_delay_s": round(qubo_delay, 4),
+        "diff_s": round(abs(manual_delay - qubo_delay), 8),
+        "max_feasible_energy": round(max_feasible_e, 4),
+        "min_infeasible_energy": round(min_infeasible_e, 4),
+        "penalty_gap_ok": penalty_gap_ok,
+    }
 
-    print("[3/5] Building final QUBO matrix...")
+
+def main():
+    print("[1/4] Building cost matrix from clean leakage-free cost model...")
+    c = build_cost_matrix()
+    print("  Cost matrix c[junction, plan] (delay seconds):")
+    for ji, jid in enumerate(JUNCTION_ORDER):
+        print(f"    {jid}: {[round(c[ji, k], 2) for k in range(K)]} -> min plan={int(np.argmin(c[ji]))}")
+
+    print("[2/4] Constructing upper-triangular QUBO with penalty A=50.0...")
+    A = 50.0
     Q = build_qubo(c, A)
     print(f"  Q shape: {Q.shape}, non-zero entries: {np.count_nonzero(Q)}")
 
-    print("[4/5] Brute-force solving all 256 combinations...")
-    best_x, best_e, all_energies = brute_force(Q)
-    feas_energies = [e["energy"] for e in all_energies if e["feasible"]]
-    infeas_energies = [e["energy"] for e in all_energies if not e["feasible"]]
-    print(f"  Best feasible energy: {best_e:.4f}")
-    print(f"  Best solution x: {best_x}")
-    best_plans = [int(np.argmax(np.array(best_x[i*K:(i+1)*K]))) for i in range(4)]
-    print(f"  Best plans per junction: {dict(zip(JUNCTION_ORDER, best_plans))}")
-    print(f"  Feasible solutions: {len(feas_energies)}/256 (expected 4^4={4**4})")
-    print(f"  Infeasible min energy: {min(infeas_energies):.4f}")
-    print(f"  Feasible min energy:   {min(feas_energies):.4f}")
-    gap_ok = min(infeas_energies) > min(feas_energies)
-    print(f"  Penalty gap correct: {gap_ok}")
+    print("[3/4] Exhaustive brute-force check over all 65,536 combinations...")
+    bf = brute_force_solve(Q, c, A)
+    print(f"  Feasible count: {bf['n_feasible']} (expected 256), Infeasible count: {bf['n_infeasible']} (expected 65280)")
+    print(f"  Optimal plans: {bf['best_plans_dict']}")
+    print(f"  Optimal QUBO energy: {bf['best_energy']}")
+    print(f"  Optimal corridor delay: {bf['manual_delay_s']}s (QUBO delay: {bf['qubo_delay_s']}s, diff: {bf['diff_s']}s)")
+    print(f"  Feasible energy range: [{bf['best_energy']}, {bf['max_feasible_energy']}]")
+    print(f"  Minimum infeasible energy: {bf['min_infeasible_energy']}")
+    print(f"  Penalty gap valid (infeas_min > feas_max): {bf['penalty_gap_ok']}")
 
-    # Manual energy verification: compute best_x energy manually
-    manual_e = sum(c[i, best_plans[i]] for i in range(4))
-    print(f"  Manual objective (sum of best plan delays): {manual_e:.4f}s")
+    print("[4/4] Serializing QUBO matrix and metadata...")
+    var_map = {f"x_{jid}_p{k}": i * K + k for i, jid in enumerate(JUNCTION_ORDER) for k in range(K)}
+    np.savez(MODELS_DIR / "qubo.npz", Q=Q, c=c, A=np.array([A]))
 
-    print("[5/5] Saving artifacts...")
-    # Save Q matrix
-    var_map = {f"x_{jid}_p{k}": i*K+k for i, jid in enumerate(JUNCTION_ORDER) for k in range(K)}
-    np.savez(MODELS / "qubo.npz", Q=Q, c=c, A=np.array([A]))
-    # Save var_map separately (json-serializable)
     qubo_meta = {
         "var_map": var_map,
         "junction_order": JUNCTION_ORDER,
@@ -199,35 +229,28 @@ if __name__ == "__main__":
         "N": N,
         "A": A,
         "cost_matrix": c.tolist(),
-        "best_x": best_x,
-        "best_energy": round(best_e, 4),
-        "best_plans": best_plans,
-        "penalty_gap_ok": gap_ok,
+        "best_x": bf["best_x"],
+        "best_energy": bf["best_energy"],
+        "best_plans": bf["best_plans"],
+        "best_plans_dict": bf["best_plans_dict"],
+        "delay_objective_s": bf["manual_delay_s"],
+        "penalty_gap_ok": bf["penalty_gap_ok"],
     }
-    (MODELS / "qubo_meta.json").write_text(json.dumps(qubo_meta, indent=2))
+    with open(MODELS_DIR / "qubo_meta.json", "w") as f:
+        json.dump(qubo_meta, f, indent=2)
 
-    metrics = {
+    qubo_metrics = {
         "A": A,
         "Q_shape": list(Q.shape),
         "Q_nonzero": int(np.count_nonzero(Q)),
-        "brute_force": {
-            "n_feasible": len(feas_energies),
-            "n_infeasible": len(infeas_energies),
-            "best_energy": round(best_e, 4),
-            "best_plans": best_plans,
-            "best_plans_dict": dict(zip(JUNCTION_ORDER, best_plans)),
-            "feasible_min_energy": round(min(feas_energies), 4),
-            "infeasible_min_energy": round(min(infeas_energies), 4),
-            "penalty_gap_ok": gap_ok,
-            "manual_objective_s": round(manual_e, 4),
-        },
+        "brute_force": bf,
     }
-    (RESULTS / "qubo_metrics.json").write_text(json.dumps(metrics, indent=2))
-    print(f"  models/qubo.npz + models/qubo_meta.json + results/qubo_metrics.json written")
+    with open(RESULTS_DIR / "qubo_metrics.json", "w") as f:
+        json.dump(qubo_metrics, f, indent=2)
 
-    # Write tests
-    test_code = '''"""tests/test_s2_qubo.py"""
-import json, numpy as np
+    test_code = '''"""tests/test_s2_qubo.py - S2 QUBO Formulation Test Suite"""
+import json
+import numpy as np
 from pathlib import Path
 PROJECT = Path(__file__).resolve().parents[1]
 
@@ -236,8 +259,7 @@ def test_qubo_npz():
     assert p.exists()
     d = np.load(p)
     assert "Q" in d
-    Q = d["Q"]
-    assert Q.shape == (16, 16)
+    assert d["Q"].shape == (16, 16)
 
 def test_qubo_meta():
     p = PROJECT / "models" / "qubo_meta.json"
@@ -247,23 +269,35 @@ def test_qubo_meta():
     assert d["K"] == 4
     assert d["penalty_gap_ok"] is True
 
-def test_qubo_metrics():
+def test_qubo_brute_force():
     p = PROJECT / "results" / "qubo_metrics.json"
     assert p.exists()
     d = json.loads(p.read_text())
     bf = d["brute_force"]
-    assert bf["n_feasible"] == 256, f"Expected 256 feasible, got {bf['n_feasible']}"
+    assert bf["n_feasible"] == 256
+    assert bf["n_infeasible"] == 65280
     assert bf["penalty_gap_ok"] is True
 
-def test_manual_energy():
-    """Best energy from QUBO == manual sum of best-plan costs."""
-    import pickle
+def test_energy_delay_consistency():
     mq = json.loads((PROJECT / "models" / "qubo_meta.json").read_text())
-    c  = np.array(mq["cost_matrix"])
+    d = np.load(PROJECT / "models" / "qubo.npz")
+    Q = d["Q"]
+    A = float(d["A"][0])
+    x = np.array(mq["best_x"], dtype=float)
+    computed_e = float(x @ Q @ x)
+    stored_e = mq["best_energy"]
+    assert abs(computed_e - stored_e) < 1e-3
+    c = np.array(mq["cost_matrix"])
     bp = mq["best_plans"]
-    manual = sum(c[i, bp[i]] for i in range(4))
-    assert abs(manual - mq["best_energy"]) < 1e-2, f"Energy mismatch: manual={manual} qubo={mq['best_energy']}"
+    manual_delay = sum(c[i, bp[i]] for i in range(4))
+    qubo_delay = computed_e + 4.0 * A
+    assert abs(manual_delay - qubo_delay) < 1e-3
 '''
-    (PROJECT / "tests" / "test_s2_qubo.py").write_text(test_code)
-    print("  tests/test_s2_qubo.py written")
-    print(f"\nS2 DONE. A={A} gap_ok={gap_ok} best_plans={dict(zip(JUNCTION_ORDER, best_plans))}")
+    with open(TESTS_DIR / "test_s2_qubo.py", "w") as f:
+        f.write(test_code)
+
+    print("Stage S2 QUBO formulation complete!")
+
+
+if __name__ == "__main__":
+    main()

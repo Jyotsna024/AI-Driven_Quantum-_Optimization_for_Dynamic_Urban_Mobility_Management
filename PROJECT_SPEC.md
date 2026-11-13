@@ -31,7 +31,7 @@
 | Control interval | 60 simulated seconds |
 | Prediction horizon | 1–3 intervals |
 | Quantum priority | (1) Qiskit Aer QAOA (always); (2) D-Wave Leap if DWAVE_API_TOKEN; (3) IBM Quantum if token exists |
-| Dashboard | Streamlit, built last, reads saved results only |
+| Dashboard | Streamlit live SUMO/TraCI viewer with manual signal-plan controls |
 | Smoke mode | `--smoke` flag: shorter simulation runs for quick CI tests |
 
 ---
@@ -74,7 +74,8 @@ Capstone/
 ├── results/
 ├── logs/
 └── dashboard/
-    └── app.py               ← Phase 9
+    ├── app.py               ← simple live simulation dashboard
+    └── live_simulation.py   ← SUMO/TraCI session and actual vehicle renderer
 ```
 
 ---
@@ -185,9 +186,12 @@ Plans are defined over each junction's ACTUAL SUMO phases from netconvert.
 - [ ] Phase 8 report written
 
 ### Phase 9: DASHBOARD
-- [ ] Streamlit app reads saved results
-- [ ] Traffic state, predicted vs actual, cost-model validation, controller comparison
+- [x] Streamlit app displays the real SUMO network and live vehicle positions from TraCI
+- [x] Manual scenario/seed selection and per-junction plan selection
+- [x] Automatic play, pause, single-step, safe signal-plan updates, and stop controls
 - [ ] Phase 9 report written
+
+Dashboard limitation: the view is a live plot of actual SUMO lane geometry and TraCI vehicle positions, not the separate SUMO-GUI desktop window. It supports manual signal programs only. Solver-based control remains disabled while S2 is scientifically unvalidated.
 
 ### Phase 10: FINALIZE
 - [ ] Clean reproducibility test (fresh run)
@@ -290,4 +294,29 @@ Plans are defined over each junction's ACTUAL SUMO phases from netconvert.
 - Read-only S1 artifact suite: 5/5 passed (`logs/pytest_s1_v2.txt`). SUMO execution summary: `logs/s1_rebuild_v2_summary.txt`.
 - New artifacts: `scripts/rebuild_s1_cost_model.py`, `data/rollouts_s1_v2.csv`, `data/features_s1_v2.csv`, `models/cost_model_s1_v2.pkl`, `models/cost_model_s1_v2.json`, `results/cost_model_metrics_s1_v2.json`, and `tests/test_s1_rebuild.py`.
 - Previous S1/S2/S3 outputs were copied to `results/archive_pre_repair_20261112/`; original files and commits remain intact.
+
+### S2 Joint QUBO Rebuild (2026-11-12)
+- **Implementation status**: Executed; artifact and exhaustive-constraint tests pass. **Scientific validation status: NOT PASSED** because held-out ranking and regret remain weak. Do not use this QUBO for closed-loop control.
+- Built 270 training-only pair interventions: all six junction pairs, all non-baseline plan pairs, across five seed 0–2 snapshots. Other junctions remained at baseline. Difference-in-differences pair terms use those matched SUMO outcomes.
+- Evaluated all 256 four-junction plan vectors on each of two seed-3 validation states and two seed-4 test states: 1,024 held-out SUMO interventions. Cost coefficients use the trained S1 model with genuine pre-decision ST-GNN features for each held-out state; pair interactions use training seeds only.
+- Exhaustively evaluated all 65,536 QUBO bitstrings. Exactly 256 are one-hot feasible, 65,280 infeasible, and the minimum infeasible energy exceeds the maximum feasible energy by 33.4088.
+- Held-out per-state Spearman: validation 0.8621 (high) and -0.1977 (incident); test 0.3217 (peak) and 0.0100 (incident). Mean validation/test Spearman: 0.3322 / 0.1658. Mean validation/test regret: 16.13 s / 9.52 s. All four predicted optima missed the SUMO optimum; test incident regret was 15.76 s. This is insufficient evidence for optimization quality.
+- A checkpoint naming/resume defect briefly mixed old task IDs and duplicated runs. Those intermediate outputs were archived as `results/archive_pre_repair_20261112/joint_rollouts_s2_v2_mixed*.csv`; the final versioned rollout table has 1,294 unique interventions and is covered by tests.
+- Artifacts: `scripts/rebuild_s2_qubo.py`, `data/joint_rollouts_s2_v2.csv`, `models/qubo_s2_v2.npz`, `models/qubo_s2_v2.json`, `results/qubo_metrics_s2_v2.json`, `tests/test_s2_rebuild.py`, and `logs/s2_rebuild_v2_execution.log`.
+
+### S3 Solver Rebuild (2026-11-12)
+- **Status**: Solver execution and independent mechanics checks passed on the exact serialized `models/qubo_s2_v2.npz` input. This does not validate the S2 traffic objective against held-out SUMO outcomes.
+- ExactSolver and all 10 seeded SA runs found plan `[3,3,1,3]` at energy -291.869108 and predicted delay 52.82375 s. SA raw-sample feasibility was 2,500/2,500; its positive-delay approximation ratio was 1.0.
+- QAOA p=1 on Aer used 10 reproducible seeds and returned best feasible plan `[3,3,3,3]`, energy -290.424813, predicted delay 54.26804 s, positive-delay approximation ratio 0.9734, and raw-sample feasibility 113/15,000 (0.753%). Seeds without feasible samples remain recorded without forced decoding.
+- QUBO-to-Ising energy conversion was checked over all 256 one-hot plans plus 256 arbitrary bitstrings. Each reported plan, energy, feasibility, delay, and raw-sample rate was independently recomputed from the serialized QUBO.
+- Targeted suite: 13/13 passed (`logs/pytest_s1_s2_s3_v2.txt`). Execution logs: `logs/s3_rebuild_v2_execution.log`.
+- Artifacts: `scripts/rebuild_s3_solvers.py`, `results/solver_metrics_s3_v2.json`, and `tests/test_s3_rebuild.py`.
+
+### Current Gate
+- S1 is implemented and tested, but has limited per-junction ranking performance (J0/J1 near chance).
+- S2 v3 expanded pair support to all 15 training snapshots (810 pair rollouts; 1,024 held-out full-plan rollouts). This did not improve the held-out results: mean Spearman 0.3387 validation / 0.1598 test, mean regret 16.13 s / 9.52 s; all four snapshot optima were still missed. Tests verify complete unique rollouts and QUBO constraints, but **predictive validation failed**.
+- S3 was rerun against the exact v3 QUBO. ExactSolver, all SA runs, and QAOA found the same plan `[3,3,1,3]` (predicted delay 52.3319 s); QAOA raw-sample feasibility was 1.0% and its positive-delay ratio was 1.0. The result is a classical Aer simulation, not quantum hardware.
+- Combined v2/v3 targeted tests: 21/21 passed (`logs/pytest_rebuild_v2_v3.txt`). S2 v3 and S3 v3 artifacts/logs: `scripts/rebuild_s2_qubo_v3.py`, `data/joint_rollouts_s2_v3.csv`, `models/qubo_s2_v3.npz`, `models/qubo_s2_v3.json`, `results/qubo_metrics_s2_v3.json`, `scripts/rebuild_s3_solvers_v3.py`, `results/solver_metrics_s3_v3.json`, `logs/s2_rebuild_v3_execution.log`, and `logs/s3_rebuild_v3_execution.log`.
+- The S2/S3 rebuild files remain uncommitted because the S2 traffic objective did not pass held-out predictive validation. Existing dirty legacy work was kept unstaged. No closed-loop implementation was started.
+- Closed-loop control remains **not started**. Improve and revalidate S1/S2 before using optimization outputs for control.
 

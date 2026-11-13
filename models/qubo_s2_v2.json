@@ -1,0 +1,796 @@
+{
+  "schema_version": 2,
+  "junction_order": [
+    "J0",
+    "J1",
+    "J2",
+    "J3"
+  ],
+  "plans_per_junction": 4,
+  "variables": 16,
+  "variable_map": {
+    "x_J0_p0": 0,
+    "x_J0_p1": 1,
+    "x_J0_p2": 2,
+    "x_J0_p3": 3,
+    "x_J1_p0": 4,
+    "x_J1_p1": 5,
+    "x_J1_p2": 6,
+    "x_J1_p3": 7,
+    "x_J2_p0": 8,
+    "x_J2_p1": 9,
+    "x_J2_p2": 10,
+    "x_J2_p3": 11,
+    "x_J3_p0": 12,
+    "x_J3_p1": 13,
+    "x_J3_p2": 14,
+    "x_J3_p3": 15
+  },
+  "training_seed_only": true,
+  "training_seeds": [
+    0,
+    1,
+    2
+  ],
+  "validation_seeds": [
+    3
+  ],
+  "test_seeds": [
+    4
+  ],
+  "s1_model_alpha": 1.0,
+  "training_snapshots_for_pairs": [
+    "low_s0_t900",
+    "medium_s1_t2100",
+    "high_s2_t3300",
+    "peak_s0_t900",
+    "incident_s1_t2100"
+  ],
+  "pair_interaction_support": {
+    "J0:0|J1:0": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J0:0|J1:1": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J0:0|J1:2": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J0:0|J1:3": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J0:1|J1:0": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J0:1|J1:1": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": -0.18971227881713731,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:1|J1:2": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": -0.07965130608170767,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:1|J1:3": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": -0.22925757769747435,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:2|J1:0": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J0:2|J1:1": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": -0.11595161773368119,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:2|J1:2": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.06248041394186572,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:2|J1:3": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": -0.1535699848563567,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:3|J1:0": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J0:3|J1:1": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.1103763114312983,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:3|J1:2": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": -0.026497273751577666,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:3|J1:3": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.09135925971690284,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:0|J2:0": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J0:0|J2:1": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J0:0|J2:2": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J0:0|J2:3": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J0:1|J2:0": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J0:1|J2:1": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": -0.0400038914164341,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:1|J2:2": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": -0.05954450656314236,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:1|J2:3": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": -0.14751556328419185,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:2|J2:0": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J0:2|J2:1": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.16206911337044402,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:2|J2:2": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.08446282261592444,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:2|J2:3": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.03583387504149158,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:3|J2:0": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J0:3|J2:1": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.3288396691895542,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:3|J2:2": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.3014897911057389,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:3|J2:3": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.06335380750036848,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:0|J3:0": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J0:0|J3:1": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J0:0|J3:2": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J0:0|J3:3": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J0:1|J3:0": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J0:1|J3:1": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": -0.1337577673209708,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:1|J3:2": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.12538580798354387,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:1|J3:3": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": -0.04647239169093638,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:2|J3:0": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J0:2|J3:1": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": -0.03641187907422818,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:2|J3:2": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.15563446471119277,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:2|J3:3": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.043632571963240704,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:3|J3:0": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J0:3|J3:1": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": -0.009859689851809605,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:3|J3:2": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.17294388963314872,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J0:3|J3:3": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.052812941582192255,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J1:0|J2:0": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J1:0|J2:1": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J1:0|J2:2": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J1:0|J2:3": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J1:1|J2:0": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J1:1|J2:1": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.2723624747199779,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J1:1|J2:2": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.21864245003038577,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J1:1|J2:3": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.38868772947970315,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J1:2|J2:0": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J1:2|J2:1": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": -1.4337577989473602,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J1:2|J2:2": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": -0.08518398934568125,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J1:2|J2:3": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.9986176430898155,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J1:3|J2:0": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J1:3|J2:1": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.27029450232255103,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J1:3|J2:2": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.3698307195676094,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J1:3|J2:3": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.3811618566525553,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J1:0|J3:0": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J1:0|J3:1": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J1:0|J3:2": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J1:0|J3:3": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J1:1|J3:0": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J1:1|J3:1": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": -0.19680814274505992,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J1:1|J3:2": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": -0.08201531872503694,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J1:1|J3:3": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": -0.28545399340671196,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J1:2|J3:0": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J1:2|J3:1": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": -0.22095785790308894,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J1:2|J3:2": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": -0.1128810362850217,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J1:2|J3:3": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": -0.5274052268915626,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J1:3|J3:0": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J1:3|J3:1": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": -0.16932074305134392,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J1:3|J3:2": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.09675457011799864,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J1:3|J3:3": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": -0.3374852889242462,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J2:0|J3:0": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J2:0|J3:1": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J2:0|J3:2": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J2:0|J3:3": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J2:1|J3:0": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J2:1|J3:1": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": -0.33856717211411363,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J2:1|J3:2": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.10783236762311646,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J2:1|J3:3": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": -0.18993785543017908,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J2:2|J3:0": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J2:2|J3:1": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.355682372473251,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J2:2|J3:2": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.09536620730429916,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J2:2|J3:3": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": -0.3579075339049652,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J2:3|J3:0": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.0,
+      "source": "zero reference (one plan at baseline)"
+    },
+    "J2:3|J3:1": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.2613071231948624,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J2:3|J3:2": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": 0.32632451949122443,
+      "source": "matched joint SUMO rollouts"
+    },
+    "J2:3|J3:3": {
+      "n_train_snapshots": 5,
+      "mean_interaction_s": -0.253671579498436,
+      "source": "matched joint SUMO rollouts"
+    }
+  },
+  "cost_matrix_s": [
+    [
+      32.06003894938245,
+      32.67902689752731,
+      34.02098790699318,
+      19.941887227442034
+    ],
+    [
+      12.026606847917146,
+      15.597080079307592,
+      17.507278741606097,
+      11.561691352153435
+    ],
+    [
+      20.210333948937446,
+      16.548887631971834,
+      24.42793629155221,
+      18.21153573310003
+    ],
+    [
+      5.717346699593303,
+      6.55517424515081,
+      9.017132397137143,
+      4.5553991069626205
+    ]
+  ],
+  "pairwise_array_s": [
+    [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        -0.18971227881713731,
+        -0.07965130608170767,
+        -0.22925757769747435
+      ],
+      [
+        0.0,
+        -0.11595161773368119,
+        0.06248041394186572,
+        -0.1535699848563567
+      ],
+      [
+        0.0,
+        0.1103763114312983,
+        -0.026497273751577666,
+        0.09135925971690284
+      ]
+    ],
+    [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        -0.0400038914164341,
+        -0.05954450656314236,
+        -0.14751556328419185
+      ],
+      [
+        0.0,
+        0.16206911337044402,
+        0.08446282261592444,
+        0.03583387504149158
+      ],
+      [
+        0.0,
+        0.3288396691895542,
+        0.3014897911057389,
+        0.06335380750036848
+      ]
+    ],
+    [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        -0.1337577673209708,
+        0.12538580798354387,
+        -0.04647239169093638
+      ],
+      [
+        0.0,
+        -0.03641187907422818,
+        0.15563446471119277,
+        0.043632571963240704
+      ],
+      [
+        0.0,
+        -0.009859689851809605,
+        0.17294388963314872,
+        0.052812941582192255
+      ]
+    ],
+    [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.2723624747199779,
+        0.21864245003038577,
+        0.38868772947970315
+      ],
+      [
+        0.0,
+        -1.4337577989473602,
+        -0.08518398934568125,
+        0.9986176430898155
+      ],
+      [
+        0.0,
+        0.27029450232255103,
+        0.3698307195676094,
+        0.3811618566525553
+      ]
+    ],
+    [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        -0.19680814274505992,
+        -0.08201531872503694,
+        -0.28545399340671196
+      ],
+      [
+        0.0,
+        -0.22095785790308894,
+        -0.1128810362850217,
+        -0.5274052268915626
+      ],
+      [
+        0.0,
+        -0.16932074305134392,
+        0.09675457011799864,
+        -0.3374852889242462
+      ]
+    ],
+    [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        -0.33856717211411363,
+        0.10783236762311646,
+        -0.18993785543017908
+      ],
+      [
+        0.0,
+        0.355682372473251,
+        0.09536620730429916,
+        -0.3579075339049652
+      ],
+      [
+        0.0,
+        0.2613071231948624,
+        0.32632451949122443,
+        -0.253671579498436
+      ]
+    ]
+  ],
+  "pair_indices": [
+    [
+      "J0",
+      "J1"
+    ],
+    [
+      "J0",
+      "J2"
+    ],
+    [
+      "J0",
+      "J3"
+    ],
+    [
+      "J1",
+      "J2"
+    ],
+    [
+      "J1",
+      "J3"
+    ],
+    [
+      "J2",
+      "J3"
+    ]
+  ],
+  "offset_s": 4.8799666088493385,
+  "penalty_A": 86.17321422023122,
+  "base_objective_bounds": {
+    "feasible_min": 52.82374854698669,
+    "feasible_max": 85.17321422023122,
+    "infeasible_min": 0.0,
+    "infeasible_max": 280.7123240672764,
+    "onehot_base_range": 32.349465673244524
+  },
+  "brute_force": {
+    "n_bitstrings": 65536,
+    "n_feasible": 256,
+    "n_infeasible": 65280,
+    "best_x": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "best_plans": [
+      3,
+      3,
+      1,
+      3
+    ],
+    "best_energy": -291.86910833393813,
+    "best_base_objective": 52.82374854698669,
+    "best_predicted_delay_s": 57.70371515583603,
+    "max_feasible_energy": -259.51964266069365,
+    "min_infeasible_energy": -226.1107932116376,
+    "penalty_gap_s": 33.40884944905605,
+    "penalty_gap_ok": true,
+    "one_hot_verified_all_feasible": true
+  },
+  "input_rollout_file": "data\\rollouts_s1_v2.csv",
+  "validation_snapshots": [
+    "high_s3_t2100",
+    "incident_s3_t2100"
+  ],
+  "test_snapshots": [
+    "peak_s4_t2100",
+    "incident_s4_t2100"
+  ]
+}

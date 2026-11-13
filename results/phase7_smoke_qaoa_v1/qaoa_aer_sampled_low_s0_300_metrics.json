@@ -1,0 +1,186 @@
+{
+  "scenario": "low",
+  "seed": 0,
+  "controller": "qaoa_aer_sampled",
+  "duration_s": 300,
+  "total_waiting_time_vehicle_s": 1112,
+  "completed_trip_count": 78,
+  "mean_completed_trip_travel_time_s": 45.80769230769231,
+  "total_time_loss_s": 1245.821551389525,
+  "mean_time_loss_per_seen_vehicle_s": 14.157063083971876,
+  "average_queue_vehicles": 1.0,
+  "maximum_queue_vehicles": 4,
+  "average_queue_m": 5.944999999999999,
+  "maximum_queue_m": 26.3,
+  "per_junction_queue": {
+    "J0": {
+      "average_queue_vehicles": 0.8,
+      "maximum_queue_vehicles": 2,
+      "average_queue_m": 4.68
+    },
+    "J1": {
+      "average_queue_vehicles": 0.6,
+      "maximum_queue_vehicles": 2,
+      "average_queue_m": 2.94
+    },
+    "J2": {
+      "average_queue_vehicles": 2.4,
+      "maximum_queue_vehicles": 4,
+      "average_queue_m": 15.1
+    },
+    "J3": {
+      "average_queue_vehicles": 0.2,
+      "maximum_queue_vehicles": 1,
+      "average_queue_m": 1.06
+    }
+  },
+  "junction_throughput_count": {
+    "J0": 25,
+    "J1": 22,
+    "J2": 18,
+    "J3": 17
+  },
+  "throughput_total_junction_crossings": 82,
+  "per_lane_queue": {
+    "J0": {
+      "1387946771#0_0": {
+        "mean_queue_vehicles": 0.2,
+        "max_queue_vehicles": 1
+      },
+      "1387946771#0_1": {
+        "mean_queue_vehicles": 0.2,
+        "max_queue_vehicles": 1
+      },
+      "1473496401_0": {
+        "mean_queue_vehicles": 0.0,
+        "max_queue_vehicles": 0
+      },
+      "1473496401_1": {
+        "mean_queue_vehicles": 0.2,
+        "max_queue_vehicles": 1
+      },
+      "1509685699_0": {
+        "mean_queue_vehicles": 0.0,
+        "max_queue_vehicles": 0
+      },
+      "1509685699_1": {
+        "mean_queue_vehicles": 0.0,
+        "max_queue_vehicles": 0
+      },
+      "755390844_0": {
+        "mean_queue_vehicles": 0.2,
+        "max_queue_vehicles": 1
+      },
+      "755390844_1": {
+        "mean_queue_vehicles": 0.0,
+        "max_queue_vehicles": 0
+      }
+    },
+    "J1": {
+      "24480656#3_0": {
+        "mean_queue_vehicles": 0.2,
+        "max_queue_vehicles": 1
+      },
+      "24480656#3_1": {
+        "mean_queue_vehicles": 0.2,
+        "max_queue_vehicles": 1
+      },
+      "631316440#0_0": {
+        "mean_queue_vehicles": 0.0,
+        "max_queue_vehicles": 0
+      },
+      "631316440#0_1": {
+        "mean_queue_vehicles": 0.0,
+        "max_queue_vehicles": 0
+      },
+      "794634831#1_0": {
+        "mean_queue_vehicles": 0.0,
+        "max_queue_vehicles": 0
+      },
+      "794634831#1_1": {
+        "mean_queue_vehicles": 0.0,
+        "max_queue_vehicles": 0
+      },
+      "794634832#0_0": {
+        "mean_queue_vehicles": 0.2,
+        "max_queue_vehicles": 1
+      },
+      "794634832#0_1": {
+        "mean_queue_vehicles": 0.0,
+        "max_queue_vehicles": 0
+      }
+    },
+    "J2": {
+      "1055330325#6_0": {
+        "mean_queue_vehicles": 0.4,
+        "max_queue_vehicles": 1
+      },
+      "1055330325#6_1": {
+        "mean_queue_vehicles": 0.2,
+        "max_queue_vehicles": 1
+      },
+      "1110166139_0": {
+        "mean_queue_vehicles": 0.8,
+        "max_queue_vehicles": 1
+      },
+      "1110166139_1": {
+        "mean_queue_vehicles": 0.6,
+        "max_queue_vehicles": 1
+      },
+      "1206400802#2_0": {
+        "mean_queue_vehicles": 0.0,
+        "max_queue_vehicles": 0
+      },
+      "1206400802#2_1": {
+        "mean_queue_vehicles": 0.0,
+        "max_queue_vehicles": 0
+      },
+      "1473869989_0": {
+        "mean_queue_vehicles": 0.2,
+        "max_queue_vehicles": 1
+      },
+      "1473869989_1": {
+        "mean_queue_vehicles": 0.2,
+        "max_queue_vehicles": 1
+      }
+    },
+    "J3": {
+      "1434254320#1_0": {
+        "mean_queue_vehicles": 0.0,
+        "max_queue_vehicles": 0
+      },
+      "1434254320#1_1": {
+        "mean_queue_vehicles": 0.0,
+        "max_queue_vehicles": 0
+      },
+      "151676283#1_0": {
+        "mean_queue_vehicles": 0.2,
+        "max_queue_vehicles": 1
+      },
+      "151676283#1_1": {
+        "mean_queue_vehicles": 0.0,
+        "max_queue_vehicles": 0
+      },
+      "610166550#13_0": {
+        "mean_queue_vehicles": 0.0,
+        "max_queue_vehicles": 0
+      },
+      "610166550#13_1": {
+        "mean_queue_vehicles": 0.0,
+        "max_queue_vehicles": 0
+      }
+    }
+  },
+  "mean_solver_runtime_s": 1.0820082999998704,
+  "total_solver_runtime_s": 1.0820082999998704,
+  "solver_calls": 1,
+  "raw_solver_samples": 512,
+  "feasible_raw_samples": 0,
+  "raw_sample_feasibility_rate": 0.0,
+  "fallback_count": 1,
+  "decision_count": 3,
+  "fallback_rate": 0.3333333333333333,
+  "forecast_mae_vehicles": 1.5948827266693115,
+  "forecast_sample_count": 8,
+  "s2_objective_status": "SCIENTIFICALLY_NOT_VALIDATED"
+}
